@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.InterfaceRules">
+   <top>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text layoutX="266.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rules" underline="true" wrappingWidth="67.44232177734375">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+            <TextArea layoutX="3.0" layoutY="78.0" prefHeight="62.0" prefWidth="574.0" text="- A player draws a card that starts with the question &quot;How confident are you?&quot;, followed by a theme        (e.g., football). The player must self-evaluate their knowledge of the theme by assigning themselves a score out of 4 (as each card contains 4 questions)." wrapText="true" />
+            <TextArea layoutX="3.0" layoutY="140.0" prefHeight="44.0" prefWidth="572.0" text="- The player answers the question. If their answer is correct, they move forward on the board based on the difficulty level of the question. If the answer is incorrect, they stay in place." wrapText="true" />
+            <Button layoutX="523.0" layoutY="18.0" mnemonicParsing="false" onAction="#switchToScene" text="EXIT" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <TextArea prefHeight="74.0" prefWidth="600.0" text="- The player has a limited amount of time to answer. If the time runs out, it will be considered a wrong answer.&#10;Hard mode: 10 seconds&#10;Medium mode: 20 seconds&#10;Easy mode: 30 seconds&#10;&#10;- When a player reaches the final space on the board, they must draw one last card titled &quot;Don't hesitate to win&quot;. If they answer correctly, they win the game. If they fail, they will have to try again on their next turn." wrapText="true" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
