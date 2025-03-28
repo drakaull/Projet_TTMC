@@ -15,7 +15,6 @@ public class MainTTMC extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("interfaceMenuJeu.fxml"));
 			double screenWidth = javafx.stage.Screen.getPrimary().getBounds().getWidth();
 			double screenHeight = javafx.stage.Screen.getPrimary().getBounds().getHeight();
-			System.out.println("Résolution : " + screenWidth + "x" + screenHeight);
 			Scene scene = new Scene(root,1080,720);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
