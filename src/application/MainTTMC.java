@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
 
-public class Main extends Application {
+public class MainTTMC extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("interfaceMenuJeu.fxml"));
