@@ -8,8 +8,8 @@ public class Pion {
     public Pion(String nom) {
         this.nom = nom;
         this.position = 0; // Début du plateau
-        this.x = 0;
-        this.y = 0;
+        this.x = 150;
+        this.y = 720;
     }
 
     public void avancer(int deplacement, Plateau plateau) {
