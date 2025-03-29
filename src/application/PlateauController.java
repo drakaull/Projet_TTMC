@@ -42,7 +42,7 @@ public class PlateauController {
         int newY = pion.getY();
 
         // Animation vers la nouvelle position
-        TranslateTransition transition = new TranslateTransition(Duration.millis(500), pawn1);
+        TranslateTransition transition = new TranslateTransition(Duration.millis(100), pawn1);
         transition.setByX(newX - oldX);
         transition.setByY(newY - oldY);
         
