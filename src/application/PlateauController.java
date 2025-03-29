@@ -46,11 +46,7 @@ public class PlateauController {
         transition.setByX(newX - oldX);
         transition.setByY(newY - oldY);
         
-        transition.setOnFinished(e -> {
-            // Mise à jour définitive de la position
-            pawn1.setLayoutX(newX);
-            pawn1.setLayoutY(newY);
-        });
+        
 
         transition.play();
     }
