@@ -18,8 +18,8 @@
                </image>
             </ImageView>
             <Label id="start" layoutX="1346.0" layoutY="732.0" prefHeight="19.0" prefWidth="11.0" />
-            <Circle fill="DODGERBLUE" layoutX="153.0" layoutY="732.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
-            <Button layoutX="272.0" layoutY="282.0" mnemonicParsing="false" text="advance" />
+            <Circle id="pawn1" fill="DODGERBLUE" layoutX="153.0" layoutY="732.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
+            <Button id="buttonAdvance" layoutX="272.0" layoutY="282.0" mnemonicParsing="false" text="advance" />
          </children>
       </AnchorPane>
    </center>
