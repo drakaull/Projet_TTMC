@@ -43,7 +43,6 @@ public class Plateau {
         new Case("Entertainment", 830, 445),
         new Case("Improbable", 950, 485),
         new Case("Random", 950, 565),
-        new Case("Random", 630, 640),
         new Case("Entertainment", 910, 610),
         new Case("Informatics", 790, 645),
         new Case("Entertainment", 830, 770),
