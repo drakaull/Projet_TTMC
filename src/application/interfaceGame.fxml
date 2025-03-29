@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.shape.Circle?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="864.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="864.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PlateauController">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -18,8 +18,8 @@
                </image>
             </ImageView>
             <Label id="start" layoutX="1346.0" layoutY="732.0" prefHeight="19.0" prefWidth="11.0" />
-            <Circle id="pawn1" fill="DODGERBLUE" layoutX="153.0" layoutY="732.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
-            <Button id="buttonAdvance" layoutX="272.0" layoutY="282.0" mnemonicParsing="false" text="advance" />
+            <Circle id="pawn1" fx:id="pawn1" fill="DODGERBLUE" layoutX="153.0" layoutY="732.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
+            <Button id="buttonAdvance" fx:id="buttonAdvance" layoutX="272.0" layoutY="282.0" mnemonicParsing="false" text="advance" />
          </children>
       </AnchorPane>
    </center>
