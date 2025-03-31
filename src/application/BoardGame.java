@@ -56,12 +56,12 @@ public class BoardGame {
 
     public Case getCase(int index) {
         if (index < 0 || index >= cases.size()) {
-            throw new IllegalArgumentException("Position hors limites.");
+            throw new IllegalArgumentException("Position out of bounds.");
         }
         return cases.get(index);
     }
 
-    public int getTaille() {
+    public int getSize() {
         return cases.size();
     }
 }

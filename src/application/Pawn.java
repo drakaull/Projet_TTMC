@@ -2,25 +2,25 @@ package application;
 
 public class Pawn {
     private int position; // numéro de case du jeu
-    private String nom;
+    private String name;
     private int x,y;
 
     public Pawn(String nom) {
-        this.nom = nom;
+        this.name = nom;
         this.position = 0; // Début du plateau
         this.x = 150;
         this.y = 720;
     }
 
-    public void avancer(int deplacement, BoardGame plateau) {
-        position += deplacement;
-        if (position >= plateau.getTaille()) {
-            position = plateau.getTaille() - 1; // Ne dépasse pas la fin du plateau
+    public void moveForward(int movement, BoardGame boardgame) {
+        position += movement;
+        if (position >= boardgame.getSize()) {
+            position = boardgame.getSize() - 1; // Ne dépasse pas la fin du plateau
         }
         
-        Case nouvelleCase = plateau.getCase(position);
-        x = nouvelleCase.getX();
-        y = nouvelleCase.getY();
+        Case newCase = boardgame.getCase(position);
+        x = newCase.getX();
+        y = newCase.getY();
     }
 
     // les getters
@@ -29,7 +29,7 @@ public class Pawn {
     }
 
     public String getNom() {
-        return nom;
+        return name;
     }
     
     public int getX() {
