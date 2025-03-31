@@ -2,7 +2,7 @@
     {
         "theme": "Entertainment",
         "subject": "Football",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "Who is the winner of the World Cup in 2018 ?",
@@ -28,7 +28,7 @@
     {
         "theme": "Entertainment",
         "subject": "Goldorak",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "Who is the main pilot of Goldorak, and where does he come from? (name/planet)",
@@ -54,7 +54,7 @@
     {
         "theme": "Education",
         "subject": "Geography of the UE",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "Which seas border the EU in the north?",
@@ -80,7 +80,7 @@
     {
         "theme": "Education",
         "subject": "History of the UE",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "Which country joined the EU in 2013, marking the last enlargement before Brexit?",
@@ -106,7 +106,7 @@
     {
         "theme": "Improbable",
         "subject": "Unexplained Phenomena",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "What is the name of the triangle associated with mysterious disappearances in the Atlantic Ocean?",
@@ -132,7 +132,7 @@
     {
         "theme": "Improbable",
         "subject": "Legendary Creatures",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "What mythical animal is often depicted as a horse with a horn on its forehead?",
@@ -158,7 +158,7 @@
     {
         "theme": "Informatics",
         "subject": "OPP",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "What term refers to a blueprint or template for creating objects in OOP?",
@@ -184,7 +184,7 @@
     {
         "theme": "Informatics",
         "subject": "Design patterns",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "How many behavioural design patterns are they in Object Oriented programming languages ?",
@@ -210,7 +210,7 @@
     {
         "theme": "Informatics",
         "subject": "OOP langages",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "Which OOP concept allows creating multiple objects from the same model?",
@@ -236,7 +236,7 @@
     {
         "theme": "Education",
         "subject": "Cities of the world",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "In which country is the city of Paris located?",
@@ -262,7 +262,7 @@
     {
         "theme": "Entertainment",
         "subject": "Rugby",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "Which country is known for his famous haka ?",
@@ -288,7 +288,7 @@
     {
         "theme": "Educational",
         "subject": "Flags",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "How many stars stands on the USA flag ?",
@@ -314,7 +314,7 @@
     {
         "theme": "Entertainment",
         "subject": "Music",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "Who is the artist who released \"Beat it\" in 1982 ?",
@@ -340,7 +340,7 @@
     {
         "theme": "Improbable",
         "subject": "Belgian beers",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "What's the most exported belgian beer in the world ?",
@@ -366,7 +366,7 @@
     {
         "theme": "",
         "subject": "",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "",
@@ -392,7 +392,7 @@
     {
         "theme": "",
         "subject": "",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "",
@@ -418,7 +418,7 @@
     {
         "theme": "",
         "subject": "",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "",
@@ -444,7 +444,7 @@
     {
         "theme": "",
         "subject": "",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "",
@@ -470,7 +470,7 @@
     {
         "theme": "",
         "subject": "",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "",
@@ -496,7 +496,7 @@
     {
         "theme": "",
         "subject": "",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "",
@@ -522,7 +522,7 @@
     {
         "theme": "",
         "subject": "",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "",
@@ -548,7 +548,7 @@
     {
         "theme": "",
         "subject": "",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "",
@@ -574,7 +574,7 @@
     {
         "theme": "",
         "subject": "",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "",
@@ -600,7 +600,7 @@
     {
         "theme": "",
         "subject": "",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "",
@@ -626,7 +626,7 @@
     {
         "theme": "",
         "subject": "",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "",
@@ -652,7 +652,7 @@
     {
         "theme": "",
         "subject": "",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "",
@@ -678,7 +678,7 @@
     {
         "theme": "",
         "subject": "",
-        "questions": [
+        "card": [
             {
                 "difficulty": 1,
                 "question": "",
