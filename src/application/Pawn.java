@@ -1,18 +1,18 @@
 package application;
 
-public class Pion {
+public class Pawn {
     private int position; // numéro de case du jeu
     private String nom;
     private int x,y;
 
-    public Pion(String nom) {
+    public Pawn(String nom) {
         this.nom = nom;
         this.position = 0; // Début du plateau
         this.x = 150;
         this.y = 720;
     }
 
-    public void avancer(int deplacement, Plateau plateau) {
+    public void avancer(int deplacement, BoardGame plateau) {
         position += deplacement;
         if (position >= plateau.getTaille()) {
             position = plateau.getTaille() - 1; // Ne dépasse pas la fin du plateau

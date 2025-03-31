@@ -1,6 +1,6 @@
 package application;
 
-public class Jeu {
+public class Game {
 	
 	
 }

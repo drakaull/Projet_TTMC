@@ -14,13 +14,13 @@ public class PlateauController {
     @FXML
     private Button buttonAdvance; // Injection du bouton depuis le FXML
 
-    private Pion pion;
-    private Plateau plateau;
+    private Pawn pion;
+    private BoardGame plateau;
 
     public void initialize() {
         // Initialisation du plateau et du pion
-        plateau = new Plateau();
-        pion = new Pion("Joueur1");
+        plateau = new BoardGame();
+        pion = new Pawn("Joueur1");
 
         // Placer le pion à sa position de départ
         Case caseDepart = plateau.getCase(pion.getPosition());

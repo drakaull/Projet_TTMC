@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.List;
 import java.util.Arrays;
 
-public class Plateau {
+public class BoardGame {
     private final List<Case> cases = Arrays.asList(
         new Case("Start", 150, 720),
         new Case("Education", 150, 570),

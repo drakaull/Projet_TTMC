@@ -9,14 +9,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class InterfaceChoixNombreJoueur {
-	
+public class GameMenuUI {
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
 	
 	public void switchToScene(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("interfaceMenuJeu.fxml"));
+		root = FXMLLoader.load(getClass().getResource("interfaceChoixNombreJoueur.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
@@ -24,10 +23,19 @@ public class InterfaceChoixNombreJoueur {
 	}
 	
 	public void switchToScene2(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("interfaceChoixJoueur.fxml"));
+		root = FXMLLoader.load(getClass().getResource("interfaceSettings.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
 	}
+	
+	public void switchToScene3(ActionEvent event) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("interfaceRules.fxml"));
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+	
 }
