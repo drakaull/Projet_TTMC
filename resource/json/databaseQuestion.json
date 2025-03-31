@@ -208,158 +208,158 @@
         ]
     },
     {
-        "theme": "",
-        "subject": "",
+        "theme": "Informatics",
+        "subject": "OOP langages",
         "questions": [
             {
                 "difficulty": 1,
-                "question": "",
-                "answer": ""
+                "question": "Which OOP concept allows creating multiple objects from the same model?",
+                "answer": "A class"
             },
             {
                 "difficulty": 2,
-                "question": "",
-                "answer": ""
+                "question": "Which OOP concept allows creating multiple objects from the same model?",
+                "answer": "Encapsulation"
             },
             {
                 "difficulty": 3,
-                "question": "",
-                "answer": ""
+                "question": "Which OOP principle allows a class to be used interchangeably with its parent class?",
+                "answer": "Polymorphism"
             },
             {
                 "difficulty": 4,
-                "question": "",
-                "answer": ""
+                "question": "What is the name of the OOP principle that states a derived class should be usable in place of its parent class without altering the program’s correctness?",
+                "answer": "Liskov Substitution"
             }
         ]
     },
     {
-        "theme": "",
-        "subject": "",
+        "theme": "Education",
+        "subject": "Cities of the world",
         "questions": [
             {
                 "difficulty": 1,
-                "question": "",
-                "answer": ""
+                "question": "In which country is the city of Paris located?",
+                "answer": "France"
             },
             {
                 "difficulty": 2,
-                "question": "",
-                "answer": ""
+                "question": "In which country is the city of Toronto located?",
+                "answer": "Canada"
             },
             {
                 "difficulty": 3,
-                "question": "",
-                "answer": ""
+                "question": "In which country is the city of Kyoto located?",
+                "answer": "Japan"
             },
             {
                 "difficulty": 4,
-                "question": "",
-                "answer": ""
+                "question": "In which country is the city of Valparaíso located?",
+                "answer": "Chile"
             }
         ]
     },
     {
-        "theme": "",
-        "subject": "",
+        "theme": "Entertainment",
+        "subject": "Rugby",
         "questions": [
             {
                 "difficulty": 1,
-                "question": "",
-                "answer": ""
+                "question": "Which country is known for his famous haka ?",
+                "answer": "New Zealand"
             },
             {
                 "difficulty": 2,
-                "question": "",
-                "answer": ""
+                "question": "How many players are on field each side ?",
+                "answer": "15"
             },
             {
                 "difficulty": 3,
-                "question": "",
-                "answer": ""
+                "question": "Which country has won the most World Cup?",
+                "answer": "South Africa"
             },
             {
                 "difficulty": 4,
-                "question": "",
-                "answer": ""
+                "question": "What is the name of the trophy awarded to the winner of the Six Nations Tournament?",
+                "answer": "Championship Trophy"
             }
         ]
     },
     {
-        "theme": "",
-        "subject": "",
+        "theme": "Educational",
+        "subject": "Flags",
         "questions": [
             {
                 "difficulty": 1,
-                "question": "",
-                "answer": ""
+                "question": "How many stars stands on the USA flag ?",
+                "answer": "50"
             },
             {
                 "difficulty": 2,
-                "question": "",
-                "answer": ""
+                "question": "How many stars stands on the European Union flag ?",
+                "answer": "12"
             },
             {
                 "difficulty": 3,
-                "question": "",
-                "answer": ""
+                "question": "Which country's flag consists of a red dragon on a green and white background?",
+                "answer": "Wales"
             },
             {
                 "difficulty": 4,
-                "question": "",
-                "answer": ""
+                "question": "Which country is the only one to have a firearm on its flag ?",
+                "answer": "Mozambique"
             }
         ]
     },
     {
-        "theme": "",
-        "subject": "",
+        "theme": "Entertainment",
+        "subject": "Music",
         "questions": [
             {
                 "difficulty": 1,
-                "question": "",
-                "answer": ""
+                "question": "Who is the artist who released \"Beat it\" in 1982 ?",
+                "answer": "Michael Jackson"
             },
             {
                 "difficulty": 2,
-                "question": "",
-                "answer": ""
+                "question": "What is the most listened to Beatles song ?",
+                "answer": "Here comes the sun"
             },
             {
                 "difficulty": 3,
-                "question": "",
-                "answer": ""
+                "question": "In what year did Freddy Mercury, emblematic singer of the band Queen, die ?",
+                "answer": "1991"
             },
             {
                 "difficulty": 4,
-                "question": "",
-                "answer": ""
+                "question": "What was the first single by the band Nirvana to reach number one on the charts and became the anthem of grunge ?",
+                "answer": "Smells like teen spirit"
             }
         ]
     },
     {
-        "theme": "",
-        "subject": "",
+        "theme": "Improbable",
+        "subject": "Belgian beers",
         "questions": [
             {
                 "difficulty": 1,
-                "question": "",
-                "answer": ""
+                "question": "What's the most exported belgian beer in the world ?",
+                "answer": "Stella Artois"
             },
             {
                 "difficulty": 2,
-                "question": "",
-                "answer": ""
+                "question": "Which emblematic chalice-shaped glass is often used to taste Trappist beers?",
+                "answer": "The trappist glass"
             },
             {
                 "difficulty": 3,
-                "question": "",
-                "answer": ""
+                "question": "How many Trappist breweries still produce beer in Belgium?",
+                "answer": "6"
             },
             {
                 "difficulty": 4,
-                "question": "",
-                "answer": ""
+                "question": "Which Belgian brewery produces a beer whose name means \"Devil\" in Flemish?",
+                "answer": "Duvel Moortgat Brewery"
             }
         ]
     },
