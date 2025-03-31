@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
-public class PlateauController {
+public class BoardGameController {
     
     @FXML
     private Circle pawn1; // Injection du pion depuis le FXML

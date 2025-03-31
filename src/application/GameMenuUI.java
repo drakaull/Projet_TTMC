@@ -15,7 +15,7 @@ public class GameMenuUI {
 	private Parent root;
 	
 	public void switchToScene(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("interfaceChoixNombreJoueur.fxml"));
+		root = FXMLLoader.load(getClass().getResource("nbPlayerChoiceUI.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
@@ -23,7 +23,7 @@ public class GameMenuUI {
 	}
 	
 	public void switchToScene2(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("interfaceSettings.fxml"));
+		root = FXMLLoader.load(getClass().getResource("settingsUI.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
@@ -31,7 +31,7 @@ public class GameMenuUI {
 	}
 	
 	public void switchToScene3(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("interfaceRules.fxml"));
+		root = FXMLLoader.load(getClass().getResource("rulesUI.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);

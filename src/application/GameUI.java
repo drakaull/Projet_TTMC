@@ -17,7 +17,7 @@ public class GameUI {
 		private Parent root;
 		
 		public void switchToScene(ActionEvent event) throws IOException {
-			root = FXMLLoader.load(getClass().getResource("interfaceMenuJeu.fxml"));
+			root = FXMLLoader.load(getClass().getResource("gameMenuUI.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);

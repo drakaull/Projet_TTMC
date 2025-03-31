@@ -16,14 +16,14 @@ public class PlayerChoiceUI {
 	private Parent root;
 	
 	public void switchToScene(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("interfaceChoixNombreJoueur.fxml"));
+		root = FXMLLoader.load(getClass().getResource("nbPlayerChoiceUI.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
 	}
 	public void switchToScene2(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("interfaceGame.fxml"));
+		root = FXMLLoader.load(getClass().getResource("gameUI.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
