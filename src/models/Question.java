@@ -2,8 +2,8 @@ package models;
 
 public class Question {
 	private int difficulty;
-    String question;
-    String answer;
+    private String question;
+    private String answer;
 	public int getDifficulty() {
 		return difficulty;
 	}
