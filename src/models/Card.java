@@ -3,6 +3,8 @@ package models;
 import java.util.List;
 
 public class Card {
-	private List<Question> questions;
-	private String domain;
+	private String theme;
+    private String subject;
+    private List<Question> card;
+
 }
