@@ -1,12 +1,20 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Card {
 	private String theme;
     private String subject;
     private List<Question> card;
-	public List<Question> getCard() {
+    
+    public Card(String theme, String subject) {
+    	setTheme(theme);
+    	setSubject(subject);
+    	card = new ArrayList<Question>();
+    }
+    
+    public List<Question> getCard() {
 		return card;
 	}
 	public void setCard(List<Question> card) {
