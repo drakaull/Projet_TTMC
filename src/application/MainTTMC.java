@@ -12,7 +12,7 @@ public class MainTTMC extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("gameMenuUI.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("../view/gameMenuUI.fxml"));
 			double screenWidth = javafx.stage.Screen.getPrimary().getBounds().getWidth();
 			double screenHeight = javafx.stage.Screen.getPrimary().getBounds().getHeight();
 			Scene scene = new Scene(root,1080,720);
