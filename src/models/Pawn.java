@@ -1,4 +1,4 @@
-package application;
+package models;
 
 public class Pawn {
     private int position; // numéro de case du jeu

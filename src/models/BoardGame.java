@@ -1,7 +1,6 @@
-package application;
+package models;
 
 import java.util.List;
-
 import java.util.List;
 import java.util.Arrays;
 

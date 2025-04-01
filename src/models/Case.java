@@ -1,4 +1,4 @@
-package application;
+package models;
 
 public class Case {
     private String type;

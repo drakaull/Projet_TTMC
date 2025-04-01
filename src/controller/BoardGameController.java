@@ -1,10 +1,13 @@
-package application;
+package controller;
 
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
+import models.BoardGame;
+import models.Case;
+import models.Pawn;
 
 public class BoardGameController {
     
