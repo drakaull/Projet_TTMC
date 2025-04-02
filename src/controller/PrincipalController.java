@@ -38,6 +38,7 @@ public class PrincipalController {
 			double screenHeight = javafx.stage.Screen.getPrimary().getBounds().getHeight();
 			Scene scene = new Scene(root,1080,720);
 			scene.getStylesheets().add(getClass().getResource("../application/application.css").toExternalForm());
+			primaryStage.setTitle("TTMC");
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(true);
 			primaryStage.setFullScreen(true);
