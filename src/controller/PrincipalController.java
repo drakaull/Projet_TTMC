@@ -49,8 +49,4 @@ public class PrincipalController {
 			e.printStackTrace();
 		}
 	}
-
-	public void modelsInitialization() {
-		
-	}
 }
