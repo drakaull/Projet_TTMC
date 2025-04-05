@@ -31,7 +31,7 @@ public class Chronometer {
 						onFinish.run();
 				}
 			}
-		}, 1000, 000);
+		}, 1000, 000);	//each second
 	}
 
 	public void stopChrono() {
