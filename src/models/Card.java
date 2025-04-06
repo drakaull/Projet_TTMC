@@ -3,9 +3,9 @@ package models;
 import java.util.List;
 
 public class Card {
-	private String theme; // global theme
-	private String subject; // subject (football, geography, etc)
-	private List<Question> questions; // the 4 questions
+	private String theme; 				// global theme
+	private String subject; 			// subject (football, geography, etc)
+	private List<Question> questions; 	// the 4 questions
 
 	public Card(String theme, String subject, List<Question> questions) {
 		this.theme = theme;

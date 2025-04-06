@@ -5,7 +5,7 @@ import java.util.TimerTask;
 
 public class Chronometer {
 	private Timer timer;
-	private int timeLeft; // in seconds
+	private int timeLeft; 			// in seconds
 	private Runnable onFinish;
 	private Runnable onTick;
 
