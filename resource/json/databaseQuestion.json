@@ -6,22 +6,45 @@
             {
                 "difficulty": 1,
                 "question": "Who is the winner of the World Cup in 2018 ?",
-                "answer": "France"
+                "options": [
+                    "Russia",
+                    "Spain",
+                    "France",
+                    "Germany"
+                ],
+                "answer": "France",
+                "subject": "Football"
             },
             {
                 "difficulty": 2,
                 "question": "What club is Cristiano Ronaldo currently playing for ?",
-                "answer": "Al Nassr"
+                "options": [
+                    "Sportin Lisbon",
+                    "Juventus Turin",
+                    "Al Nassr",
+                    "Manchester United"
+                ],
+                "answer": "Al Nassr",
+                "subject": "Football"
             },
             {
                 "difficulty": 3,
                 "question": "Who was the striker of the Belgium national team in 2012 ?",
-                "answer": "Christian Benteke"
+                "options": [],
+                "answer": "Christian Benteke",
+                "subject": "Football"
             },
             {
                 "difficulty": 4,
                 "question": "Which team was Bayern Munich playing against when Robert Lewandowski scored 5 goals in only 9 minutes ?",
-                "answer": "Wolfsburg"
+                "options": [
+                    "Wolsburg",
+                    "FC K\u00f6ln",
+                    "Borussia Dortmundt",
+                    "Borussia M\u00f6nchengladbach"
+                ],
+                "answer": "Wolfsburg",
+                "subject": "Football"
             }
         ]
     },
@@ -32,22 +55,30 @@
             {
                 "difficulty": 1,
                 "question": "Who is the main pilot of Goldorak, and where does he come from? (name/planet)",
-                "answer": "Actarus/Fleed"
+                "options": [],
+                "answer": "Actarus/Fleed",
+                "subject": "Goldorak"
             },
             {
                 "difficulty": 2,
                 "question": "What is the original Japanese name of Goldorak?",
-                "answer": "UFO Robo Grendizer"
+                "options": [],
+                "answer": "UFO Robo Grendizer",
+                "subject": "Goldorak"
             },
             {
                 "difficulty": 3,
                 "question": "What is the name of the organization that invades Actarus' home planet, and who is their leader? (organization/name)",
-                "answer": "The Vega Empire/Great King Vega"
+                "options": [],
+                "answer": "The Vega Empire/Great King Vega",
+                "subject": "Goldorak"
             },
             {
                 "difficulty": 4,
                 "question": "What is the name of the base where Goldorak is hidden and protected on Earth?",
-                "answer": "The White Ranch"
+                "options": [],
+                "answer": "The White Ranch",
+                "subject": "Goldorak"
             }
         ]
     },
@@ -58,22 +89,40 @@
             {
                 "difficulty": 1,
                 "question": "Which seas border the EU in the north?",
-                "answer": "Baltic/North Seas"
+                "options": [
+                    "Ionian sea",
+                    "Mediterranean sea",
+                    "Baltic/North seas",
+                    "Adriatic sea"
+                ],
+                "answer": "Baltic/North seas",
+                "subject": "Geography of the UE"
             },
             {
                 "difficulty": 2,
                 "question": "Which river in the EU exceeds 2,000 km?",
-                "answer": "The Danube"
+                "options": [],
+                "answer": "The Danube",
+                "subject": "Geography of the UE"
             },
             {
                 "difficulty": 3,
                 "question": "Which lake shared with Switzerland has undefined borders?",
-                "answer": "Lake Constance"
+                "options": [],
+                "answer": "Lake Constance",
+                "subject": "Geography of the UE"
             },
             {
                 "difficulty": 4,
                 "question": "Which country has limited access to the sea via Neume?",
-                "answer": "Bosnia-Herzegovina"
+                "options": [
+                    "Croatia",
+                    "Bosnia-Herzegovina",
+                    "Kosovo",
+                    "Greece"
+                ],
+                "answer": "Bosnia-Herzegovina",
+                "subject": "Geography of the UE"
             }
         ]
     },
@@ -84,22 +133,40 @@
             {
                 "difficulty": 1,
                 "question": "Which country joined the EU in 2013, marking the last enlargement before Brexit?",
-                "answer": "Croatia"
+                "options": [
+                    "United Kingdom",
+                    "Croatia",
+                    "Belgium",
+                    "Finland"
+                ],
+                "answer": "Croatia",
+                "subject": "History of the UE"
             },
             {
                 "difficulty": 2,
                 "question": "Which 1998 summit decided to launch the euro in 1999?",
-                "answer": "Brussels summit"
+                "options": [
+                    "Brussels",
+                    "Paris",
+                    "Berlin",
+                    "Madrid"
+                ],
+                "answer": "Brussels",
+                "subject": "History of the UE"
             },
             {
                 "difficulty": 3,
                 "question": "Which act of 1986 was aimed at completing the single market by 1992?",
-                "answer": "The single European act"
+                "options": [],
+                "answer": "The single European act",
+                "subject": "History of the UE"
             },
             {
                 "difficulty": 4,
                 "question": "Which decision of 1964 established the primacy of European law?",
-                "answer": "The Costa x Enel judgement"
+                "options": [],
+                "answer": "The Costa x Enel judgement",
+                "subject": "History of the UE"
             }
         ]
     },
@@ -110,22 +177,40 @@
             {
                 "difficulty": 1,
                 "question": "What is the name of the triangle associated with mysterious disappearances in the Atlantic Ocean?",
-                "answer": "The Bermuda Triangle"
+                "options": [
+                    "The Bermuda triangle",
+                    "The Nemo point",
+                    "The equilatorial triangle",
+                    "The rectangle triangle"
+                ],
+                "answer": "The Bermuda Triangle",
+                "subject": "Unexplained Phenomena"
             },
             {
                 "difficulty": 2,
                 "question": "What improbable phenomenon involves objects that seem to defy gravity, such as cars rolling uphill on their own?",
-                "answer": "Magnetic hills/Gravity hills"
+                "options": [],
+                "answer": "Magnetic hills/Gravity hills",
+                "subject": "Unexplained Phenomena"
             },
             {
                 "difficulty": 3,
                 "question": "What is the name of the theory suggesting that our universe is just a computer simulation?",
-                "answer": "The simulation theory"
+                "options": [
+                    "The Big Bang Theory",
+                    "The simulation theory",
+                    "The Matrix",
+                    "The Pythagore Theory"
+                ],
+                "answer": "The simulation theory",
+                "subject": "Unexplained Phenomena"
             },
             {
                 "difficulty": 4,
                 "question": "What improbable phenomenon involves unexplained sounds heard in different parts of the world, often described as \"sky noises\"?",
-                "answer": "Skyquakes"
+                "options": [],
+                "answer": "Skyquakes",
+                "subject": "Unexplained Phenomena"
             }
         ]
     },
@@ -136,74 +221,50 @@
             {
                 "difficulty": 1,
                 "question": "What mythical animal is often depicted as a horse with a horn on its forehead?",
-                "answer": "The unicorn"
+                "options": [
+                    "The unicorn",
+                    "The kraken",
+                    "The yeti",
+                    "The griffin"
+                ],
+                "answer": "The unicorn",
+                "subject": "Legendary Creatures"
             },
             {
                 "difficulty": 2,
                 "question": "What legendary sea monster is described as a giant squid capable of sinking ships?",
-                "answer": "The kraken"
+                "options": [
+                    "The unicorn",
+                    "The kraken",
+                    "The yeti",
+                    "The griffin"
+                ],
+                "answer": "The kraken",
+                "subject": "Legendary Creatures"
             },
             {
                 "difficulty": 3,
                 "question": "What mythical being is often associated with disappearances in forests and mountains?",
-                "answer": "The yeti"
+                "options": [
+                    "The unicorn",
+                    "The kraken",
+                    "The yeti",
+                    "The griffin"
+                ],
+                "answer": "The yeti",
+                "subject": "Legendary Creatures"
             },
             {
                 "difficulty": 4,
                 "question": "What mythical creature is described as a lion with an eagle's head and wings?",
-                "answer": "The griffin"
-            }
-        ]
-    },
-    {
-        "theme": "Informatics",
-        "subject": "OPP",
-        "card": [
-            {
-                "difficulty": 1,
-                "question": "What term refers to a blueprint or template for creating objects in OOP?",
-                "answer": "A class"
-            },
-            {
-                "difficulty": 2,
-                "question": "What is the difference between \"public\" and \"private\" access modifiers? ",
-                "answer": "Public members can be accessed from anywhere, while private members can only be accessed within the class"
-            },
-            {
-                "difficulty": 3,
-                "question": "What is an \"interface\" in OOP?",
-                "answer": "A contract that defines a set of methods that a class must implement"
-            },
-            {
-                "difficulty": 4,
-                "question": "What is an \"abstract class\" in OOP?",
-                "answer": "A class that cannot be instantiated and may contain both implemented and unimplemented methods"
-            }
-        ]
-    },
-    {
-        "theme": "Informatics",
-        "subject": "Design patterns",
-        "card": [
-            {
-                "difficulty": 1,
-                "question": "How many behavioural design patterns are they in Object Oriented programming languages ?",
-                "answer": "10"
-            },
-            {
-                "difficulty": 2,
-                "question": "Give 3 structural design patterns",
-                "answer": "Adapter, Composite, Proxy"
-            },
-            {
-                "difficulty": 3,
-                "question": "What is the difference between the design pattern Template Method and the design pattern Factory Method ?",
-                "answer": "Template Method: Defines the skeleton of an algorithm and lets subclasses override specific steps. Factory Method: Defines an interface for object creation and delegates instantiation to subclasses."
-            },
-            {
-                "difficulty": 4,
-                "question": "Who created the design pattern Observer and when ?",
-                "answer": "The \"Gang of Four\" created the design pattern Observer in 1994"
+                "options": [
+                    "The unicorn",
+                    "The kraken",
+                    "The yeti",
+                    "The griffin"
+                ],
+                "answer": "The griffin",
+                "subject": "Legendary Creatures"
             }
         ]
     },
@@ -214,22 +275,40 @@
             {
                 "difficulty": 1,
                 "question": "Which OOP concept allows creating multiple objects from the same model?",
-                "answer": "A class"
+                "options": [],
+                "answer": "A class",
+                "subject": "OOP langages"
             },
             {
                 "difficulty": 2,
                 "question": "Which OOP concept allows creating multiple objects from the same model?",
-                "answer": "Encapsulation"
+                "options": [
+                    "Encapsulation",
+                    "Polymorphism",
+                    "Abstraction",
+                    "Inheritance"
+                ],
+                "answer": "Encapsulation",
+                "subject": "OOP langages"
             },
             {
                 "difficulty": 3,
                 "question": "Which OOP principle allows a class to be used interchangeably with its parent class?",
-                "answer": "Polymorphism"
+                "options": [
+                    "Encapsulation",
+                    "Polymorphism",
+                    "Abstraction",
+                    "Inheritance"
+                ],
+                "answer": "Polymorphism",
+                "subject": "OOP langages"
             },
             {
                 "difficulty": 4,
-                "question": "What is the name of the OOP principle that states a derived class should be usable in place of its parent class without altering the program’s correctness?",
-                "answer": "Liskov Substitution"
+                "question": "What is the name of the OOP principle that states a derived class should be usable in place of its parent class without altering the program\u2019s correctness?",
+                "options": [],
+                "answer": "Liskov Substitution",
+                "subject": "OOP langages"
             }
         ]
     },
@@ -240,22 +319,40 @@
             {
                 "difficulty": 1,
                 "question": "In which country is the city of Paris located?",
-                "answer": "France"
+                "options": [
+                    "USA",
+                    "United Kingdom",
+                    "France",
+                    "Finland"
+                ],
+                "answer": "France",
+                "subject": "Cities of the world"
             },
             {
                 "difficulty": 2,
                 "question": "In which country is the city of Toronto located?",
-                "answer": "Canada"
+                "options": [],
+                "answer": "Canada",
+                "subject": "Cities of the world"
             },
             {
                 "difficulty": 3,
                 "question": "In which country is the city of Kyoto located?",
-                "answer": "Japan"
+                "options": [
+                    "China",
+                    "Japan",
+                    "South Korea",
+                    "North Korea"
+                ],
+                "answer": "Japan",
+                "subject": "Cities of the world"
             },
             {
                 "difficulty": 4,
-                "question": "In which country is the city of Valparaíso located?",
-                "answer": "Chile"
+                "question": "In which country is the city of Valpara\u00edso located?",
+                "options": [],
+                "answer": "Chile",
+                "subject": "Cities of the world"
             }
         ]
     },
@@ -266,48 +363,84 @@
             {
                 "difficulty": 1,
                 "question": "Which country is known for his famous haka ?",
-                "answer": "New Zealand"
+                "options": [
+                    "England",
+                    "South Africa",
+                    "New Zealand",
+                    "France"
+                ],
+                "answer": "New Zealand",
+                "subject": "Rugby"
             },
             {
                 "difficulty": 2,
                 "question": "How many players are on field each side ?",
-                "answer": "15"
+                "options": [
+                    "15",
+                    "10",
+                    "12",
+                    "13"
+                ],
+                "answer": "15",
+                "subject": "Rugby"
             },
             {
                 "difficulty": 3,
                 "question": "Which country has won the most World Cup?",
-                "answer": "South Africa"
+                "options": [
+                    "South Africa",
+                    "France",
+                    "New Zealand",
+                    "England"
+                ],
+                "answer": "South Africa",
+                "subject": "Rugby"
             },
             {
                 "difficulty": 4,
                 "question": "What is the name of the trophy awarded to the winner of the Six Nations Tournament?",
-                "answer": "Championship Trophy"
+                "options": [],
+                "answer": "Championship Trophy",
+                "subject": "Rugby"
             }
         ]
     },
     {
-        "theme": "Educational",
+        "theme": "Education",
         "subject": "Flags",
         "card": [
             {
                 "difficulty": 1,
                 "question": "How many stars stands on the USA flag ?",
-                "answer": "50"
+                "options": [],
+                "answer": "50",
+                "subject": "Flags"
             },
             {
                 "difficulty": 2,
                 "question": "How many stars stands on the European Union flag ?",
-                "answer": "12"
+                "options": [
+                    "12",
+                    "15",
+                    "13",
+                    "10"
+                ],
+                "answer": "12",
+                "subject": "Flags"
             },
             {
                 "difficulty": 3,
                 "question": "Which country's flag consists of a red dragon on a green and white background?",
-                "answer": "Wales"
+                "options": [],
+                "answer": "Wales",
+                "subject": "Flags"
             },
             {
                 "difficulty": 4,
                 "question": "Which country is the only one to have a firearm on its flag ?",
-                "answer": "Mozambique"
+                "options": [],
+                "answer": "Mozambique",
+                "subject": "Flags"
             }
         ]
     },
@@ -318,22 +451,45 @@
             {
                 "difficulty": 1,
                 "question": "Who is the artist who released \"Beat it\" in 1982 ?",
-                "answer": "Michael Jackson"
+                "options": [],
+                "answer": "Michael Jackson",
+                "subject": "Music"
             },
             {
                 "difficulty": 2,
                 "question": "What is the most listened to Beatles song ?",
-                "answer": "Here comes the sun"
+                "options": [
+                    "Let it be",
+                    "Here comes the sun",
+                    "Paint it black",
+                    "Come together"
+                ],
+                "answer": "Here comes the sun",
+                "subject": "Music"
             },
             {
                 "difficulty": 3,
                 "question": "In what year did Freddy Mercury, emblematic singer of the band Queen, die ?",
-                "answer": "1991"
+                "options": [
+                    "1991",
+                    "1989",
+                    "1995",
+                    "1986"
+                ],
+                "answer": "1991",
+                "subject": "Music"
             },
             {
                 "difficulty": 4,
                 "question": "What was the first single by the band Nirvana to reach number one on the charts and became the anthem of grunge ?",
-                "answer": "Smells like teen spirit"
+                "options": [
+                    "Smells like teen spirit",
+                    "Come as you are",
+                    "About a girl",
+                    "Lithium"
+                ],
+                "answer": "Smells like teen spirit",
+                "subject": "Music"
             }
         ]
     },
@@ -344,360 +500,1487 @@
             {
                 "difficulty": 1,
                 "question": "What's the most exported belgian beer in the world ?",
-                "answer": "Stella Artois"
+                "options": [
+                    "Jupiler",
+                    "Duvel",
+                    "Stella Artois",
+                    "Orval"
+                ],
+                "answer": "Stella Artois",
+                "subject": "Belgian beers"
             },
             {
                 "difficulty": 2,
                 "question": "Which emblematic chalice-shaped glass is often used to taste Trappist beers?",
-                "answer": "The trappist glass"
+                "options": [],
+                "answer": "The trappist glass",
+                "subject": "Belgian beers"
             },
             {
                 "difficulty": 3,
                 "question": "How many Trappist breweries still produce beer in Belgium?",
-                "answer": "6"
+                "options": [],
+                "answer": "6",
+                "subject": "Belgian beers"
             },
             {
                 "difficulty": 4,
                 "question": "Which Belgian brewery produces a beer whose name means \"Devil\" in Flemish?",
-                "answer": "Duvel Moortgat Brewery"
+                "options": [],
+                "answer": "Duvel Moortgat Brewery",
+                "subject": "Belgian beers"
             }
         ]
     },
     {
-        "theme": "",
-        "subject": "",
+        "theme": "Entertainment",
+        "subject": "Cinema Classics",
         "card": [
             {
                 "difficulty": 1,
-                "question": "",
-                "answer": ""
+                "question": "Who played the role of Jack in the movie Titanic?",
+                "options": [
+                    "Leonardo DiCaprio",
+                    "Brad Pitt",
+                    "Tom Cruise",
+                    "Johnny Depp"
+                ],
+                "answer": "Leonardo DiCaprio",
+                "subject": "Cinema Classics"
             },
             {
                 "difficulty": 2,
-                "question": "",
-                "answer": ""
+                "question": "Which 1942 romantic film features the quote 'Here's looking at you, kid'?",
+                "options": [],
+                "answer": "Casablanca",
+                "subject": "Cinema Classics"
             },
             {
                 "difficulty": 3,
-                "question": "",
-                "answer": ""
+                "question": "Who directed the film 'Psycho' released in 1960?",
+                "options": [
+                    "Alfred Hitchcock",
+                    "Stanley Kubrick",
+                    "Steven Spielberg",
+                    "Martin Scorsese"
+                ],
+                "answer": "Alfred Hitchcock",
+                "subject": "Cinema Classics"
             },
             {
                 "difficulty": 4,
-                "question": "",
-                "answer": ""
+                "question": "Which Italian director is known for the film 'La Dolce Vita'?",
+                "options": [],
+                "answer": "Federico Fellini",
+                "subject": "Cinema Classics"
             }
         ]
     },
     {
-        "theme": "",
-        "subject": "",
+        "theme": "Entertainment",
+        "subject": "Cinema Classics",
         "card": [
             {
                 "difficulty": 1,
-                "question": "",
-                "answer": ""
+                "question": "Who played the role of Jack in the movie Titanic?",
+                "options": [
+                    "Leonardo DiCaprio",
+                    "Brad Pitt",
+                    "Tom Cruise",
+                    "Johnny Depp"
+                ],
+                "answer": "Leonardo DiCaprio",
+                "subject": "Cinema Classics"
             },
             {
                 "difficulty": 2,
-                "question": "",
-                "answer": ""
+                "question": "Which 1942 romantic film features the quote 'Here's looking at you, kid'?",
+                "options": [],
+                "answer": "Casablanca",
+                "subject": "Cinema Classics"
             },
             {
                 "difficulty": 3,
-                "question": "",
-                "answer": ""
+                "question": "Who directed the film 'Psycho' released in 1960?",
+                "options": [
+                    "Alfred Hitchcock",
+                    "Stanley Kubrick",
+                    "Steven Spielberg",
+                    "Martin Scorsese"
+                ],
+                "answer": "Alfred Hitchcock",
+                "subject": "Cinema Classics"
             },
             {
                 "difficulty": 4,
-                "question": "",
-                "answer": ""
+                "question": "Which Italian director is known for the film 'La Dolce Vita'?",
+                "options": [],
+                "answer": "Federico Fellini",
+                "subject": "Cinema Classics"
             }
         ]
     },
     {
-        "theme": "",
-        "subject": "",
+        "theme": "Entertainment",
+        "subject": "Cinema Classics",
         "card": [
             {
                 "difficulty": 1,
-                "question": "",
-                "answer": ""
+                "question": "Who played the role of Jack in the movie Titanic?",
+                "options": [
+                    "Leonardo DiCaprio",
+                    "Brad Pitt",
+                    "Tom Cruise",
+                    "Johnny Depp"
+                ],
+                "answer": "Leonardo DiCaprio",
+                "subject": "Cinema Classics"
             },
             {
                 "difficulty": 2,
-                "question": "",
-                "answer": ""
+                "question": "Which 1942 romantic film features the quote 'Here's looking at you, kid'?",
+                "options": [],
+                "answer": "Casablanca",
+                "subject": "Cinema Classics"
             },
             {
                 "difficulty": 3,
-                "question": "",
-                "answer": ""
+                "question": "Who directed the film 'Psycho' released in 1960?",
+                "options": [
+                    "Alfred Hitchcock",
+                    "Stanley Kubrick",
+                    "Steven Spielberg",
+                    "Martin Scorsese"
+                ],
+                "answer": "Alfred Hitchcock",
+                "subject": "Cinema Classics"
             },
             {
                 "difficulty": 4,
-                "question": "",
-                "answer": ""
+                "question": "Which Italian director is known for the film 'La Dolce Vita'?",
+                "options": [],
+                "answer": "Federico Fellini",
+                "subject": "Cinema Classics"
             }
         ]
     },
     {
-        "theme": "",
-        "subject": "",
+        "theme": "Entertainment",
+        "subject": "TV Shows",
         "card": [
             {
                 "difficulty": 1,
-                "question": "",
-                "answer": ""
+                "question": "Which TV series features the character Sheldon Cooper?",
+                "options": [
+                    "The Office",
+                    "Friends",
+                    "The Big Bang Theory",
+                    "How I Met Your Mother"
+                ],
+                "answer": "The Big Bang Theory",
+                "subject": "TV Shows"
             },
             {
                 "difficulty": 2,
-                "question": "",
-                "answer": ""
+                "question": "Which 90s show was set in the fictional town of Sunnydale?",
+                "options": [],
+                "answer": "Buffy the Vampire Slayer",
+                "subject": "TV Shows"
             },
             {
                 "difficulty": 3,
-                "question": "",
-                "answer": ""
+                "question": "Which drama series follows the lives of the Crawley family and their servants?",
+                "options": [],
+                "answer": "Downton Abbey",
+                "subject": "TV Shows"
             },
             {
                 "difficulty": 4,
-                "question": "",
-                "answer": ""
+                "question": "What is the name of the coffee shop in the series 'Friends'?",
+                "options": [
+                    "Central Perk",
+                    "Daily Brew",
+                    "Java Stop",
+                    "The Coffee Pot"
+                ],
+                "answer": "Central Perk",
+                "subject": "TV Shows"
             }
         ]
     },
     {
-        "theme": "",
-        "subject": "",
+        "theme": "Entertainment",
+        "subject": "TV Shows",
         "card": [
             {
                 "difficulty": 1,
-                "question": "",
-                "answer": ""
+                "question": "Which TV series features the character Sheldon Cooper?",
+                "options": [
+                    "The Office",
+                    "Friends",
+                    "The Big Bang Theory",
+                    "How I Met Your Mother"
+                ],
+                "answer": "The Big Bang Theory",
+                "subject": "TV Shows"
             },
             {
                 "difficulty": 2,
-                "question": "",
-                "answer": ""
+                "question": "Which 90s show was set in the fictional town of Sunnydale?",
+                "options": [],
+                "answer": "Buffy the Vampire Slayer",
+                "subject": "TV Shows"
             },
             {
                 "difficulty": 3,
-                "question": "",
-                "answer": ""
+                "question": "Which drama series follows the lives of the Crawley family and their servants?",
+                "options": [],
+                "answer": "Downton Abbey",
+                "subject": "TV Shows"
             },
             {
                 "difficulty": 4,
-                "question": "",
-                "answer": ""
+                "question": "What is the name of the coffee shop in the series 'Friends'?",
+                "options": [
+                    "Central Perk",
+                    "Daily Brew",
+                    "Java Stop",
+                    "The Coffee Pot"
+                ],
+                "answer": "Central Perk",
+                "subject": "TV Shows"
             }
         ]
     },
     {
-        "theme": "",
-        "subject": "",
+        "theme": "Entertainment",
+        "subject": "TV Shows",
         "card": [
             {
                 "difficulty": 1,
-                "question": "",
-                "answer": ""
+                "question": "Which TV series features the character Sheldon Cooper?",
+                "options": [
+                    "The Office",
+                    "Friends",
+                    "The Big Bang Theory",
+                    "How I Met Your Mother"
+                ],
+                "answer": "The Big Bang Theory",
+                "subject": "TV Shows"
             },
             {
                 "difficulty": 2,
-                "question": "",
-                "answer": ""
+                "question": "Which 90s show was set in the fictional town of Sunnydale?",
+                "options": [],
+                "answer": "Buffy the Vampire Slayer",
+                "subject": "TV Shows"
             },
             {
                 "difficulty": 3,
-                "question": "",
-                "answer": ""
+                "question": "Which drama series follows the lives of the Crawley family and their servants?",
+                "options": [],
+                "answer": "Downton Abbey",
+                "subject": "TV Shows"
             },
             {
                 "difficulty": 4,
-                "question": "",
-                "answer": ""
+                "question": "What is the name of the coffee shop in the series 'Friends'?",
+                "options": [
+                    "Central Perk",
+                    "Daily Brew",
+                    "Java Stop",
+                    "The Coffee Pot"
+                ],
+                "answer": "Central Perk",
+                "subject": "TV Shows"
             }
         ]
     },
     {
-        "theme": "",
-        "subject": "",
+        "theme": "Entertainment",
+        "subject": "TV Shows",
         "card": [
             {
                 "difficulty": 1,
-                "question": "",
-                "answer": ""
+                "question": "Which TV series features the character Sheldon Cooper?",
+                "options": [
+                    "The Office",
+                    "Friends",
+                    "The Big Bang Theory",
+                    "How I Met Your Mother"
+                ],
+                "answer": "The Big Bang Theory",
+                "subject": "TV Shows"
             },
             {
                 "difficulty": 2,
-                "question": "",
-                "answer": ""
+                "question": "Which 90s show was set in the fictional town of Sunnydale?",
+                "options": [],
+                "answer": "Buffy the Vampire Slayer",
+                "subject": "TV Shows"
             },
             {
                 "difficulty": 3,
-                "question": "",
-                "answer": ""
+                "question": "Which drama series follows the lives of the Crawley family and their servants?",
+                "options": [],
+                "answer": "Downton Abbey",
+                "subject": "TV Shows"
             },
             {
                 "difficulty": 4,
-                "question": "",
-                "answer": ""
+                "question": "What is the name of the coffee shop in the series 'Friends'?",
+                "options": [
+                    "Central Perk",
+                    "Daily Brew",
+                    "Java Stop",
+                    "The Coffee Pot"
+                ],
+                "answer": "Central Perk",
+                "subject": "TV Shows"
             }
         ]
     },
     {
-        "theme": "",
-        "subject": "",
+        "theme": "Entertainment",
+        "subject": "Cinema Classics",
         "card": [
             {
                 "difficulty": 1,
-                "question": "",
-                "answer": ""
+                "question": "Who played the role of Jack in the movie Titanic?",
+                "options": [
+                    "Leonardo DiCaprio",
+                    "Brad Pitt",
+                    "Tom Cruise",
+                    "Johnny Depp"
+                ],
+                "answer": "Leonardo DiCaprio",
+                "subject": "Cinema Classics"
             },
             {
                 "difficulty": 2,
-                "question": "",
-                "answer": ""
+                "question": "Which 1942 romantic film features the quote 'Here's looking at you, kid'?",
+                "options": [],
+                "answer": "Casablanca",
+                "subject": "Cinema Classics"
             },
             {
                 "difficulty": 3,
-                "question": "",
-                "answer": ""
+                "question": "Who directed the film 'Psycho' released in 1960?",
+                "options": [
+                    "Alfred Hitchcock",
+                    "Stanley Kubrick",
+                    "Steven Spielberg",
+                    "Martin Scorsese"
+                ],
+                "answer": "Alfred Hitchcock",
+                "subject": "Cinema Classics"
             },
             {
                 "difficulty": 4,
-                "question": "",
-                "answer": ""
+                "question": "Which Italian director is known for the film 'La Dolce Vita'?",
+                "options": [],
+                "answer": "Federico Fellini",
+                "subject": "Cinema Classics"
             }
         ]
     },
     {
-        "theme": "",
-        "subject": "",
+        "theme": "Education",
+        "subject": "Biology",
         "card": [
             {
                 "difficulty": 1,
-                "question": "",
-                "answer": ""
+                "question": "What organ pumps blood through the body?",
+                "options": [
+                    "Brain",
+                    "Lungs",
+                    "Heart",
+                    "Liver"
+                ],
+                "answer": "Heart",
+                "subject": "Biology"
             },
             {
                 "difficulty": 2,
-                "question": "",
-                "answer": ""
+                "question": "What gas do plants absorb from the atmosphere?",
+                "options": [],
+                "answer": "Carbon dioxide",
+                "subject": "Biology"
             },
             {
                 "difficulty": 3,
-                "question": "",
-                "answer": ""
+                "question": "Which blood cells fight infections?",
+                "options": [
+                    "Red cells",
+                    "White cells",
+                    "Platelets",
+                    "Plasma"
+                ],
+                "answer": "White cells",
+                "subject": "Biology"
             },
             {
                 "difficulty": 4,
-                "question": "",
-                "answer": ""
+                "question": "What is the process by which plants make their own food called?",
+                "options": [],
+                "answer": "Photosynthesis",
+                "subject": "Biology"
             }
         ]
     },
     {
-        "theme": "",
-        "subject": "",
+        "theme": "Education",
+        "subject": "Biology",
         "card": [
             {
                 "difficulty": 1,
-                "question": "",
-                "answer": ""
+                "question": "What organ pumps blood through the body?",
+                "options": [
+                    "Brain",
+                    "Lungs",
+                    "Heart",
+                    "Liver"
+                ],
+                "answer": "Heart",
+                "subject": "Biology"
             },
             {
                 "difficulty": 2,
-                "question": "",
-                "answer": ""
+                "question": "What gas do plants absorb from the atmosphere?",
+                "options": [],
+                "answer": "Carbon dioxide",
+                "subject": "Biology"
             },
             {
                 "difficulty": 3,
-                "question": "",
-                "answer": ""
+                "question": "Which blood cells fight infections?",
+                "options": [
+                    "Red cells",
+                    "White cells",
+                    "Platelets",
+                    "Plasma"
+                ],
+                "answer": "White cells",
+                "subject": "Biology"
             },
             {
                 "difficulty": 4,
-                "question": "",
-                "answer": ""
+                "question": "What is the process by which plants make their own food called?",
+                "options": [],
+                "answer": "Photosynthesis",
+                "subject": "Biology"
             }
         ]
     },
     {
-        "theme": "",
-        "subject": "",
+        "theme": "Education",
+        "subject": "Biology",
         "card": [
             {
                 "difficulty": 1,
-                "question": "",
-                "answer": ""
+                "question": "What organ pumps blood through the body?",
+                "options": [
+                    "Brain",
+                    "Lungs",
+                    "Heart",
+                    "Liver"
+                ],
+                "answer": "Heart",
+                "subject": "Biology"
             },
             {
                 "difficulty": 2,
-                "question": "",
-                "answer": ""
+                "question": "What gas do plants absorb from the atmosphere?",
+                "options": [],
+                "answer": "Carbon dioxide",
+                "subject": "Biology"
             },
             {
                 "difficulty": 3,
-                "question": "",
-                "answer": ""
+                "question": "Which blood cells fight infections?",
+                "options": [
+                    "Red cells",
+                    "White cells",
+                    "Platelets",
+                    "Plasma"
+                ],
+                "answer": "White cells",
+                "subject": "Biology"
             },
             {
                 "difficulty": 4,
-                "question": "",
-                "answer": ""
+                "question": "What is the process by which plants make their own food called?",
+                "options": [],
+                "answer": "Photosynthesis",
+                "subject": "Biology"
             }
         ]
     },
     {
-        "theme": "",
-        "subject": "",
+        "theme": "Education",
+        "subject": "Mathematics",
         "card": [
             {
                 "difficulty": 1,
-                "question": "",
-                "answer": ""
+                "question": "What is the result of 7 + 6?",
+                "options": [
+                    "12",
+                    "13",
+                    "14",
+                    "15"
+                ],
+                "answer": "13",
+                "subject": "Mathematics"
             },
             {
                 "difficulty": 2,
-                "question": "",
-                "answer": ""
+                "question": "What is the square root of 144?",
+                "options": [],
+                "answer": "12",
+                "subject": "Mathematics"
             },
             {
                 "difficulty": 3,
-                "question": "",
-                "answer": ""
+                "question": "What is the value of pi up to 3 decimal places?",
+                "options": [
+                    "3.141",
+                    "3.142",
+                    "3.143",
+                    "3.144"
+                ],
+                "answer": "3.142",
+                "subject": "Mathematics"
             },
             {
                 "difficulty": 4,
-                "question": "",
-                "answer": ""
+                "question": "What is the name of the equation used to solve quadratic equations?",
+                "options": [],
+                "answer": "The quadratic formula",
+                "subject": "Mathematics"
             }
         ]
     },
     {
-        "theme": "",
-        "subject": "",
+        "theme": "Education",
+        "subject": "Biology",
         "card": [
             {
                 "difficulty": 1,
-                "question": "",
-                "answer": ""
+                "question": "What organ pumps blood through the body?",
+                "options": [
+                    "Brain",
+                    "Lungs",
+                    "Heart",
+                    "Liver"
+                ],
+                "answer": "Heart",
+                "subject": "Biology"
             },
             {
                 "difficulty": 2,
-                "question": "",
-                "answer": ""
+                "question": "What gas do plants absorb from the atmosphere?",
+                "options": [],
+                "answer": "Carbon dioxide",
+                "subject": "Biology"
             },
             {
                 "difficulty": 3,
-                "question": "",
-                "answer": ""
+                "question": "Which blood cells fight infections?",
+                "options": [
+                    "Red cells",
+                    "White cells",
+                    "Platelets",
+                    "Plasma"
+                ],
+                "answer": "White cells",
+                "subject": "Biology"
             },
             {
                 "difficulty": 4,
-                "question": "",
-                "answer": ""
+                "question": "What is the process by which plants make their own food called?",
+                "options": [],
+                "answer": "Photosynthesis",
+                "subject": "Biology"
+            }
+        ]
+    },
+    {
+        "theme": "Education",
+        "subject": "Mathematics",
+        "card": [
+            {
+                "difficulty": 1,
+                "question": "What is the result of 7 + 6?",
+                "options": [
+                    "12",
+                    "13",
+                    "14",
+                    "15"
+                ],
+                "answer": "13",
+                "subject": "Mathematics"
+            },
+            {
+                "difficulty": 2,
+                "question": "What is the square root of 144?",
+                "options": [],
+                "answer": "12",
+                "subject": "Mathematics"
+            },
+            {
+                "difficulty": 3,
+                "question": "What is the value of pi up to 3 decimal places?",
+                "options": [
+                    "3.141",
+                    "3.142",
+                    "3.143",
+                    "3.144"
+                ],
+                "answer": "3.142",
+                "subject": "Mathematics"
+            },
+            {
+                "difficulty": 4,
+                "question": "What is the name of the equation used to solve quadratic equations?",
+                "options": [],
+                "answer": "The quadratic formula",
+                "subject": "Mathematics"
+            }
+        ]
+    },
+    {
+        "theme": "Education",
+        "subject": "Mathematics",
+        "card": [
+            {
+                "difficulty": 1,
+                "question": "What is the result of 7 + 6?",
+                "options": [
+                    "12",
+                    "13",
+                    "14",
+                    "15"
+                ],
+                "answer": "13",
+                "subject": "Mathematics"
+            },
+            {
+                "difficulty": 2,
+                "question": "What is the square root of 144?",
+                "options": [],
+                "answer": "12",
+                "subject": "Mathematics"
+            },
+            {
+                "difficulty": 3,
+                "question": "What is the value of pi up to 3 decimal places?",
+                "options": [
+                    "3.141",
+                    "3.142",
+                    "3.143",
+                    "3.144"
+                ],
+                "answer": "3.142",
+                "subject": "Mathematics"
+            },
+            {
+                "difficulty": 4,
+                "question": "What is the name of the equation used to solve quadratic equations?",
+                "options": [],
+                "answer": "The quadratic formula",
+                "subject": "Mathematics"
+            }
+        ]
+    },
+    {
+        "theme": "Education",
+        "subject": "Mathematics",
+        "card": [
+            {
+                "difficulty": 1,
+                "question": "What is the result of 7 + 6?",
+                "options": [
+                    "12",
+                    "13",
+                    "14",
+                    "15"
+                ],
+                "answer": "13",
+                "subject": "Mathematics"
+            },
+            {
+                "difficulty": 2,
+                "question": "What is the square root of 144?",
+                "options": [],
+                "answer": "12",
+                "subject": "Mathematics"
+            },
+            {
+                "difficulty": 3,
+                "question": "What is the value of pi up to 3 decimal places?",
+                "options": [
+                    "3.141",
+                    "3.142",
+                    "3.143",
+                    "3.144"
+                ],
+                "answer": "3.142",
+                "subject": "Mathematics"
+            },
+            {
+                "difficulty": 4,
+                "question": "What is the name of the equation used to solve quadratic equations?",
+                "options": [],
+                "answer": "The quadratic formula",
+                "subject": "Mathematics"
+            }
+        ]
+    },
+    {
+        "theme": "Improbable",
+        "subject": "Strange Inventions",
+        "card": [
+            {
+                "difficulty": 1,
+                "question": "Which invention translates animal sounds into human language?",
+                "options": [
+                    "DogTalk",
+                    "Meowlingual",
+                    "PetVoice",
+                    "BarkTrans"
+                ],
+                "answer": "Meowlingual",
+                "subject": "Strange Inventions"
+            },
+            {
+                "difficulty": 2,
+                "question": "What type of vehicle was invented to ride on water and land with a fan at the back?",
+                "options": [],
+                "answer": "Hovercraft",
+                "subject": "Strange Inventions"
+            },
+            {
+                "difficulty": 3,
+                "question": "What country invented square watermelons?",
+                "options": [
+                    "Japan",
+                    "USA",
+                    "France",
+                    "China"
+                ],
+                "answer": "Japan",
+                "subject": "Strange Inventions"
+            },
+            {
+                "difficulty": 4,
+                "question": "What kitchen tool was once a fashion item in 18th century France?",
+                "options": [],
+                "answer": "Whisk",
+                "subject": "Strange Inventions"
+            }
+        ]
+    },
+    {
+        "theme": "Improbable",
+        "subject": "Strange Inventions",
+        "card": [
+            {
+                "difficulty": 1,
+                "question": "Which invention translates animal sounds into human language?",
+                "options": [
+                    "DogTalk",
+                    "Meowlingual",
+                    "PetVoice",
+                    "BarkTrans"
+                ],
+                "answer": "Meowlingual",
+                "subject": "Strange Inventions"
+            },
+            {
+                "difficulty": 2,
+                "question": "What type of vehicle was invented to ride on water and land with a fan at the back?",
+                "options": [],
+                "answer": "Hovercraft",
+                "subject": "Strange Inventions"
+            },
+            {
+                "difficulty": 3,
+                "question": "What country invented square watermelons?",
+                "options": [
+                    "Japan",
+                    "USA",
+                    "France",
+                    "China"
+                ],
+                "answer": "Japan",
+                "subject": "Strange Inventions"
+            },
+            {
+                "difficulty": 4,
+                "question": "What kitchen tool was once a fashion item in 18th century France?",
+                "options": [],
+                "answer": "Whisk",
+                "subject": "Strange Inventions"
+            }
+        ]
+    },
+    {
+        "theme": "Improbable",
+        "subject": "Strange Inventions",
+        "card": [
+            {
+                "difficulty": 1,
+                "question": "Which invention translates animal sounds into human language?",
+                "options": [
+                    "DogTalk",
+                    "Meowlingual",
+                    "PetVoice",
+                    "BarkTrans"
+                ],
+                "answer": "Meowlingual",
+                "subject": "Strange Inventions"
+            },
+            {
+                "difficulty": 2,
+                "question": "What type of vehicle was invented to ride on water and land with a fan at the back?",
+                "options": [],
+                "answer": "Hovercraft",
+                "subject": "Strange Inventions"
+            },
+            {
+                "difficulty": 3,
+                "question": "What country invented square watermelons?",
+                "options": [
+                    "Japan",
+                    "USA",
+                    "France",
+                    "China"
+                ],
+                "answer": "Japan",
+                "subject": "Strange Inventions"
+            },
+            {
+                "difficulty": 4,
+                "question": "What kitchen tool was once a fashion item in 18th century France?",
+                "options": [],
+                "answer": "Whisk",
+                "subject": "Strange Inventions"
+            }
+        ]
+    },
+    {
+        "theme": "Improbable",
+        "subject": "Strange Inventions",
+        "card": [
+            {
+                "difficulty": 1,
+                "question": "Which invention translates animal sounds into human language?",
+                "options": [
+                    "DogTalk",
+                    "Meowlingual",
+                    "PetVoice",
+                    "BarkTrans"
+                ],
+                "answer": "Meowlingual",
+                "subject": "Strange Inventions"
+            },
+            {
+                "difficulty": 2,
+                "question": "What type of vehicle was invented to ride on water and land with a fan at the back?",
+                "options": [],
+                "answer": "Hovercraft",
+                "subject": "Strange Inventions"
+            },
+            {
+                "difficulty": 3,
+                "question": "What country invented square watermelons?",
+                "options": [
+                    "Japan",
+                    "USA",
+                    "France",
+                    "China"
+                ],
+                "answer": "Japan",
+                "subject": "Strange Inventions"
+            },
+            {
+                "difficulty": 4,
+                "question": "What kitchen tool was once a fashion item in 18th century France?",
+                "options": [],
+                "answer": "Whisk",
+                "subject": "Strange Inventions"
+            }
+        ]
+    },
+    {
+        "theme": "Improbable",
+        "subject": "Strange Inventions",
+        "card": [
+            {
+                "difficulty": 1,
+                "question": "Which invention translates animal sounds into human language?",
+                "options": [
+                    "DogTalk",
+                    "Meowlingual",
+                    "PetVoice",
+                    "BarkTrans"
+                ],
+                "answer": "Meowlingual",
+                "subject": "Strange Inventions"
+            },
+            {
+                "difficulty": 2,
+                "question": "What type of vehicle was invented to ride on water and land with a fan at the back?",
+                "options": [],
+                "answer": "Hovercraft",
+                "subject": "Strange Inventions"
+            },
+            {
+                "difficulty": 3,
+                "question": "What country invented square watermelons?",
+                "options": [
+                    "Japan",
+                    "USA",
+                    "France",
+                    "China"
+                ],
+                "answer": "Japan",
+                "subject": "Strange Inventions"
+            },
+            {
+                "difficulty": 4,
+                "question": "What kitchen tool was once a fashion item in 18th century France?",
+                "options": [],
+                "answer": "Whisk",
+                "subject": "Strange Inventions"
+            }
+        ]
+    },
+    {
+        "theme": "Improbable",
+        "subject": "Mysteries of the Universe",
+        "card": [
+            {
+                "difficulty": 1,
+                "question": "What is the name of the hypothetical matter that does not emit light or energy?",
+                "options": [
+                    "Dark Matter",
+                    "Black Matter",
+                    "Void Matter",
+                    "Quantum Dust"
+                ],
+                "answer": "Dark Matter",
+                "subject": "Mysteries of the Universe"
+            },
+            {
+                "difficulty": 2,
+                "question": "What is the name of the point where gravity is so strong not even light escapes?",
+                "options": [],
+                "answer": "Black Hole",
+                "subject": "Mysteries of the Universe"
+            },
+            {
+                "difficulty": 3,
+                "question": "Which theory suggests that multiple universes exist alongside our own?",
+                "options": [
+                    "String Theory",
+                    "Quantum Mechanics",
+                    "Multiverse Theory",
+                    "Cosmic Theory"
+                ],
+                "answer": "Multiverse Theory",
+                "subject": "Mysteries of the Universe"
+            },
+            {
+                "difficulty": 4,
+                "question": "What is the name of the particle sometimes called the 'God particle'?",
+                "options": [],
+                "answer": "Higgs boson",
+                "subject": "Mysteries of the Universe"
+            }
+        ]
+    },
+    {
+        "theme": "Improbable",
+        "subject": "Strange Inventions",
+        "card": [
+            {
+                "difficulty": 1,
+                "question": "Which invention translates animal sounds into human language?",
+                "options": [
+                    "DogTalk",
+                    "Meowlingual",
+                    "PetVoice",
+                    "BarkTrans"
+                ],
+                "answer": "Meowlingual",
+                "subject": "Strange Inventions"
+            },
+            {
+                "difficulty": 2,
+                "question": "What type of vehicle was invented to ride on water and land with a fan at the back?",
+                "options": [],
+                "answer": "Hovercraft",
+                "subject": "Strange Inventions"
+            },
+            {
+                "difficulty": 3,
+                "question": "What country invented square watermelons?",
+                "options": [
+                    "Japan",
+                    "USA",
+                    "France",
+                    "China"
+                ],
+                "answer": "Japan",
+                "subject": "Strange Inventions"
+            },
+            {
+                "difficulty": 4,
+                "question": "What kitchen tool was once a fashion item in 18th century France?",
+                "options": [],
+                "answer": "Whisk",
+                "subject": "Strange Inventions"
+            }
+        ]
+    },
+    {
+        "theme": "Improbable",
+        "subject": "Mysteries of the Universe",
+        "card": [
+            {
+                "difficulty": 1,
+                "question": "What is the name of the hypothetical matter that does not emit light or energy?",
+                "options": [
+                    "Dark Matter",
+                    "Black Matter",
+                    "Void Matter",
+                    "Quantum Dust"
+                ],
+                "answer": "Dark Matter",
+                "subject": "Mysteries of the Universe"
+            },
+            {
+                "difficulty": 2,
+                "question": "What is the name of the point where gravity is so strong not even light escapes?",
+                "options": [],
+                "answer": "Black Hole",
+                "subject": "Mysteries of the Universe"
+            },
+            {
+                "difficulty": 3,
+                "question": "Which theory suggests that multiple universes exist alongside our own?",
+                "options": [
+                    "String Theory",
+                    "Quantum Mechanics",
+                    "Multiverse Theory",
+                    "Cosmic Theory"
+                ],
+                "answer": "Multiverse Theory",
+                "subject": "Mysteries of the Universe"
+            },
+            {
+                "difficulty": 4,
+                "question": "What is the name of the particle sometimes called the 'God particle'?",
+                "options": [],
+                "answer": "Higgs boson",
+                "subject": "Mysteries of the Universe"
+            }
+        ]
+    },
+    {
+        "theme": "Informatics",
+        "subject": "Computer History",
+        "card": [
+            {
+                "difficulty": 1,
+                "question": "Who is known as the father of computers?",
+                "options": [
+                    "Alan Turing",
+                    "Bill Gates",
+                    "Charles Babbage",
+                    "Steve Jobs"
+                ],
+                "answer": "Charles Babbage",
+                "subject": "Computer History"
+            },
+            {
+                "difficulty": 2,
+                "question": "In what year was the World Wide Web invented?",
+                "options": [],
+                "answer": "1989",
+                "subject": "Computer History"
+            },
+            {
+                "difficulty": 3,
+                "question": "Which company developed the first graphical web browser?",
+                "options": [
+                    "Netscape",
+                    "Microsoft",
+                    "Apple",
+                    "Mozilla"
+                ],
+                "answer": "Netscape",
+                "subject": "Computer History"
+            },
+            {
+                "difficulty": 4,
+                "question": "What was the name of the first programmable computer?",
+                "options": [],
+                "answer": "Z3",
+                "subject": "Computer History"
+            }
+        ]
+    },
+    {
+        "theme": "Informatics",
+        "subject": "Cybersecurity",
+        "card": [
+            {
+                "difficulty": 1,
+                "question": "What does 'phishing' mean in cybersecurity?",
+                "options": [
+                    "Catching malware",
+                    "Stealing data by deception",
+                    "Encrypting data",
+                    "Cracking passwords"
+                ],
+                "answer": "Stealing data by deception",
+                "subject": "Cybersecurity"
+            },
+            {
+                "difficulty": 2,
+                "question": "What is the name for software that locks your files and demands payment?",
+                "options": [],
+                "answer": "Ransomware",
+                "subject": "Cybersecurity"
+            },
+            {
+                "difficulty": 3,
+                "question": "What is the term for unauthorized access to a system?",
+                "options": [
+                    "Phishing",
+                    "Hacking",
+                    "Spoofing",
+                    "Trolling"
+                ],
+                "answer": "Hacking",
+                "subject": "Cybersecurity"
+            },
+            {
+                "difficulty": 4,
+                "question": "What security principle restricts access only to those who need to know?",
+                "options": [],
+                "answer": "Least privilege",
+                "subject": "Cybersecurity"
+            }
+        ]
+    },
+    {
+        "theme": "Informatics",
+        "subject": "Computer History",
+        "card": [
+            {
+                "difficulty": 1,
+                "question": "Who is known as the father of computers?",
+                "options": [
+                    "Alan Turing",
+                    "Bill Gates",
+                    "Charles Babbage",
+                    "Steve Jobs"
+                ],
+                "answer": "Charles Babbage",
+                "subject": "Computer History"
+            },
+            {
+                "difficulty": 2,
+                "question": "In what year was the World Wide Web invented?",
+                "options": [],
+                "answer": "1989",
+                "subject": "Computer History"
+            },
+            {
+                "difficulty": 3,
+                "question": "Which company developed the first graphical web browser?",
+                "options": [
+                    "Netscape",
+                    "Microsoft",
+                    "Apple",
+                    "Mozilla"
+                ],
+                "answer": "Netscape",
+                "subject": "Computer History"
+            },
+            {
+                "difficulty": 4,
+                "question": "What was the name of the first programmable computer?",
+                "options": [],
+                "answer": "Z3",
+                "subject": "Computer History"
+            }
+        ]
+    },
+    {
+        "theme": "Informatics",
+        "subject": "Cybersecurity",
+        "card": [
+            {
+                "difficulty": 1,
+                "question": "What does 'phishing' mean in cybersecurity?",
+                "options": [
+                    "Catching malware",
+                    "Stealing data by deception",
+                    "Encrypting data",
+                    "Cracking passwords"
+                ],
+                "answer": "Stealing data by deception",
+                "subject": "Cybersecurity"
+            },
+            {
+                "difficulty": 2,
+                "question": "What is the name for software that locks your files and demands payment?",
+                "options": [],
+                "answer": "Ransomware",
+                "subject": "Cybersecurity"
+            },
+            {
+                "difficulty": 3,
+                "question": "What is the term for unauthorized access to a system?",
+                "options": [
+                    "Phishing",
+                    "Hacking",
+                    "Spoofing",
+                    "Trolling"
+                ],
+                "answer": "Hacking",
+                "subject": "Cybersecurity"
+            },
+            {
+                "difficulty": 4,
+                "question": "What security principle restricts access only to those who need to know?",
+                "options": [],
+                "answer": "Least privilege",
+                "subject": "Cybersecurity"
+            }
+        ]
+    },
+    {
+        "theme": "Informatics",
+        "subject": "Computer History",
+        "card": [
+            {
+                "difficulty": 1,
+                "question": "Who is known as the father of computers?",
+                "options": [
+                    "Alan Turing",
+                    "Bill Gates",
+                    "Charles Babbage",
+                    "Steve Jobs"
+                ],
+                "answer": "Charles Babbage",
+                "subject": "Computer History"
+            },
+            {
+                "difficulty": 2,
+                "question": "In what year was the World Wide Web invented?",
+                "options": [],
+                "answer": "1989",
+                "subject": "Computer History"
+            },
+            {
+                "difficulty": 3,
+                "question": "Which company developed the first graphical web browser?",
+                "options": [
+                    "Netscape",
+                    "Microsoft",
+                    "Apple",
+                    "Mozilla"
+                ],
+                "answer": "Netscape",
+                "subject": "Computer History"
+            },
+            {
+                "difficulty": 4,
+                "question": "What was the name of the first programmable computer?",
+                "options": [],
+                "answer": "Z3",
+                "subject": "Computer History"
+            }
+        ]
+    },
+    {
+        "theme": "Informatics",
+        "subject": "Cybersecurity",
+        "card": [
+            {
+                "difficulty": 1,
+                "question": "What does 'phishing' mean in cybersecurity?",
+                "options": [
+                    "Catching malware",
+                    "Stealing data by deception",
+                    "Encrypting data",
+                    "Cracking passwords"
+                ],
+                "answer": "Stealing data by deception",
+                "subject": "Cybersecurity"
+            },
+            {
+                "difficulty": 2,
+                "question": "What is the name for software that locks your files and demands payment?",
+                "options": [],
+                "answer": "Ransomware",
+                "subject": "Cybersecurity"
+            },
+            {
+                "difficulty": 3,
+                "question": "What is the term for unauthorized access to a system?",
+                "options": [
+                    "Phishing",
+                    "Hacking",
+                    "Spoofing",
+                    "Trolling"
+                ],
+                "answer": "Hacking",
+                "subject": "Cybersecurity"
+            },
+            {
+                "difficulty": 4,
+                "question": "What security principle restricts access only to those who need to know?",
+                "options": [],
+                "answer": "Least privilege",
+                "subject": "Cybersecurity"
+            }
+        ]
+    },
+    {
+        "theme": "Informatics",
+        "subject": "Computer History",
+        "card": [
+            {
+                "difficulty": 1,
+                "question": "Who is known as the father of computers?",
+                "options": [
+                    "Alan Turing",
+                    "Bill Gates",
+                    "Charles Babbage",
+                    "Steve Jobs"
+                ],
+                "answer": "Charles Babbage",
+                "subject": "Computer History"
+            },
+            {
+                "difficulty": 2,
+                "question": "In what year was the World Wide Web invented?",
+                "options": [],
+                "answer": "1989",
+                "subject": "Computer History"
+            },
+            {
+                "difficulty": 3,
+                "question": "Which company developed the first graphical web browser?",
+                "options": [
+                    "Netscape",
+                    "Microsoft",
+                    "Apple",
+                    "Mozilla"
+                ],
+                "answer": "Netscape",
+                "subject": "Computer History"
+            },
+            {
+                "difficulty": 4,
+                "question": "What was the name of the first programmable computer?",
+                "options": [],
+                "answer": "Z3",
+                "subject": "Computer History"
+            }
+        ]
+    },
+    {
+        "theme": "Informatics",
+        "subject": "Computer History",
+        "card": [
+            {
+                "difficulty": 1,
+                "question": "Who is known as the father of computers?",
+                "options": [
+                    "Alan Turing",
+                    "Bill Gates",
+                    "Charles Babbage",
+                    "Steve Jobs"
+                ],
+                "answer": "Charles Babbage",
+                "subject": "Computer History"
+            },
+            {
+                "difficulty": 2,
+                "question": "In what year was the World Wide Web invented?",
+                "options": [],
+                "answer": "1989",
+                "subject": "Computer History"
+            },
+            {
+                "difficulty": 3,
+                "question": "Which company developed the first graphical web browser?",
+                "options": [
+                    "Netscape",
+                    "Microsoft",
+                    "Apple",
+                    "Mozilla"
+                ],
+                "answer": "Netscape",
+                "subject": "Computer History"
+            },
+            {
+                "difficulty": 4,
+                "question": "What was the name of the first programmable computer?",
+                "options": [],
+                "answer": "Z3",
+                "subject": "Computer History"
+            }
+        ]
+    },
+    {
+        "theme": "Informatics",
+        "subject": "Computer History",
+        "card": [
+            {
+                "difficulty": 1,
+                "question": "Who is known as the father of computers?",
+                "options": [
+                    "Alan Turing",
+                    "Bill Gates",
+                    "Charles Babbage",
+                    "Steve Jobs"
+                ],
+                "answer": "Charles Babbage",
+                "subject": "Computer History"
+            },
+            {
+                "difficulty": 2,
+                "question": "In what year was the World Wide Web invented?",
+                "options": [],
+                "answer": "1989",
+                "subject": "Computer History"
+            },
+            {
+                "difficulty": 3,
+                "question": "Which company developed the first graphical web browser?",
+                "options": [
+                    "Netscape",
+                    "Microsoft",
+                    "Apple",
+                    "Mozilla"
+                ],
+                "answer": "Netscape",
+                "subject": "Computer History"
+            },
+            {
+                "difficulty": 4,
+                "question": "What was the name of the first programmable computer?",
+                "options": [],
+                "answer": "Z3",
+                "subject": "Computer History"
             }
         ]
     }
