@@ -1,7 +1,6 @@
 package controller;
 
 import java.util.List;
-import java.util.Random;
 import java.util.Set;
 
 import models.Card;
