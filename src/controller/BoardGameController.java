@@ -26,7 +26,7 @@ public class BoardGameController {
     public void initialize() {
         // Initialisation du plateau et du pion
         boardGame = new BoardGame();
-        pawn = new Pawn("Player1");
+        pawn = new Pawn("Player1");		// boucle à faire avec le nombre de joueur à venir 
         pawnController = new PawnController(pawn);
 
         // Placer le pion à sa position de départ
