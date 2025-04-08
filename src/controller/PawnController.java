@@ -13,6 +13,7 @@ public class PawnController {
         if (pawn.getPosition() >= boardgame.getSize()) {
             pawn.setPosition(boardgame.getSize() -1);		// position = boardgame.getSize() - 1; 
         }
+        // test
         
         Case newCase = boardgame.getCase(pawn.getPosition());
         pawn.setX(newCase.getX());			//x = newCase.getX();
