@@ -21,11 +21,13 @@ public class BoardGameController {
 
     private Pawn pawn;
     private BoardGame boardGame;
+    private PawnController pawnController;
 
     public void initialize() {
         // Initialisation du plateau et du pion
         boardGame = new BoardGame();
         pawn = new Pawn("Player1");
+        pawnController = new PawnController(pawn);
 
         // Placer le pion à sa position de départ
         Case startCase = boardGame.getCase(pawn.getPosition());
@@ -41,7 +43,7 @@ public class BoardGameController {
         int oldY = pawn.getY();
 
         // Avancer le pion dans la logique du jeu
-        pawn.moveForward(movement, boardGame);
+        pawnController.moveForward(movement, boardGame);
 
         int newX = pawn.getX();
         int newY = pawn.getY();
