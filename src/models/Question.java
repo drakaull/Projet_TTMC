@@ -3,10 +3,10 @@ package models;
 import java.util.List;
 
 public class Question {
-	private String question;		//the question itself
-	private int difficulty;			
+	private int difficulty;	
+	private String question;		//the question itself		
+	private List<String> options;	//null if open question	
 	private String answer;			// the correct answer
-	private List<String> options;	//null if open question
 	private String subject;			//the subject of the question (football, langages, etc.)
 
 	public Question(int difficulty, String question, String answer, List<String> options, String subject) {

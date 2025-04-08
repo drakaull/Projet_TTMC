@@ -2,7 +2,7 @@
     {
         "theme": "Entertainment",
         "subject": "Football",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Who is the winner of the World Cup in 2018 ?",
@@ -51,7 +51,7 @@
     {
         "theme": "Entertainment",
         "subject": "Goldorak",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Who is the main pilot of Goldorak, and where does he come from? (name/planet)",
@@ -85,7 +85,7 @@
     {
         "theme": "Education",
         "subject": "Geography of the UE",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Which seas border the EU in the north?",
@@ -129,7 +129,7 @@
     {
         "theme": "Education",
         "subject": "History of the UE",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Which country joined the EU in 2013, marking the last enlargement before Brexit?",
@@ -173,7 +173,7 @@
     {
         "theme": "Improbable",
         "subject": "Unexplained Phenomena",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "What is the name of the triangle associated with mysterious disappearances in the Atlantic Ocean?",
@@ -217,7 +217,7 @@
     {
         "theme": "Improbable",
         "subject": "Legendary Creatures",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "What mythical animal is often depicted as a horse with a horn on its forehead?",
@@ -271,7 +271,7 @@
     {
         "theme": "Informatics",
         "subject": "OOP langages",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Which OOP concept allows creating multiple objects from the same model?",
@@ -315,7 +315,7 @@
     {
         "theme": "Education",
         "subject": "Cities of the world",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "In which country is the city of Paris located?",
@@ -359,7 +359,7 @@
     {
         "theme": "Entertainment",
         "subject": "Rugby",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Which country is known for his famous haka ?",
@@ -408,7 +408,7 @@
     {
         "theme": "Education",
         "subject": "Flags",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "How many stars stands on the USA flag ?",
@@ -447,7 +447,7 @@
     {
         "theme": "Entertainment",
         "subject": "Music",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Who is the artist who released \"Beat it\" in 1982 ?",
@@ -496,7 +496,7 @@
     {
         "theme": "Improbable",
         "subject": "Belgian beers",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "What's the most exported belgian beer in the world ?",
@@ -535,7 +535,7 @@
     {
         "theme": "Entertainment",
         "subject": "Cinema Classics",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Who played the role of Jack in the movie Titanic?",
@@ -579,7 +579,7 @@
     {
         "theme": "Entertainment",
         "subject": "Cinema Classics",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Who played the role of Jack in the movie Titanic?",
@@ -623,7 +623,7 @@
     {
         "theme": "Entertainment",
         "subject": "Cinema Classics",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Who played the role of Jack in the movie Titanic?",
@@ -667,7 +667,7 @@
     {
         "theme": "Entertainment",
         "subject": "TV Shows",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Which TV series features the character Sheldon Cooper?",
@@ -711,7 +711,7 @@
     {
         "theme": "Entertainment",
         "subject": "TV Shows",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Which TV series features the character Sheldon Cooper?",
@@ -755,7 +755,7 @@
     {
         "theme": "Entertainment",
         "subject": "TV Shows",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Which TV series features the character Sheldon Cooper?",
@@ -799,7 +799,7 @@
     {
         "theme": "Entertainment",
         "subject": "TV Shows",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Which TV series features the character Sheldon Cooper?",
@@ -843,7 +843,7 @@
     {
         "theme": "Entertainment",
         "subject": "Cinema Classics",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Who played the role of Jack in the movie Titanic?",
@@ -887,7 +887,7 @@
     {
         "theme": "Education",
         "subject": "Biology",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "What organ pumps blood through the body?",
@@ -931,7 +931,7 @@
     {
         "theme": "Education",
         "subject": "Biology",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "What organ pumps blood through the body?",
@@ -975,7 +975,7 @@
     {
         "theme": "Education",
         "subject": "Biology",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "What organ pumps blood through the body?",
@@ -1019,7 +1019,7 @@
     {
         "theme": "Education",
         "subject": "Mathematics",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "What is the result of 7 + 6?",
@@ -1063,7 +1063,7 @@
     {
         "theme": "Education",
         "subject": "Biology",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "What organ pumps blood through the body?",
@@ -1107,7 +1107,7 @@
     {
         "theme": "Education",
         "subject": "Mathematics",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "What is the result of 7 + 6?",
@@ -1151,7 +1151,7 @@
     {
         "theme": "Education",
         "subject": "Mathematics",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "What is the result of 7 + 6?",
@@ -1195,7 +1195,7 @@
     {
         "theme": "Education",
         "subject": "Mathematics",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "What is the result of 7 + 6?",
@@ -1239,7 +1239,7 @@
     {
         "theme": "Improbable",
         "subject": "Strange Inventions",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Which invention translates animal sounds into human language?",
@@ -1283,7 +1283,7 @@
     {
         "theme": "Improbable",
         "subject": "Strange Inventions",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Which invention translates animal sounds into human language?",
@@ -1327,7 +1327,7 @@
     {
         "theme": "Improbable",
         "subject": "Strange Inventions",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Which invention translates animal sounds into human language?",
@@ -1371,7 +1371,7 @@
     {
         "theme": "Improbable",
         "subject": "Strange Inventions",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Which invention translates animal sounds into human language?",
@@ -1415,7 +1415,7 @@
     {
         "theme": "Improbable",
         "subject": "Strange Inventions",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Which invention translates animal sounds into human language?",
@@ -1459,7 +1459,7 @@
     {
         "theme": "Improbable",
         "subject": "Mysteries of the Universe",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "What is the name of the hypothetical matter that does not emit light or energy?",
@@ -1503,7 +1503,7 @@
     {
         "theme": "Improbable",
         "subject": "Strange Inventions",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Which invention translates animal sounds into human language?",
@@ -1547,7 +1547,7 @@
     {
         "theme": "Improbable",
         "subject": "Mysteries of the Universe",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "What is the name of the hypothetical matter that does not emit light or energy?",
@@ -1591,7 +1591,7 @@
     {
         "theme": "Informatics",
         "subject": "Computer History",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Who is known as the father of computers?",
@@ -1635,7 +1635,7 @@
     {
         "theme": "Informatics",
         "subject": "Cybersecurity",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "What does 'phishing' mean in cybersecurity?",
@@ -1679,7 +1679,7 @@
     {
         "theme": "Informatics",
         "subject": "Computer History",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Who is known as the father of computers?",
@@ -1723,7 +1723,7 @@
     {
         "theme": "Informatics",
         "subject": "Cybersecurity",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "What does 'phishing' mean in cybersecurity?",
@@ -1767,7 +1767,7 @@
     {
         "theme": "Informatics",
         "subject": "Computer History",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Who is known as the father of computers?",
@@ -1811,7 +1811,7 @@
     {
         "theme": "Informatics",
         "subject": "Cybersecurity",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "What does 'phishing' mean in cybersecurity?",
@@ -1855,7 +1855,7 @@
     {
         "theme": "Informatics",
         "subject": "Computer History",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Who is known as the father of computers?",
@@ -1899,7 +1899,7 @@
     {
         "theme": "Informatics",
         "subject": "Computer History",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Who is known as the father of computers?",
@@ -1943,7 +1943,7 @@
     {
         "theme": "Informatics",
         "subject": "Computer History",
-        "card": [
+        "questions": [
             {
                 "difficulty": 1,
                 "question": "Who is known as the father of computers?",
