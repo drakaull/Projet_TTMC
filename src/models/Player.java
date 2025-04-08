@@ -5,11 +5,10 @@ import javafx.scene.paint.Color;
 public class Player {
 	private String pseudo;
 	private int score;
-	private Color color;
+	private Pawn pawn;
 	
 	public Player(String pseudo, int score, Color color) {
 		super();
-		setColor(color);
 		setPseudo(pseudo);
 		setScore(score);
 	}
@@ -34,13 +33,13 @@ public class Player {
 		}
 	}
 
-	public Color getColor() {
-		return color;
-	}
+	public void setPawn(Pawn pawn) {
+        this.pawn = pawn;
+    }
 
-	public void setColor(Color color) {
-		this.color = color;
-	}
+    public Pawn getPawn() {
+        return pawn;
+    }
 	
 	
 	
