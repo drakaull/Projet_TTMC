@@ -1,7 +1,9 @@
 package controller;
 
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
@@ -49,8 +51,24 @@ public class BoardGameController {
         transition.setByX(newX - oldX);
         transition.setByY(newY - oldY);
         
+        transition.setOnFinished(e -> {
+            // Vérifie si le pion est sur la dernière case
+            if (pawn.getPosition() == boardGame.getTotalCases() - 1) {
+            	Platform.runLater(this::showVictoryPopup);
+            }
+        });
         
 
         transition.play();
     }
+    
+    private void showVictoryPopup() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Victoire !");
+        alert.setHeaderText(null);
+        alert.setContentText(pawn.getName() + " a gagné la partie !");
+        alert.showAndWait(); // Affiche la pop-up
+    }
+
+
 }
