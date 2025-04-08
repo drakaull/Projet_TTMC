@@ -19,7 +19,7 @@ public class Pawn {
         return position;
     }
 
-    public String getNom() {
+    public String getName() {
         return name;
     }
     

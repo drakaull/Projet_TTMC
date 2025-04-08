@@ -63,4 +63,8 @@ public class BoardGame {
     public int getSize() {
         return cases.size();
     }
+
+	public int getTotalCases() {
+		  return cases.size();
+	}
 }
