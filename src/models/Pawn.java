@@ -1,9 +1,11 @@
 package models;
 
 public class Pawn {
-    private int position; // numéro de case du jeu
+	private String color;
+	private int position; // numéro de case du jeu
     private String name;
     private int x,y;
+    private Player owner;
 
     public Pawn(String nom) {
         this.name = nom;
@@ -31,6 +33,10 @@ public class Pawn {
     	return y;
     }
     
+    public Player getPlayer() {
+    	return owner;
+    }
+    
     // les setters 
     public void setPosition(int position) {
     	this.position = position;
@@ -42,4 +48,24 @@ public class Pawn {
     public void setY(int y) {
     	this.y=y;
     }
+    
+    public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public Player getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Player owner) {
+		this.owner = owner;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }
