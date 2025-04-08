@@ -8,6 +8,10 @@ public class PawnController {
 	
 	private Pawn pawn;
 	
+	public PawnController(Pawn pawn) {
+		this.pawn = pawn;
+	}
+	
 	public void moveForward(int movement, BoardGame boardgame) {
         pawn.setPosition(pawn.getPosition()+movement);	//position += movement;
         if (pawn.getPosition() >= boardgame.getSize()) {
