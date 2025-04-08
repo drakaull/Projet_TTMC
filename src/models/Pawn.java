@@ -12,16 +12,7 @@ public class Pawn {
         this.y = 720;
     }
 
-    public void moveForward(int movement, BoardGame boardgame) {
-        position += movement;
-        if (position >= boardgame.getSize()) {
-            position = boardgame.getSize() - 1; // Ne dépasse pas la fin du plateau
-        }
-        
-        Case newCase = boardgame.getCase(position);
-        x = newCase.getX();
-        y = newCase.getY();
-    }
+   
 
     // les getters
     public int getPosition() {
@@ -38,5 +29,17 @@ public class Pawn {
     
     public int getY() {
     	return y;
+    }
+    
+    // les setters 
+    public void setPosition(int position) {
+    	this.position = position;
+    }
+    
+    public void setX(int x) {
+    	this.x=x;
+    }
+    public void setY(int y) {
+    	this.y=y;
     }
 }
