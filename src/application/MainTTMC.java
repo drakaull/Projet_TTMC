@@ -6,14 +6,9 @@ import controller.GameController;
 import controller.PrincipalController;
 import exceptions.NoCardsLoadedException;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import models.Card;
 import utils.CardDataLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
-
 
 public class MainTTMC extends Application {
 	@Override
