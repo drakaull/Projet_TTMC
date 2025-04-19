@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import models.Card;
+import models.Player;
 import models.Question;
 
 import java.util.HashSet;
@@ -11,10 +12,13 @@ import java.util.HashSet;
 public class GameController {
     private CardController cardController;
     private Set<Card> usedCards;
+    private List<Player> players;
+    private int currentPlayerIndex = 0;
 
     public GameController(List<Card> allCards) {
         this.cardController = new CardController(allCards);
         this.usedCards = new HashSet<>();
+        this.players = players;
     }
 
     // The player lands on a square with a main theme
@@ -39,5 +43,29 @@ public class GameController {
     // Can be used to reset the used cards (new game)
     public void resetUsedCards() {
         usedCards.clear();
+    }
+    
+    // Get current player
+    public Player getCurrentPlayer() {
+    	return players.get(currentPlayerIndex);
+    }
+    
+    // Go to next player
+    public void nextPlayer() {
+    	currentPlayerIndex = (currentPlayerIndex + 1) % players.size();
+    }
+    
+    public void resetPlayers() {
+    	currentPlayerIndex = 0;
+    	for (Player player : players) {
+    		player.setScore(0);
+    		if (player.getPawn() != null) {
+    			player.getPawn().setPosition(0);
+    		}
+    	}
+    }
+    
+    public List<Player> getPlayers() {
+    	return players;
     }
 } 

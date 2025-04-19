@@ -68,7 +68,7 @@ public class BoardGameController {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Victoire !");
         alert.setHeaderText(null);
-        alert.setContentText(pawn.getName() + " a gagné la partie !");
+        alert.setContentText("XXX a gagné la partie !");
         alert.showAndWait(); // Affiche la pop-up
     }
 

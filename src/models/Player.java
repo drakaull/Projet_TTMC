@@ -3,45 +3,41 @@ package models;
 import javafx.scene.paint.Color;
 
 public class Player {
-	private String pseudo;
-	private int score;
-	private Pawn pawn;
-	
-	public Player(String pseudo, int score, Color color) {
-		super();
-		setPseudo(pseudo);
-		setScore(score);
-	}
+    private String name;
+    private int score;
+    private int position;
+    private Pawn pawn;
 
-	public String getPseudo() {
-		return pseudo;
-	}
+    public Player(String name) {
+        this.name = name;
+        this.score = 0;
+    }
 
-	public void setPseudo(String pseudo) {
-		this.pseudo = pseudo;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public int getScore() {
-		return score;
-	}
+    public int getScore() {
+        return score;
+    }
 
-	public void setScore(int score) {
-		if (score > 0) {
-			this.score = score;
-		} else {
-			this.score = 0;
-		}
-	}
+    public void setScore(int score) {
+        this.score = score;
+    }
 
-	public void setPawn(Pawn pawn) {
-        this.pawn = pawn;
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 
     public Pawn getPawn() {
         return pawn;
     }
-	
-	
-	
-	
-}
+
+    public void setPawn(Pawn pawn) {
+        this.pawn = pawn;
+    }
+} 

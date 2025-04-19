@@ -1,62 +1,37 @@
 package models;
 
 public class Pawn {
-	private String color;
-	private int position; // numéro de case du jeu
-    private int x,y;
+    private String color;
+    private int position;
     private Player owner;
 
-    public Pawn(String nom) {
-        this.position = 0; // Début du plateau
-        this.x = 150;
-        this.y = 720;
+    public Pawn(String color, int position, Player owner) {
+        this.color = color;
+        this.position = position;
+        this.owner = owner;
     }
 
-   
+    public String getColor() {
+        return color;
+    }
 
-    // les getters
+    public void setColor(String color) {
+        this.color = color;
+    }
+
     public int getPosition() {
         return position;
     }
-    
-    public int getX() {
-    	return x;
-    }
-    
-    public int getY() {
-    	return y;
-    }
-    
-    public Player getPlayer() {
-    	return owner;
-    }
-    
-    // les setters 
+
     public void setPosition(int position) {
-    	this.position = position;
+        this.position = position;
     }
-    
-    public void setX(int x) {
-    	this.x=x;
+
+    public Player getOwner() {
+        return owner;
     }
-    public void setY(int y) {
-    	this.y=y;
+
+    public void setOwner(Player owner) {
+        this.owner = owner;
     }
-    
-    public String getColor() {
-		return color;
-	}
-
-	public void setColor(String color) {
-		this.color = color;
-	}
-
-	public Player getOwner() {
-		return owner;
-	}
-
-	public void setOwner(Player owner) {
-		this.owner = owner;
-	}
-
 }
