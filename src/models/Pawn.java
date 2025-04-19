@@ -3,12 +3,10 @@ package models;
 public class Pawn {
 	private String color;
 	private int position; // numéro de case du jeu
-    private String name;
     private int x,y;
     private Player owner;
 
     public Pawn(String nom) {
-        this.name = nom;
         this.position = 0; // Début du plateau
         this.x = 150;
         this.y = 720;
@@ -19,10 +17,6 @@ public class Pawn {
     // les getters
     public int getPosition() {
         return position;
-    }
-
-    public String getName() {
-        return name;
     }
     
     public int getX() {
@@ -65,7 +59,4 @@ public class Pawn {
 		this.owner = owner;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
 }
