@@ -13,7 +13,7 @@ public class AnswerValidator {
         answer = normalize(answer);
 
         // Compare similarity
-        return levenshteinDistance(input, answer) <= 2 || answer.contains(input) || input.contains(answer);
+        return levenshteinDistance(input, answer) <= 1 || answer.contains(input) || input.contains(answer);
     }
 
     private static String normalize(String s) {
