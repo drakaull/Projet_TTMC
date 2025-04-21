@@ -70,6 +70,7 @@ public class QuestionController {
                 mainController.askNewCard();
             }
         });
+        mainController.nextPlayer();
 
 
         ((Stage) themeLabel.getScene().getWindow()).close();
