@@ -47,9 +47,10 @@ public class QuestionController {
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("Level " + level + " Question");
         dialog.setHeaderText(null);
-        dialog.setContentText(question);
+        StringBuilder questionText = new StringBuilder(question);
+        
         if(questionObj.getOptions() != null) {
-        	StringBuilder questionText = new StringBuilder("Options :\n");
+        	questionText.append("\nOptions :\n");
         	for(int i=0 ; i< questionObj.getOptions().size() ; i++) {
         		String option = questionObj.getOptions().get(i);
         		questionText.append("-").append(option).append("\n");
