@@ -1,5 +1,6 @@
 package application;
 	
+import java.util.Arrays;
 import java.util.List;
 
 import controller.GameController;
@@ -8,6 +9,7 @@ import exceptions.NoCardsLoadedException;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import models.Card;
+import models.Player;
 import utils.CardDataLoader;
 
 public class MainTTMC extends Application {
@@ -20,7 +22,10 @@ public class MainTTMC extends Application {
 			throw new NoCardsLoadedException();
 		}
 		
-		GameController gameController = new GameController(cards);
+		List<Player> players = Arrays.asList(new Player("Player 1"), new Player("Player 2"));
+
+		GameController gameController = new GameController(cards, players);
+
 		
 		new PrincipalController(primaryStage);
 	}
