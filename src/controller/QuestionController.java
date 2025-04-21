@@ -35,7 +35,7 @@ public class QuestionController {
 
     private void updateLabel() {
         if (card != null && playerName != null && themeLabel != null) {
-            themeLabel.setText(playerName + ", how confident are you in " + card.getTheme() + "?");
+            themeLabel.setText(playerName + ", how confident are you in " + card.getSubject() + "?");
         }
     }
 
