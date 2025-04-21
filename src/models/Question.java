@@ -17,6 +17,10 @@ public class Question {
 		this.subject = subject;
 	}
 
+	public String getQuestion() {
+		return question;
+	}
+
 	public String getTitle() {
         return question;
     }

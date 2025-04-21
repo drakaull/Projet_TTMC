@@ -14,7 +14,7 @@ public class MainTTMC extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception, NoCardsLoadedException {
 		//cards loading
-		List<Card> cards = CardDataLoader.loadCardsFromJson("@../../resource/json/databaseQuestion.json");
+		List<Card> cards = CardDataLoader.loadCardsFromJson();
 		
 		if (cards == null || cards.isEmpty()) {
 			throw new NoCardsLoadedException();
