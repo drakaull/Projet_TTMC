@@ -54,7 +54,7 @@ public class QuestionController {
             if (answer.equalsIgnoreCase(expected)) {
                 mainController.movePawn(level); // Cette méthode relance le tour après déplacement
             } else {
-                Alert a = new Alert(Alert.AlertType.INFORMATION, "Wrong answer!");
+                Alert a = new Alert(Alert.AlertType.INFORMATION, "Wrong answer!\nThe correct answer was: "+expected);
                 a.showAndWait();
 
                 // 👇 Reposer une nouvelle carte
