@@ -7,6 +7,7 @@ import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
 import models.Card;
 import models.Question;
+import utils.AnswerValidator;
 
 import java.util.Optional;
 
@@ -18,6 +19,7 @@ public class QuestionController {
     private Card card;
     private String playerName;
     private BoardGameController mainController;
+    private Question question;
 
     public void setCard(Card card) {
         this.card = card;
@@ -74,6 +76,10 @@ public class QuestionController {
 
 
         ((Stage) themeLabel.getScene().getWindow()).close();
+    }
+    
+    public boolean checkAnswer(String userInput) {
+        return AnswerValidator.isCorrect(userInput, question.getAnswer());
     }
 
 
