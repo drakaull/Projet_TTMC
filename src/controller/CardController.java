@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -13,6 +14,7 @@ public class CardController {
 
 	public CardController(List<Card> cards) {
 		this.allCards = cards;
+		this.usedCards = new HashSet<>();
 	}
 
 	public Card pickCardForTheme(String theme) {

@@ -28,12 +28,14 @@ public class BoardGameController {
     private Pawn pawn;
     private BoardGame boardGame;
     private PawnController pawnController;
+    private CardController cardController;
 
     public void initialize() {
         Player player1 = new Player("Player1");
         boardGame = new BoardGame();
         pawn = new Pawn("Player1", 0, player1);
         pawnController = new PawnController(pawn);
+        cardController = new CardController(CardDataLoader.loadCardsFromJson());
 
         Case startCase = boardGame.getCase(pawn.getPosition());
         pawn1.setTranslateX(startCase.getX());
@@ -66,7 +68,9 @@ public class BoardGameController {
                 Platform.runLater(this::showVictoryPopup);
             } else {
                 // 🎯 Launch next question automatically!
-                Card nextCard = CardDataLoader.getRandomCard();
+            	String currentTheme = boardGame.getCase(pawn.getPosition()).getType();
+            	
+                Card nextCard = cardController.pickCardForTheme(currentTheme);
                 Platform.runLater(() -> showDifficultyChoice(nextCard));
             }
         });
