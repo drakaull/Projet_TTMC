@@ -9,17 +9,21 @@ import models.Player;
 public class PlayerController {
 	public List<Player> createPlayersWithPawns(List<String> playerNames) {
 		String[] pawnColors = { "Red", "Blue", "Green", "Yellow" };
-		List<Player> players = new ArrayList<Player>();
+		List<Player> players = new ArrayList<>();
 
 		for (int i = 0; i < playerNames.size(); i++) {
 			String playerName = playerNames.get(i);
 			String color = pawnColors[i % pawnColors.length];
 
-			Pawn pawn = new Pawn(color, 0, null);
 			Player player = new Player(playerName);
-			pawn.setOwner(player);
+			Pawn pawn = new Pawn(color, 0, player);
+
+			player.setPawn(pawn); // seulement si ta classe Player a cette méthode
+
+			players.add(player);
 		}
 
 		return players;
 	}
 }
+
