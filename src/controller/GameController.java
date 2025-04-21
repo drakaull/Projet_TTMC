@@ -3,6 +3,7 @@ package controller;
 import java.util.List;
 import java.util.Set;
 
+import models.BoardGame;
 import models.Card;
 import models.Player;
 import models.Question;
@@ -14,12 +15,16 @@ public class GameController {
     private Set<Card> usedCards;
     private List<Player> players;
     private int currentPlayerIndex = 0;
+    private BoardGame boardGame;
 
-    public GameController(List<Card> allCards) {
+
+    public GameController(List<Card> allCards, List<Player> players) {
         this.cardController = new CardController(allCards);
         this.usedCards = new HashSet<>();
         this.players = players;
+        this.boardGame = new BoardGame(); // ⬅️ ajoute cette ligne
     }
+
 
     // The player lands on a square with a main theme
     public Card drawCardForTheme(String theme) {
@@ -68,4 +73,8 @@ public class GameController {
     public List<Player> getPlayers() {
     	return players;
     }
+    public BoardGame getBoardGame() {
+        return boardGame;
+    }
+
 } 

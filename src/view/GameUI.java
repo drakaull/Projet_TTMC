@@ -23,4 +23,6 @@ public class GameUI {
 			stage.setScene(scene);
 			stage.show();
 	}
+		
+	
 }
