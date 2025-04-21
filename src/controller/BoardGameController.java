@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.net.URL;
 
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
@@ -11,6 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -32,6 +35,7 @@ public class BoardGameController {
     private PawnController pawnController;
     private CardController cardController;
     private GameController gameController;
+    private MediaPlayer mediaPlayer;
 
     public void initialize() {
         Player player1 = new Player("Player1");
@@ -48,8 +52,33 @@ public class BoardGameController {
         // 🎯 Launch the first question immediately
         Card randomCard = CardDataLoader.getRandomCard(); // or getCard()
         showDifficultyChoice(randomCard);
+        
+        startBackgroundMusic();
 
     }
+    
+    private void startBackgroundMusic() {
+    	try {
+    		URL resource = getClass().getResource("/song/background.mp3");
+    		Media media = new Media(resource.toString());
+    		mediaPlayer = new MediaPlayer(media);
+    		mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+    		mediaPlayer.setVolume(0.3);
+    		mediaPlayer.play();
+    		
+    	}
+    	catch(Exception e) {
+    		System.out.println("");
+    	}
+    }
+    
+    public void stopBackgroundMusic() {
+    	if(mediaPlayer != null) {
+    		mediaPlayer.stop();
+    	}
+    }
+    
+    
     public void nextPlayer() {
         gameController.nextPlayer();
         updateCurrentPlayerLabel();
