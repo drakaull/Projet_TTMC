@@ -20,51 +20,66 @@ import models.Player;
 import utils.CardDataLoader;
 
 public class NbPlayersChoiceUI {
-	
-	private Slider playerSlider;
-	private Stage stage;
-	private Scene scene;
-	private Parent root;
-	
-	public void switchToScene(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("gameMenuUI.fxml"));
-		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
-	}
-	
-	@FXML
-	private void switchToScene2(ActionEvent event) {
-	    int nbPlayers = (int) playerSlider.getValue();
 
-	    // Génération des noms : tu peux aussi les saisir si tu veux
-	    List<String> names = new ArrayList<>();
-	    for (int i = 1; i <= nbPlayers; i++) {
-	        names.add("Player " + i);
-	    }
+    @FXML
+    private Slider playerSlider;
 
-	    PlayerController playerController = new PlayerController();
-	    List<Player> players = playerController.createPlayersWithPawns(names);
+    @FXML
+    private Slider difficultySlider;
 
-	    List<Card> allCards = CardDataLoader.loadCardsFromJson();
+    private Stage stage;
+    private Scene scene;
 
-	    GameController game = new GameController(allCards, players);
+    public void switchToScene(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("gameMenuUI.fxml")); // corrigé avec le bon chemin
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
-	    try {
-	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/BoardGame.fxml"));
-	        Parent root = loader.load();
+    @FXML
+    private void switchToScene2(ActionEvent event) {
+        try {
+            // 🔒 Vérifie que les sliders ne sont pas null
+            if (playerSlider == null || difficultySlider == null) {
+                throw new IllegalStateException("Les sliders ne sont pas initialisés. Vérifie les fx:id dans le FXML.");
+            }
 
-	        BoardGameController controller = loader.getController();
-	        controller.setGameController(game); // Passe les joueurs ici
+            int nbPlayers = (int) playerSlider.getValue();
+            int difficulty = (int) difficultySlider.getValue(); // Tu peux l'utiliser plus tard
 
-	        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-	        stage.setScene(new Scene(root));
-	        stage.show();
+            // Création des noms des joueurs
+            List<String> names = new ArrayList<>();
+            for (int i = 1; i <= nbPlayers; i++) {
+                names.add("Player " + i);
+            }
 
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	    }
-	}
+            PlayerController playerController = new PlayerController();
+            List<Player> players = playerController.createPlayersWithPawns(names);
 
+            List<Card> allCards = CardDataLoader.loadCardsFromJson();
+
+            GameController game = new GameController(allCards, players);
+
+            // Chargement de la vue principale
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("gameUI.fxml"));
+            Parent root = loader.load();
+
+            BoardGameController controller = loader.getController();
+            controller.setGameController(game); // Passe le contrôleur
+
+            // Affichage de la nouvelle scène
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (IllegalStateException ise) {
+            ise.printStackTrace();
+            System.err.println("⚠ Vérifie bien que les fx:id dans ton FXML matchent les noms dans ta classe Java.");
+        }
+    }
 }
