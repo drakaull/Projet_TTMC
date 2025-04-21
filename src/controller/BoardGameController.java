@@ -10,12 +10,13 @@ import javafx.util.Duration;
 import models.BoardGame;
 import models.Case;
 import models.Pawn;
+import models.Player;
 
 public class BoardGameController {
-    
+
     @FXML
     private Circle pawn1; // Injection du pion depuis le FXML
-    
+
     @FXML
     private Button buttonAdvance; // Injection du bouton depuis le FXML
 
@@ -25,52 +26,50 @@ public class BoardGameController {
 
     public void initialize() {
         // Initialisation du plateau et du pion
+        Player player1 = new Player("Player1");
         boardGame = new BoardGame();
-        pawn = new Pawn("Player1");		// boucle à faire avec le nombre de joueur à venir 
-        pawnController = new PawnController(pawn);
+        pawn = new Pawn("Player1", 0, player1); // logique du jeu
+        pawnController = new PawnController(pawn); // pas besoin de Node ici !
 
-        // Placer le pion à sa position de départ
+        // Position initiale graphique du pion (translate)
+        pawn1.setLayoutX(0); // base du pion
+        pawn1.setLayoutY(0);
         Case startCase = boardGame.getCase(pawn.getPosition());
-        pawn1.setLayoutX(startCase.getX());
-        pawn1.setLayoutY(startCase.getY());
+        pawn1.setTranslateX(startCase.getX());
+        pawn1.setTranslateY(startCase.getY());
 
-        // Associer le bouton à l'action de déplacement
+        // Action du bouton
         buttonAdvance.setOnAction(event -> movePawn(1));
     }
 
     public void movePawn(int movement) {
-        int oldX = pawn.getX();
-        int oldY = pawn.getY();
-
-        // Avancer le pion dans la logique du jeu
+        // Mise à jour logique du pion
         pawnController.moveForward(movement, boardGame);
 
-        int newX = pawn.getX();
-        int newY = pawn.getY();
+        // Récupération de la nouvelle position cible
+        Case newCase = boardGame.getCase(pawn.getPosition());
+        double targetX = newCase.getX();
+        double targetY = newCase.getY();
 
-        // Animation vers la nouvelle position
+        // Animation avec position absolue
         TranslateTransition transition = new TranslateTransition(Duration.millis(100), pawn1);
-        transition.setByX(newX - oldX);
-        transition.setByY(newY - oldY);
-        
+        transition.setToX(targetX);
+        transition.setToY(targetY);
+
         transition.setOnFinished(e -> {
-            // Vérifie si le pion est sur la dernière case
             if (pawn.getPosition() == boardGame.getTotalCases() - 1) {
-            	Platform.runLater(this::showVictoryPopup);
+                Platform.runLater(this::showVictoryPopup);
             }
         });
-        
 
         transition.play();
     }
-    
+
     private void showVictoryPopup() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Victoire !");
         alert.setHeaderText(null);
         alert.setContentText("XXX a gagné la partie !");
-        alert.showAndWait(); // Affiche la pop-up
+        alert.showAndWait();
     }
-
-
 }
