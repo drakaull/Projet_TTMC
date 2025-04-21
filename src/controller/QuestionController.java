@@ -48,6 +48,14 @@ public class QuestionController {
         dialog.setTitle("Level " + level + " Question");
         dialog.setHeaderText(null);
         dialog.setContentText(question);
+        if(questionObj.getOptions() != null) {
+        	StringBuilder questionText = new StringBuilder("Options :\n");
+        	for(int i=0 ; i< questionObj.getOptions().size() ; i++) {
+        		String option = questionObj.getOptions().get(i);
+        		questionText.append("-").append(option).append("\n");
+        	}
+        	dialog.setContentText(questionText.toString());
+        }
 
         Optional<String> result = dialog.showAndWait();
         result.ifPresent(answer -> {
