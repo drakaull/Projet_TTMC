@@ -53,7 +53,7 @@ public class BoardGameController {
         Card randomCard = CardDataLoader.getRandomCard(); // or getCard()
         showDifficultyChoice(randomCard);
         
-        startBackgroundMusic();
+        startBackgroundMusic(); 
 
     }
     
