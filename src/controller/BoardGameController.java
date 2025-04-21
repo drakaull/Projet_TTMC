@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Circle;
@@ -35,9 +36,10 @@ public class BoardGameController {
     private PawnController pawnController;
     private CardController cardController;
     private GameController gameController;
-    private MediaPlayer mediaPlayer;
+    private AudioClip backgroundMusic;
 
     public void initialize() {
+    	startBackgroundMusic();
         Player player1 = new Player("Player1");
         boardGame = new BoardGame();
         pawn = new Pawn("Player1", 0, player1);
@@ -53,33 +55,22 @@ public class BoardGameController {
         Card randomCard = CardDataLoader.getRandomCard(); // or getCard()
         showDifficultyChoice(randomCard);
         
-        startBackgroundMusic(); 
-        // test git
-        // test git
 
     }
     
     private void startBackgroundMusic() {
     	try {
-    		URL resource = getClass().getResource("/song/background.mp3");
-    		Media media = new Media(resource.toString());
-    		mediaPlayer = new MediaPlayer(media);
-    		mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-    		mediaPlayer.setVolume(0.3);
-    		mediaPlayer.play();
-    		
+    		URL musicPath = getClass().getResource("/resource/song/background.mp3");
+    		backgroundMusic = new AudioClip(musicPath.toExternalForm());
+    		backgroundMusic.setCycleCount(AudioClip.INDEFINITE);
+    		backgroundMusic.setVolume(0.7);
+    		backgroundMusic.play();
     	}
     	catch(Exception e) {
-    		System.out.println("");
+    		System.out.println("music error : "+e.getMessage());
     	}
     }
-    
-    public void stopBackgroundMusic() {
-    	if(mediaPlayer != null) {
-    		mediaPlayer.stop();
-    	}
-    }
-    
+
     
     public void nextPlayer() {
         gameController.nextPlayer();
