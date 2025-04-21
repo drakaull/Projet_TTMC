@@ -47,14 +47,23 @@ public class QuestionController {
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("Level " + level + " Question");
         dialog.setHeaderText(null);
-        dialog.setContentText(question);
+        StringBuilder questionText = new StringBuilder(question);
+        
+        if(questionObj.getOptions() != null) {
+        	questionText.append("\nOptions :\n");
+        	for(int i=0 ; i< questionObj.getOptions().size() ; i++) {
+        		String option = questionObj.getOptions().get(i);
+        		questionText.append("-").append(option).append("\n");
+        	}
+        	dialog.setContentText(questionText.toString());
+        }
 
         Optional<String> result = dialog.showAndWait();
         result.ifPresent(answer -> {
             if (answer.equalsIgnoreCase(expected)) {
                 mainController.movePawn(level); // Cette méthode relance le tour après déplacement
             } else {
-                Alert a = new Alert(Alert.AlertType.INFORMATION, "Wrong answer!");
+                Alert a = new Alert(Alert.AlertType.INFORMATION, "Wrong answer!\nThe correct answer was: "+expected);
                 a.showAndWait();
 
                 // 👇 Reposer une nouvelle carte
