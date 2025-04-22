@@ -39,7 +39,7 @@ public class BoardGameController {
     private AudioClip backgroundMusic;
 
     public void initialize() {
-    	startBackgroundMusic();
+    	// startBackgroundMusic();
         Player player1 = new Player("Player1");
         boardGame = new BoardGame();
         pawn = new Pawn("Player1", 0, player1);
@@ -58,7 +58,7 @@ public class BoardGameController {
 
     }
     
-    private void startBackgroundMusic() {
+   /* private void startBackgroundMusic() {
     	try {
     		URL musicPath = getClass().getResource("/resource/song/background.mp3");
     		if(musicPath == null)
@@ -71,7 +71,7 @@ public class BoardGameController {
     	catch(Exception e) {
     		System.out.println("music error : "+e.getMessage());
     	}
-    }
+    }*/
 
     
     public void nextPlayer() {
