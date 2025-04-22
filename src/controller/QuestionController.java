@@ -43,49 +43,48 @@ public class QuestionController {
 
     private void handleDifficultyChoice(int level) {
         Question questionObj = card.getQuestions().get(level - 1);
-        String question = questionObj.getQuestion();         // ou getQuestion()
+        this.question = questionObj; // store for checkAnswer
+        String questionTextStr = questionObj.getQuestion();
         String expected = questionObj.getAnswer();
 
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("Level " + level + " Question");
         dialog.setHeaderText(null);
-        StringBuilder questionText = new StringBuilder(question);
-        
-        if(questionObj.getOptions() != null) {
-        	questionText.append("\nOptions :\n");
-        	for(int i=0 ; i< questionObj.getOptions().size() ; i++) {
-        		String option = questionObj.getOptions().get(i);
-        		questionText.append("-").append(option).append("\n");
-        	}
-        	dialog.setContentText(questionText.toString());
+        StringBuilder questionText = new StringBuilder(questionTextStr);
+
+        if (questionObj.getOptions() != null && !questionObj.getOptions().isEmpty()) {
+            questionText.append("\nOptions :\n");
+            for (String option : questionObj.getOptions()) {
+                questionText.append("- ").append(option).append("\n");
+            }
         }
+        dialog.setContentText(questionText.toString());
 
         Optional<String> result = dialog.showAndWait();
         result.ifPresent(answer -> {
-            if (answer.equalsIgnoreCase(expected)) {
+            if (checkAnswer(answer)) {
+                Alert success = new Alert(Alert.AlertType.INFORMATION, "Correct answer!");
+                success.showAndWait();
                 mainController.movePawn(level); // Cette méthode relance le tour après déplacement
             } else {
-                Alert a = new Alert(Alert.AlertType.INFORMATION, "Wrong answer!\nThe correct answer was: "+expected);
+                Alert a = new Alert(Alert.AlertType.INFORMATION, "Wrong answer!\nThe correct answer was: " + expected);
                 a.showAndWait();
 
                 // 👇 Reposer une nouvelle carte
                 mainController.askNewCard();
             }
+            mainController.nextPlayer();
         });
-        mainController.nextPlayer();
-
 
         ((Stage) themeLabel.getScene().getWindow()).close();
     }
-    
+
     public boolean checkAnswer(String userInput) {
         return AnswerValidator.isCorrect(userInput, question.getAnswer());
     }
-
 
     @FXML private void handleDifficulty1() { handleDifficultyChoice(1); }
     @FXML private void handleDifficulty2() { handleDifficultyChoice(2); }
     @FXML private void handleDifficulty3() { handleDifficultyChoice(3); }
     @FXML private void handleDifficulty4() { handleDifficultyChoice(4); }
 }
-
