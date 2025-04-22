@@ -14,7 +14,7 @@
          <children>
             <ImageView fitHeight="409.0" fitWidth="607.0" layoutX="-1.0" layoutY="-48.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resource/wood.jpg" />
+                  <Image url="@../resource/wood.jpg" />
                </image>
             </ImageView>
             <Button layoutX="254.0" layoutY="95.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="114.0" text="Existing player" />

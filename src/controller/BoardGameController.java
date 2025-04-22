@@ -60,7 +60,7 @@ public class BoardGameController {
     
     private void startBackgroundMusic() {
     	try {
-    		URL musicPath = getClass().getResource("../../../resource/song/background.mp3");
+    		URL musicPath = getClass().getResource("../resource/music/background.mp3");
     		if(musicPath == null)
     			System.out.println("Erreur : fichier mp3 non trouvé!");
     		backgroundMusic = new AudioClip(musicPath.toExternalForm());

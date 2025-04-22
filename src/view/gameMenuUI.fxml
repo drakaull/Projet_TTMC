@@ -14,7 +14,7 @@
          <children>
             <ImageView fitHeight="866.0" fitWidth="1533.0" layoutY="-1.0">
                <image>
-                  <Image url="@../../resource/images/wood.jpg" />
+                  <Image url="@../resource/images/wood.jpg" />
                </image>
             </ImageView>
             <Button layoutX="566.0" layoutY="236.0" mnemonicParsing="false" onAction="#switchToScene" prefHeight="98.0" prefWidth="298.0" text="Play">

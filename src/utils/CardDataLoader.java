@@ -16,7 +16,7 @@ public class CardDataLoader {
     private static List<Card> cards; // cached cards
     private static final Random random = new Random();
 
-    private static final String JSON_PATH = "resource/json/databaseQuestion.json"; // adapt if needed
+    private static final String JSON_PATH = "src/resource/json/databaseQuestion.json";
 
     // Lazy loading of cards
     public static List<Card> loadCardsFromJson() {
