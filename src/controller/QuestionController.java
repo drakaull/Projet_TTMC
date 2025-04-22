@@ -41,7 +41,7 @@ public class QuestionController {
             themeLabel.setText(playerName + ", how confident are you in " + card.getSubject() + "?");
         }
     }
-//test
+
     private void handleDifficultyChoice(int level) {
         Question questionObj = card.getQuestions().get(level - 1);
         this.question = questionObj; // store for checkAnswer

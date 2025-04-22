@@ -69,8 +69,6 @@ public class BoardGameController {
         updatePlayerLabel();
         askNewCard();
     }
-<<<<<<< HEAD
-=======
     
     private void startBackgroundMusic() {
     	try {
@@ -90,11 +88,10 @@ public class BoardGameController {
     
     public void nextPlayer() {
         gameController.nextPlayer();
-        updateCurrentPlayerLabel();
+        updatePlayerLabel();
     }
 
 
->>>>>>> branch 'master' of git@github.com:drakaull/Projet_TTMC.git
 
     public void movePawn(int movement) {
         Player currentPlayer = gameController.getCurrentPlayer();
@@ -156,20 +153,5 @@ public class BoardGameController {
         }
     }
 
-    private void startBackgroundMusic() {
-        try {
-            URL musicPath = getClass().getResource("/resource/song/background.mp3");
-            if (musicPath == null) {
-                System.out.println("Erreur : fichier mp3 non trouvé!");
-                return;
-            }
-            backgroundMusic = new AudioClip(musicPath.toExternalForm());
-            backgroundMusic.setCycleCount(AudioClip.INDEFINITE);
-            backgroundMusic.setVolume(0.7);
-            backgroundMusic.play();
-        } catch (Exception e) {
-            System.out.println("music error : " + e.getMessage());
-        }
-    }
 
 } 
