@@ -36,6 +36,10 @@ public class QuestionController {
         this.mainController = controller;
     }
 
+    public void setGameController(GameController gameController) {
+        this.gameController = gameController;
+    }
+
     private void updateLabel() {
         if (card != null && playerName != null && themeLabel != null) {
             themeLabel.setText(playerName + ", how confident are you in " + card.getSubject() + "?");
@@ -66,15 +70,15 @@ public class QuestionController {
             if (checkAnswer(answer)) {
                 Alert success = new Alert(Alert.AlertType.INFORMATION, "Correct answer!");
                 success.showAndWait();
-                mainController.movePawn(level); // Cette méthode relance le tour après déplacement
+                mainController.movePawn(level);
             } else {
                 Alert a = new Alert(Alert.AlertType.INFORMATION, "Wrong answer!\nThe correct answer was: " + expected);
                 a.showAndWait();
-
-                // 👇 Reposer une nouvelle carte
                 mainController.askNewCard();
             }
-            gameController.nextPlayer();
+            if (gameController != null) {
+                gameController.nextPlayer();
+            }
         });
 
         ((Stage) themeLabel.getScene().getWindow()).close();
