@@ -19,6 +19,7 @@ public class QuestionController {
     private Card card;
     private String playerName;
     private BoardGameController mainController;
+    private GameController gameController;
     private Question question;
 
     public void setCard(Card card) {
@@ -73,7 +74,7 @@ public class QuestionController {
                 // 👇 Reposer une nouvelle carte
                 mainController.askNewCard();
             }
-            mainController.nextPlayer();
+            gameController.nextPlayer();
         });
 
         ((Stage) themeLabel.getScene().getWindow()).close();

@@ -9,7 +9,7 @@ public class PawnController {
 	private Pawn pawn;
 	private Circle graphicalPawn;
 
-	public PawnController(Pawn pawn, Circle graphicalPawn) {
+	public PawnController(Pawn pawn) {
 	    this.pawn = pawn;
 	    this.graphicalPawn = graphicalPawn;
 	}
