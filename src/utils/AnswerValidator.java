@@ -3,7 +3,7 @@ package utils;
 public class AnswerValidator {
 
     public static boolean isCorrect(String userInput, String correctAnswer) {
-        if (userInput == null || correctAnswer == null) return false;
+        if (userInput == null || correctAnswer == null || userInput.trim().isEmpty()) return false;
 
         String input = userInput.trim().toLowerCase();
         String answer = correctAnswer.trim().toLowerCase();
