@@ -1,7 +1,12 @@
+// Nouveau BoardGameController avec gestion multi-joueurs
+
 package controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
@@ -10,11 +15,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.AudioClip;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -28,34 +31,43 @@ import utils.CardDataLoader;
 public class BoardGameController {
 
     @FXML
-    private Circle pawn1; // Injection du pion depuis le FXML
+    private AnchorPane gamePane;
+
     @FXML
     private Label currentPlayerLabel;
-    private Pawn pawn;
-    private BoardGame boardGame;
-    private PawnController pawnController;
-    private CardController cardController;
+
+
     private GameController gameController;
+    private BoardGame boardGame;
+    private Map<Player, Circle> playerCircles = new HashMap<>();
     private AudioClip backgroundMusic;
 
-    public void initialize() {
-    	startBackgroundMusic();
-        Player player1 = new Player("Player1");
+    public void setGameController(GameController gameController) {
+        this.gameController = gameController;
+        initializeGame();
+    }
+
+    private void initializeGame() {
         boardGame = new BoardGame();
-        pawn = new Pawn("Player1", 0, player1);
-        pawnController = new PawnController(pawn, pawn1);
-        cardController = new CardController(CardDataLoader.loadCardsFromJson());
+        List<Player> players = gameController.getPlayers();
 
-        Case startCase = boardGame.getCase(pawn.getPosition());
-        pawn1.setTranslateX(startCase.getX());
-        pawn1.setTranslateY(startCase.getY());
+        for (Player player : players) {
+            Pawn pawn = new Pawn(player.getName(), 0, player);
+            player.setPawn(pawn);
 
+            Circle circle = new Circle(10);
+            circle.setId(player.getName());
+            gamePane.getChildren().add(circle);
+            playerCircles.put(player, circle);
 
-        // 🎯 Launch the first question immediately
-        Card randomCard = CardDataLoader.getRandomCard(); // or getCard()
-        showDifficultyChoice(randomCard);
-        
+            Case start = boardGame.getCase(0);
+            circle.setTranslateX(start.getX());
+            circle.setTranslateY(start.getY());
+        }
 
+        //startBackgroundMusic();
+        updatePlayerLabel();
+        askNewCard();
     }
     
     private void startBackgroundMusic() {
@@ -76,49 +88,53 @@ public class BoardGameController {
     
     public void nextPlayer() {
         gameController.nextPlayer();
-        updateCurrentPlayerLabel();
+        updatePlayerLabel();
     }
 
 
 
     public void movePawn(int movement) {
-        // Update pawn's logical position
+        Player currentPlayer = gameController.getCurrentPlayer();
+        PawnController pawnController = new PawnController(currentPlayer.getPawn());
         pawnController.moveForward(movement, boardGame);
 
-        // Get new position
-        Case newCase = boardGame.getCase(pawn.getPosition());
-        double targetX = newCase.getX();
-        double targetY = newCase.getY();
+        Case newCase = boardGame.getCase(currentPlayer.getPawn().getPosition());
+        Circle circle = playerCircles.get(currentPlayer);
 
-        // Animate pawn movement
-        TranslateTransition transition = new TranslateTransition(Duration.millis(100), pawn1);
-        transition.setToX(targetX);
-        transition.setToY(targetY);
+        TranslateTransition transition = new TranslateTransition(Duration.millis(100), circle);
+        transition.setToX(newCase.getX());
+        transition.setToY(newCase.getY());
 
         transition.setOnFinished(e -> {
-            if (pawn.getPosition() == boardGame.getTotalCases() - 1) {
-                Platform.runLater(this::showVictoryPopup);
+            if (currentPlayer.getPawn().getPosition() == boardGame.getTotalCases() - 1) {
+                showVictoryPopup(currentPlayer.getName());
             } else {
-                // 🎯 Launch next question automatically!
-            	String currentTheme = boardGame.getCase(pawn.getPosition()).getType();
-            	
-                Card nextCard = cardController.pickCardForTheme(currentTheme);
-                Platform.runLater(() -> showDifficultyChoice(nextCard));
+                gameController.nextPlayer();
+                updatePlayerLabel();
+                askNewCard();
             }
         });
 
         transition.play();
     }
 
+    public void askNewCard() {
+        Card card = CardDataLoader.getRandomCard();
+        Platform.runLater(() -> showDifficultyChoice(card));
+    }
 
-    private void showVictoryPopup() {
+    private void updatePlayerLabel() {
+    	currentPlayerLabel.setText("Au tour de : " + gameController.getCurrentPlayer().getName());
+    }
+
+    private void showVictoryPopup(String winner) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Victoire !");
         alert.setHeaderText(null);
-        alert.setContentText("XXX a gagné la partie !");
+        alert.setContentText(winner + " a gagné la partie !");
         alert.showAndWait();
     }
-    @FXML
+
     private void showDifficultyChoice(Card card) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/QuestionDifficultyUI.fxml"));
@@ -127,45 +143,15 @@ public class BoardGameController {
             QuestionController controller = loader.getController();
             controller.setCard(card);
             controller.setBoardGameController(this);
-            controller.setPlayerName(pawn.getOwner().getName()); // Assuming this returns the player's name
+            controller.setPlayerName(gameController.getCurrentPlayer().getName());
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    
-    public void askNewCard() {
-        Card nextCard = CardDataLoader.getRandomCard();
-        Platform.runLater(() -> showDifficultyChoice(nextCard));
-    }
-    
-    public void setGameController(GameController gameController) {
-        this.gameController = gameController;
-        this.boardGame = gameController.getBoardGame();
-
-        Player current = gameController.getCurrentPlayer();
-        this.pawn = current.getPawn();
-
-        // Si tu as plusieurs cercles (pawn1, pawn2, etc.), tu peux les associer ici
-        this.pawnController = new PawnController(pawn, pawn1);
-
-        Case startCase = boardGame.getCase(pawn.getPosition());
-        pawn1.setTranslateX(startCase.getX());
-        pawn1.setTranslateY(startCase.getY());
-
-        askNewCard();
-    }
 
 
-
-    public void updateCurrentPlayerLabel() {
-        Player current = gameController.getCurrentPlayer();
-        currentPlayerLabel.setText("It's your turn, " + current.getName() + "!");
-    }
-
-
-}
+} 
