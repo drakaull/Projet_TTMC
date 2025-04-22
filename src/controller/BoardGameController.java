@@ -18,6 +18,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -40,7 +42,7 @@ public class BoardGameController {
     private GameController gameController;
     private BoardGame boardGame;
     private Map<Player, Circle> playerCircles = new HashMap<>();
-    private AudioClip backgroundMusic;
+    private MediaPlayer backgroundMusic;
 
     public void setGameController(GameController gameController) {
         this.gameController = gameController;
@@ -65,17 +67,18 @@ public class BoardGameController {
             circle.setTranslateY(start.getY());
         }
 
-        //startBackgroundMusic();
+        startBackgroundMusic();
         updatePlayerLabel();
         askNewCard();
     }
     
     private void startBackgroundMusic() {
     	try {
-    		URL musicPath = getClass().getResource("../resource/music/background.mp3");
-    		if(musicPath == null)
+    		URL resource = getClass().getResource("../resource/music/background.mp3");
+    		if(resource == null)
     			System.out.println("Erreur : fichier mp3 non trouvé!");
-    		backgroundMusic = new AudioClip(musicPath.toExternalForm());
+    		Media media = new Media(resource.toExternalForm());
+    		backgroundMusic = new MediaPlayer(media);
     		backgroundMusic.setCycleCount(AudioClip.INDEFINITE);
     		backgroundMusic.setVolume(1);
     		backgroundMusic.play();
