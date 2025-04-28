@@ -52,27 +52,58 @@ public class BoardGameController {
         boardGame = new BoardGame();
         List<Player> players = gameController.getPlayers();
         List<Color> colors = List.of(Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW);
+        
         int i = 0;
         for (Player player : players) {
-        	i++;
             Pawn pawn = new Pawn(player.getName(), 0, player);
             player.setPawn(pawn);
 
             Circle circle = new Circle(10);
-            circle.setFill(colors.get(i % colors.size()));
+            circle.setFill(colors.get(i % colors.size())); // Rotation si > 4 joueurs
             circle.setId(player.getName());
             gamePane.getChildren().add(circle);
             playerCircles.put(player, circle);
 
             Case start = boardGame.getCase(0);
-            circle.setTranslateX(start.getX());
-            circle.setTranslateY(start.getY() + (i*22));
+
+            // Positionnement décalé dès le départ
+            double offsetX = 0;
+            double offsetY = 0;
+
+            switch (i) {
+                case 0:
+                    offsetX = -10;
+                    offsetY = -10;
+                    break;
+                case 1:
+                    offsetX = 10;
+                    offsetY = -10;
+                    break;
+                case 2:
+                    offsetX = -10;
+                    offsetY = 10;
+                    break;
+                case 3:
+                    offsetX = 10;
+                    offsetY = 10;
+                    break;
+                default:
+                    offsetX = 0;
+                    offsetY = 0;
+                    break;
+            }
+
+            circle.setTranslateX(start.getX() + offsetX);
+            circle.setTranslateY(start.getY() + offsetY);
+
+            i++;
         }
 
         //startBackgroundMusic();
         updatePlayerLabel();
         askNewCard();
     }
+
     
     private void startBackgroundMusic() {
     	try {
@@ -105,9 +136,40 @@ public class BoardGameController {
         Case newCase = boardGame.getCase(currentPlayer.getPawn().getPosition());
         Circle circle = playerCircles.get(currentPlayer);
 
-        TranslateTransition transition = new TranslateTransition(Duration.millis(100), circle);
-        transition.setToX(newCase.getX());
-        transition.setToY(newCase.getY());
+        // Récupère la position du joueur dans la liste
+        int playerIndex = gameController.getPlayers().indexOf(currentPlayer);
+
+        double offsetX = 0;
+        double offsetY = 0;
+
+        // Décalages spéciaux pour 4 joueurs
+        switch (playerIndex) {
+            case 0: // Joueur 1
+                offsetX = -10;
+                offsetY = -10;
+                break;
+            case 1: // Joueur 2
+                offsetX = 10;
+                offsetY = -10;
+                break;
+            case 2: // Joueur 3
+                offsetX = -10;
+                offsetY = 10;
+                break;
+            case 3: // Joueur 4
+                offsetX = 10;
+                offsetY = 10;
+                break;
+            default:
+                // Si jamais il y a plus de 4 joueurs, on reste au centre
+                offsetX = 0;
+                offsetY = 0;
+                break;
+        }
+
+        TranslateTransition transition = new TranslateTransition(Duration.millis(300), circle);
+        transition.setToX(newCase.getX() + offsetX);
+        transition.setToY(newCase.getY() + offsetY);
 
         transition.setOnFinished(e -> {
             if (currentPlayer.getPawn().getPosition() == boardGame.getTotalCases() - 1) {
@@ -121,6 +183,7 @@ public class BoardGameController {
 
         transition.play();
     }
+
 
     public void askNewCard() {
         Card card = CardDataLoader.getRandomCard();
