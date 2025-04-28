@@ -18,6 +18,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.AudioClip;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -50,19 +51,22 @@ public class BoardGameController {
     private void initializeGame() {
         boardGame = new BoardGame();
         List<Player> players = gameController.getPlayers();
-
+        List<Color> colors = List.of(Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW);
+        int i = 0;
         for (Player player : players) {
+        	i++;
             Pawn pawn = new Pawn(player.getName(), 0, player);
             player.setPawn(pawn);
 
             Circle circle = new Circle(10);
+            circle.setFill(colors.get(i % colors.size()));
             circle.setId(player.getName());
             gamePane.getChildren().add(circle);
             playerCircles.put(player, circle);
 
             Case start = boardGame.getCase(0);
             circle.setTranslateX(start.getX());
-            circle.setTranslateY(start.getY());
+            circle.setTranslateY(start.getY() + (i*22));
         }
 
         //startBackgroundMusic();
