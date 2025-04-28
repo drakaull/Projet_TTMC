@@ -18,7 +18,6 @@
                </image>
             </ImageView>
             <Label id="start" layoutX="1346.0" layoutY="732.0" prefHeight="19.0" prefWidth="11.0" />
-            <Circle id="pawn1" fx:id="pawn1" fill="DODGERBLUE" layoutX="0" layoutY="0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
             <Label fx:id="currentPlayerLabel" layoutX="400" layoutY="400" text="Current player: " />
          </children>
       </AnchorPane>
