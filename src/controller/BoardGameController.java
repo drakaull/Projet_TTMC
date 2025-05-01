@@ -44,7 +44,7 @@ public class BoardGameController {
     private GameController gameController;
     private BoardGame boardGame;
     private Map<Player, Circle> playerCircles = new HashMap<>();
-    private MediaPlayer backgroundMusic;
+    private AudioClip backgroundMusic;
 
     public void setGameController(GameController gameController) {
         this.gameController = gameController;
@@ -109,21 +109,25 @@ public class BoardGameController {
     }
 
     
+    
+
     private void startBackgroundMusic() {
-    	try {
-    		URL resource = getClass().getResource("../resource/music/background.mp3");
-    		if(resource == null)
-    			System.out.println("Erreur : fichier mp3 non trouvé!");
-    		Media media = new Media(resource.toExternalForm());
-    		backgroundMusic = new MediaPlayer(media);
-    		backgroundMusic.setCycleCount(AudioClip.INDEFINITE);
-    		backgroundMusic.setVolume(1);
-    		backgroundMusic.play();
-    	}
-    	catch(Exception e) {
-    		System.out.println("music error : "+e.getMessage());
-    	}
+        try {
+            URL resource = getClass().getResource("/resource/background.mp3");
+            if (resource == null) {
+                System.out.println("Erreur : fichier mp3 non trouvé !");
+                return;
+            }
+
+            backgroundMusic = new AudioClip(resource.toExternalForm());
+            backgroundMusic.setCycleCount(AudioClip.INDEFINITE);
+            backgroundMusic.setVolume(0.8); // Volume entre 0 et 1
+            backgroundMusic.play();
+        } catch (Exception e) {
+            System.out.println("Erreur lors du chargement de la musique : " + e.getMessage());
+        }
     }
+
 
     
     public void nextPlayer() {
