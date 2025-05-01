@@ -74,7 +74,7 @@ public class QuestionController {
             } else {
                 Alert a = new Alert(Alert.AlertType.INFORMATION, "Wrong answer!\nThe correct answer was: " + expected);
                 a.showAndWait();
-                mainController.askNewCard();
+                mainController.movePawn(0);
             }
             if (gameController != null) {
                 gameController.nextPlayer();
