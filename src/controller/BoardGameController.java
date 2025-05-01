@@ -50,6 +50,7 @@ public class BoardGameController {
         initializeGame();
     }
 
+    // question apparait avant platezu ?
     private void initializeGame() {
         boardGame = new BoardGame();
         List<Player> players = gameController.getPlayers();
