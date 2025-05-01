@@ -235,6 +235,11 @@ public class BoardGameController {
             e.printStackTrace();
         }
     }
+    
+    public AnchorPane getGamePane() {
+        return gamePane;
+    }
+
 
 
 } 

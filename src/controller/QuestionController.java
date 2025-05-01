@@ -2,6 +2,7 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
@@ -21,6 +22,8 @@ public class QuestionController {
     private BoardGameController mainController;
     private GameController gameController;
     private Question question;
+    @FXML private Button difficulty1Button; // Un seul bouton suffit à identifier la fenêtre
+
 
     public void setCard(Card card) {
         this.card = card;
@@ -47,14 +50,22 @@ public class QuestionController {
     }
 
     private void handleDifficultyChoice(int level) {
+        // Récupérer et fermer la fenêtre de choix de difficulté
+        Stage currentStage = (Stage) themeLabel.getScene().getWindow();
+        currentStage.close();
+
+        // Récupérer la fenêtre principale (le plateau)
+        Stage mainStage = (Stage) mainController.getGamePane().getScene().getWindow();
+
         Question questionObj = card.getQuestions().get(level - 1);
-        this.question = questionObj; // store for checkAnswer
+        this.question = questionObj;
         String questionTextStr = questionObj.getQuestion();
         String expected = questionObj.getAnswer();
 
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("Level " + level + " Question");
         dialog.setHeaderText(null);
+        dialog.initOwner(mainStage); // ✅ Attache la fenêtre principale
         StringBuilder questionText = new StringBuilder(questionTextStr);
 
         if (questionObj.getOptions() != null && !questionObj.getOptions().isEmpty()) {
@@ -69,10 +80,12 @@ public class QuestionController {
         result.ifPresent(answer -> {
             if (checkAnswer(answer)) {
                 Alert success = new Alert(Alert.AlertType.INFORMATION, "Correct answer!");
+                success.initOwner(mainStage); // ✅ aussi pour les Alert
                 success.showAndWait();
                 mainController.movePawn(level);
             } else {
                 Alert a = new Alert(Alert.AlertType.INFORMATION, "Wrong answer!\nThe correct answer was: " + expected);
+                a.initOwner(mainStage); // ✅ aussi pour les Alert
                 a.showAndWait();
                 mainController.movePawn(0);
             }
@@ -80,9 +93,12 @@ public class QuestionController {
                 gameController.nextPlayer();
             }
         });
-
-        ((Stage) themeLabel.getScene().getWindow()).close();
     }
+
+
+
+
+
 
     public boolean checkAnswer(String userInput) {
         return AnswerValidator.isCorrect(userInput, question.getAnswer());
