@@ -22,6 +22,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import models.BoardGame;
@@ -218,6 +219,12 @@ public class BoardGameController {
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
+            
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initOwner(gamePane.getScene().getWindow());
+            stage.setResizable(false);
+            //stage.setAlwaysOnTop(true);
+            
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
