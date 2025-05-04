@@ -66,9 +66,13 @@ public class NbPlayersChoiceUI {
             // Chargement de la vue principale
             FXMLLoader loader = new FXMLLoader(getClass().getResource("gameUI.fxml"));
             Parent root = loader.load();
+            
+            
 
             BoardGameController controller = loader.getController();
             controller.setGameController(game); // Passe le contrôleur
+            
+            controller.setDifficultyLevel(difficulty);
 
             // Affichage de la nouvelle scène
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

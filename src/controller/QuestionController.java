@@ -78,14 +78,8 @@ public class QuestionController {
         String expected = questionObj.getAnswer();
 
         // Temps limite selon difficulté de la partie
-        int difficultyLevel = gameController.getDifficultyLevel(); // 1, 2 ou 3
-        int timeLimit;
-        switch (difficultyLevel) {
-            case 1: timeLimit = 30; break;
-            case 2: timeLimit = 20; break;
-            case 3: timeLimit = 15; break;
-            default: timeLimit = 30;
-        }
+        int timeLimit = gameController.getTimeLimit();
+
 
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("Question niveau " + level);

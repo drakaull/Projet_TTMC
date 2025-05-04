@@ -7,6 +7,7 @@ import models.BoardGame;
 import models.Card;
 import models.Player;
 import models.Question;
+import strategyDifficulty.DifficultyStrategy;
 
 import java.util.HashSet;
 
@@ -17,14 +18,18 @@ public class GameController {
     private int currentPlayerIndex = 0;
     private BoardGame boardGame;
     private int difficultyLevel = 1;
+    
+    private DifficultyStrategy difficultyStrategy;
 
-    public void setDifficultyLevel(int level) {
-        this.difficultyLevel = level;
+    public void setDifficultyStrategy(DifficultyStrategy strategy) {
+        this.difficultyStrategy = strategy;
     }
 
-    public int getDifficultyLevel() {
-        return difficultyLevel;
+    public int getTimeLimit() {
+        return difficultyStrategy.getTimeLimitInSeconds();
     }
+
+
 
 
     public GameController(List<Card> allCards, List<Player> players) {

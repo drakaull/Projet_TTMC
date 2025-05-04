@@ -30,6 +30,9 @@ import models.Card;
 import models.Case;
 import models.Pawn;
 import models.Player;
+import strategyDifficulty.EasyDifficulty;
+import strategyDifficulty.HardDifficulty;
+import strategyDifficulty.MediumDifficulty;
 import utils.CardDataLoader;
 
 public class BoardGameController {
@@ -243,10 +246,17 @@ public class BoardGameController {
         return gamePane;
     }
 
-	public void setDifficultyLevel(int difficulty) {
-		// TODO Auto-generated method stub
-		
-	}
+    public void setDifficultyLevel(int level) {
+        switch (level) {
+            case 1 -> gameController.setDifficultyStrategy(new EasyDifficulty());
+            case 2 -> gameController.setDifficultyStrategy(new MediumDifficulty());
+            case 3 -> gameController.setDifficultyStrategy(new HardDifficulty());
+            default -> gameController.setDifficultyStrategy(new EasyDifficulty());
+        }
+    }
+
+	
+	
 
 
 
