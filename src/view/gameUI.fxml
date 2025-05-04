@@ -18,7 +18,8 @@
                </image>
             </ImageView>
             <Label id="start" layoutX="1346.0" layoutY="732.0" prefHeight="19.0" prefWidth="11.0" />
-            <Label fx:id="currentPlayerLabel" layoutX="400" layoutY="400" text="Current player: " />
+            <Label fx:id="currentPlayerLabel" layoutX="400" layoutY="0" text="Current player: " />
+            <Label fx:id="timerLabel" layoutX="800" layoutY="0" text="" style="-fx-font-size: 14px; -fx-text-fill: red;" />
          </children>
       </AnchorPane>
    </center>

@@ -39,6 +39,9 @@ public class BoardGameController {
 
     @FXML
     private Label currentPlayerLabel;
+    
+    @FXML
+    private Label timerLabel;
 
 
     private GameController gameController;
@@ -102,7 +105,7 @@ public class BoardGameController {
 
             i++;
         }
-
+        timerLabel.setText("Timer prêt");
         startBackgroundMusic();
         updatePlayerLabel();
         askNewCard();
@@ -221,24 +224,29 @@ public class BoardGameController {
             controller.setCard(card);
             controller.setBoardGameController(this);
             controller.setPlayerName(gameController.getCurrentPlayer().getName());
+            controller.setGameController(gameController); // AJOUT ESSENTIEL
+            controller.setExternalTimerLabel(timerLabel);
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            
             stage.initModality(Modality.WINDOW_MODAL);
             stage.initOwner(gamePane.getScene().getWindow());
             stage.setResizable(false);
-            //stage.setAlwaysOnTop(true);
-            
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     
     public AnchorPane getGamePane() {
         return gamePane;
     }
+
+	public void setDifficultyLevel(int difficulty) {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 

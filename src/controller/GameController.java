@@ -16,6 +16,15 @@ public class GameController {
     private List<Player> players;
     private int currentPlayerIndex = 0;
     private BoardGame boardGame;
+    private int difficultyLevel = 1;
+
+    public void setDifficultyLevel(int level) {
+        this.difficultyLevel = level;
+    }
+
+    public int getDifficultyLevel() {
+        return difficultyLevel;
+    }
 
 
     public GameController(List<Card> allCards, List<Player> players) {
