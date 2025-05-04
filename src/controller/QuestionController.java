@@ -4,6 +4,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,12 +17,9 @@ import utils.AnswerValidator;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import java.util.Optional;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
@@ -31,17 +29,16 @@ import javafx.scene.text.Text;
 public class QuestionController {
 
     @FXML
-    private Label topicLabel;
+    private Label themeLabel;
     @FXML
     private Label timerLabel;
 
     private Card card;
     private String playerName;
-    private BoardGameController boardGameController;
+    private BoardGameController mainController;
     private GameController gameController;
-    private Question currentQuestion;
-    @FXML
-    private Button difficulty1Button;
+    private Question question;
+    @FXML private Button difficulty1Button;
     private Label externalTimerLabel;
 
     public void setExternalTimerLabel(Label label) {
@@ -59,7 +56,7 @@ public class QuestionController {
     }
 
     public void setBoardGameController(BoardGameController controller) {
-        this.boardGameController = controller;
+    	this.mainController = controller;
     }
 
     public void setGameController(GameController gameController) {
@@ -67,19 +64,19 @@ public class QuestionController {
     }
 
     private void updateLabel() {
-        if (card != null && playerName != null && topicLabel != null) {
-            topicLabel.setText(playerName + ", how confident are you in " + card.getSubject() + "?");
+        if (card != null && playerName != null && themeLabel != null) {
+        	themeLabel.setText(playerName + ", how confident are you in " + card.getSubject() + "?");
         }
     }
 
     private void handleDifficultyChoice(int level) {
-        Stage currentStage = (Stage) topicLabel.getScene().getWindow();
+        Stage currentStage = (Stage) themeLabel.getScene().getWindow();
         currentStage.close();
 
-        Stage mainStage = (Stage) boardGameController.getGamePane().getScene().getWindow();
+        Stage mainStage = (Stage) mainController.getGamePane().getScene().getWindow();
 
         Question questionObj = card.getQuestions().get(level - 1);
-        this.currentQuestion = questionObj;
+        this.question = questionObj;
         String questionText = questionObj.getQuestion();
         String expectedAnswer = questionObj.getAnswer();
 
@@ -89,6 +86,7 @@ public class QuestionController {
         }
 
         int timeLimit = gameController.getTimeLimit();
+        IntegerProperty timeSeconds = new SimpleIntegerProperty(timeLimit);
 
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("Question Level " + level);
@@ -104,13 +102,11 @@ public class QuestionController {
         }
         dialog.setContentText(questionDisplay.toString());
 
-        Timeline countdown = new Timeline();
-        IntegerProperty timeSeconds = new SimpleIntegerProperty(timeLimit);
-
         if (externalTimerLabel != null) {
             externalTimerLabel.setText("Time left: " + timeSeconds.get() + "s");
         }
 
+        Timeline countdown = new Timeline();
         countdown.getKeyFrames().add(
             new KeyFrame(Duration.seconds(1), e -> {
                 int current = timeSeconds.get();
@@ -140,18 +136,18 @@ public class QuestionController {
                 Alert success = new Alert(Alert.AlertType.INFORMATION, "Correct answer!");
                 success.initOwner(mainStage);
                 success.showAndWait();
-                boardGameController.movePawn(level);
+                mainController.movePawn(level);
             } else {
-                Alert fail = new Alert(Alert.AlertType.INFORMATION, "Incorrect answer.\nCorrect one was: " + expectedAnswer);
+                Alert fail = new Alert(Alert.AlertType.INFORMATION, "Incorrect answer.\nCorrect was: " + expectedAnswer);
                 fail.initOwner(mainStage);
                 fail.showAndWait();
-                boardGameController.movePawn(0);
+                mainController.movePawn(0);
             }
         });
     }
 
     public boolean checkAnswer(String userInput) {
-        return AnswerValidator.isCorrect(userInput, currentQuestion.getAnswer());
+        return AnswerValidator.isCorrect(userInput, question.getAnswer());
     }
 
     @FXML private void handleDifficulty1() { handleDifficultyChoice(1); }
@@ -159,11 +155,13 @@ public class QuestionController {
     @FXML private void handleDifficulty3() { handleDifficultyChoice(3); }
     @FXML private void handleDifficulty4() { handleDifficultyChoice(4); }
 
-    // Multiple Choice Dialog Method
     private void showMultipleChoiceDialog(String questionText, String[] options, int level, Stage mainStage, String expectedAnswer) {
         Stage dialogStage = new Stage();
         dialogStage.initOwner(mainStage);
         dialogStage.setTitle("Multiple Choice Question");
+
+        int timeLimit = gameController.getTimeLimit();
+        IntegerProperty timeSeconds = new SimpleIntegerProperty(timeLimit);
 
         GridPane grid = new GridPane();
         grid.setHgap(10);
@@ -198,6 +196,27 @@ public class QuestionController {
         double buttonWidth = maxTextWidth + 60;
         double buttonHeight = maxTextHeight + 20;
 
+        Timeline countdown = new Timeline();
+        countdown.getKeyFrames().add(
+            new KeyFrame(Duration.seconds(1), e -> {
+                int current = timeSeconds.get();
+                timeSeconds.set(current - 1);
+                if (externalTimerLabel != null) {
+                    externalTimerLabel.setText("Time left: " + (current - 1) + "s");
+                }
+                if (current - 1 <= 0) {
+                    countdown.stop();
+                    dialogStage.close();
+                    if (externalTimerLabel != null) {
+                        externalTimerLabel.setText("");
+                    }
+                    handleMultipleChoiceAnswer("", expectedAnswer, level, mainStage);
+                }
+            })
+        );
+        countdown.setCycleCount(timeLimit);
+        countdown.play();
+
         for (int i = 0; i < 4; i++) {
             Button button = new Button(options[i]);
             button.setPrefWidth(buttonWidth);
@@ -225,7 +244,11 @@ public class QuestionController {
 
             final String selectedOption = options[i];
             button.setOnAction(e -> {
+                countdown.stop();
                 dialogStage.close();
+                if (externalTimerLabel != null) {
+                    externalTimerLabel.setText("");
+                }
                 handleMultipleChoiceAnswer(selectedOption, expectedAnswer, level, mainStage);
             });
 
@@ -252,12 +275,12 @@ public class QuestionController {
             Alert success = new Alert(Alert.AlertType.INFORMATION, "Correct answer!");
             success.initOwner(mainStage);
             success.showAndWait();
-            boardGameController.movePawn(level);
+            mainController.movePawn(level);
         } else {
-            Alert fail = new Alert(Alert.AlertType.INFORMATION, "Incorrect answer.\nCorrect one was: " + expectedAnswer);
+            Alert fail = new Alert(Alert.AlertType.INFORMATION, "Incorrect answer.\nCorrect was: " + expectedAnswer);
             fail.initOwner(mainStage);
             fail.showAndWait();
-            boardGameController.movePawn(0);
+            mainController.movePawn(0);
         }
     }
 }
