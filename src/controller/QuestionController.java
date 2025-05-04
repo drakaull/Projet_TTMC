@@ -19,27 +19,34 @@ import java.util.Optional;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+
 public class QuestionController {
 
     @FXML
-    private Label themeLabel;
+    private Label topicLabel;
     @FXML
     private Label timerLabel;
 
-
     private Card card;
     private String playerName;
-    private BoardGameController mainController;
+    private BoardGameController boardGameController;
     private GameController gameController;
-    private Question question;
-    @FXML private Button difficulty1Button; // Un seul bouton suffit à identifier la fenêtre
+    private Question currentQuestion;
+    @FXML
+    private Button difficulty1Button;
     private Label externalTimerLabel;
-    
+
     public void setExternalTimerLabel(Label label) {
         this.externalTimerLabel = label;
     }
-
-
 
     public void setCard(Card card) {
         this.card = card;
@@ -52,7 +59,7 @@ public class QuestionController {
     }
 
     public void setBoardGameController(BoardGameController controller) {
-        this.mainController = controller;
+        this.boardGameController = controller;
     }
 
     public void setGameController(GameController gameController) {
@@ -60,47 +67,48 @@ public class QuestionController {
     }
 
     private void updateLabel() {
-        if (card != null && playerName != null && themeLabel != null) {
-            themeLabel.setText(playerName + ", how confident are you in " + card.getSubject() + "?");
+        if (card != null && playerName != null && topicLabel != null) {
+            topicLabel.setText(playerName + ", how confident are you in " + card.getSubject() + "?");
         }
     }
 
     private void handleDifficultyChoice(int level) {
-        // Fermer la fenêtre de choix de difficulté
-        Stage currentStage = (Stage) themeLabel.getScene().getWindow();
+        Stage currentStage = (Stage) topicLabel.getScene().getWindow();
         currentStage.close();
 
-        Stage mainStage = (Stage) mainController.getGamePane().getScene().getWindow();
+        Stage mainStage = (Stage) boardGameController.getGamePane().getScene().getWindow();
 
         Question questionObj = card.getQuestions().get(level - 1);
-        this.question = questionObj;
-        String questionTextStr = questionObj.getQuestion();
-        String expected = questionObj.getAnswer();
+        this.currentQuestion = questionObj;
+        String questionText = questionObj.getQuestion();
+        String expectedAnswer = questionObj.getAnswer();
 
-        // Temps limite selon difficulté de la partie
+        if (questionObj.getOptions() != null && questionObj.getOptions().size() == 4) {
+            showMultipleChoiceDialog(questionText, questionObj.getOptions().toArray(new String[0]), level, mainStage, expectedAnswer);
+            return;
+        }
+
         int timeLimit = gameController.getTimeLimit();
 
-
         TextInputDialog dialog = new TextInputDialog();
-        dialog.setTitle("Question niveau " + level);
+        dialog.setTitle("Question Level " + level);
         dialog.setHeaderText(null);
         dialog.initOwner(mainStage);
 
-        StringBuilder questionText = new StringBuilder(questionTextStr);
+        StringBuilder questionDisplay = new StringBuilder(questionText);
         if (questionObj.getOptions() != null && !questionObj.getOptions().isEmpty()) {
-            questionText.append("\nOptions :\n");
+            questionDisplay.append("\nOptions:\n");
             for (String option : questionObj.getOptions()) {
-                questionText.append("- ").append(option).append("\n");
+                questionDisplay.append("- ").append(option).append("\n");
             }
         }
-        dialog.setContentText(questionText.toString());
+        dialog.setContentText(questionDisplay.toString());
 
-        // Timer avec Timeline
         Timeline countdown = new Timeline();
         IntegerProperty timeSeconds = new SimpleIntegerProperty(timeLimit);
-        
+
         if (externalTimerLabel != null) {
-            externalTimerLabel.setText("Temps restant : " + timeSeconds.get() + "s");
+            externalTimerLabel.setText("Time left: " + timeSeconds.get() + "s");
         }
 
         countdown.getKeyFrames().add(
@@ -108,11 +116,11 @@ public class QuestionController {
                 int current = timeSeconds.get();
                 timeSeconds.set(current - 1);
                 if (externalTimerLabel != null) {
-                    externalTimerLabel.setText("Temps restant : " + (current - 1) + "s");
+                    externalTimerLabel.setText("Time left: " + (current - 1) + "s");
                 }
                 if (current - 1 <= 0) {
                     countdown.stop();
-                    dialog.setResult(""); // Vide pour simuler une non-réponse
+                    dialog.setResult("");
                     dialog.close();
                 }
             })
@@ -121,41 +129,135 @@ public class QuestionController {
         countdown.play();
 
         Optional<String> result = dialog.showAndWait();
-        countdown.stop(); // arrêter si la réponse est donnée
+        countdown.stop();
 
         if (externalTimerLabel != null) {
-            externalTimerLabel.setText(""); // effacer timer
+            externalTimerLabel.setText("");
         }
 
         result.ifPresent(answer -> {
             if (checkAnswer(answer)) {
-                Alert success = new Alert(Alert.AlertType.INFORMATION, "Bonne réponse !");
+                Alert success = new Alert(Alert.AlertType.INFORMATION, "Correct answer!");
                 success.initOwner(mainStage);
                 success.showAndWait();
-                mainController.movePawn(level);
+                boardGameController.movePawn(level);
             } else {
-                Alert a = new Alert(Alert.AlertType.INFORMATION, "Mauvaise réponse.\nLa bonne était : " + expected);
-                a.initOwner(mainStage);
-                a.showAndWait();
-                mainController.movePawn(0);
+                Alert fail = new Alert(Alert.AlertType.INFORMATION, "Incorrect answer.\nCorrect one was: " + expectedAnswer);
+                fail.initOwner(mainStage);
+                fail.showAndWait();
+                boardGameController.movePawn(0);
             }
         });
     }
 
-
-
-
-
-
-
-
-
     public boolean checkAnswer(String userInput) {
-        return AnswerValidator.isCorrect(userInput, question.getAnswer());
+        return AnswerValidator.isCorrect(userInput, currentQuestion.getAnswer());
     }
 
     @FXML private void handleDifficulty1() { handleDifficultyChoice(1); }
     @FXML private void handleDifficulty2() { handleDifficultyChoice(2); }
     @FXML private void handleDifficulty3() { handleDifficultyChoice(3); }
     @FXML private void handleDifficulty4() { handleDifficultyChoice(4); }
+
+    // Multiple Choice Dialog Method
+    private void showMultipleChoiceDialog(String questionText, String[] options, int level, Stage mainStage, String expectedAnswer) {
+        Stage dialogStage = new Stage();
+        dialogStage.initOwner(mainStage);
+        dialogStage.setTitle("Multiple Choice Question");
+
+        GridPane grid = new GridPane();
+        grid.setHgap(10);
+        grid.setVgap(10);
+        grid.setPadding(new Insets(10));
+        grid.setAlignment(Pos.CENTER);
+
+        ColumnConstraints col1 = new ColumnConstraints();
+        col1.setHgrow(Priority.ALWAYS);
+        col1.setHalignment(javafx.geometry.HPos.CENTER);
+        ColumnConstraints col2 = new ColumnConstraints();
+        col2.setHgrow(Priority.ALWAYS);
+        col2.setHalignment(javafx.geometry.HPos.CENTER);
+
+        grid.getColumnConstraints().addAll(col1, col2);
+
+        Text questionLabel = new Text(questionText);
+        grid.add(questionLabel, 0, 0, 2, 1);
+
+        Button[] buttons = new Button[4];
+        double maxTextWidth = 0;
+        double maxTextHeight = 0;
+
+        for (String option : options) {
+            Text tempText = new Text(option);
+            double width = tempText.getLayoutBounds().getWidth();
+            double height = tempText.getLayoutBounds().getHeight();
+            if (width > maxTextWidth) maxTextWidth = width;
+            if (height > maxTextHeight) maxTextHeight = height;
+        }
+
+        double buttonWidth = maxTextWidth + 60;
+        double buttonHeight = maxTextHeight + 20;
+
+        for (int i = 0; i < 4; i++) {
+            Button button = new Button(options[i]);
+            button.setPrefWidth(buttonWidth);
+            button.setPrefHeight(buttonHeight);
+
+            button.setStyle(
+                "-fx-background-color: #5DADE2; " +
+                "-fx-text-fill: white; " +
+                "-fx-background-radius: 10; " +
+                "-fx-font-size: 14px;"
+            );
+
+            button.setOnMouseEntered(e -> button.setStyle(
+                "-fx-background-color: #3498DB; " +
+                "-fx-text-fill: white; " +
+                "-fx-background-radius: 10; " +
+                "-fx-font-size: 14px;"
+            ));
+            button.setOnMouseExited(e -> button.setStyle(
+                "-fx-background-color: #5DADE2; " +
+                "-fx-text-fill: white; " +
+                "-fx-background-radius: 10; " +
+                "-fx-font-size: 14px;"
+            ));
+
+            final String selectedOption = options[i];
+            button.setOnAction(e -> {
+                dialogStage.close();
+                handleMultipleChoiceAnswer(selectedOption, expectedAnswer, level, mainStage);
+            });
+
+            buttons[i] = button;
+        }
+
+        grid.add(buttons[0], 0, 1);
+        grid.add(buttons[1], 1, 1);
+        grid.add(buttons[2], 0, 2);
+        grid.add(buttons[3], 1, 2);
+
+        VBox root = new VBox(grid);
+        root.setAlignment(Pos.CENTER);
+        root.setPadding(new Insets(20));
+        root.setSpacing(10);
+
+        Scene scene = new Scene(root);
+        dialogStage.setScene(scene);
+        dialogStage.show();
+    }
+
+    private void handleMultipleChoiceAnswer(String selectedAnswer, String expectedAnswer, int level, Stage mainStage) {
+        if (checkAnswer(selectedAnswer)) {
+            Alert success = new Alert(Alert.AlertType.INFORMATION, "Correct answer!");
+            success.initOwner(mainStage);
+            success.showAndWait();
+            boardGameController.movePawn(level);
+        } else {
+            Alert fail = new Alert(Alert.AlertType.INFORMATION, "Incorrect answer.\nCorrect one was: " + expectedAnswer);
+            fail.initOwner(mainStage);
+            fail.showAndWait();
+            boardGameController.movePawn(0);
+        }
+    }
 }
