@@ -1,6 +1,7 @@
 package controller;
 
 import javafx.animation.KeyFrame;
+import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -9,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import models.Card;
@@ -279,7 +281,29 @@ public class QuestionController {
         } else {
             Alert fail = new Alert(Alert.AlertType.INFORMATION, "Incorrect answer.\nCorrect was: " + expectedAnswer);
             fail.initOwner(mainStage);
-            fail.showAndWait();
+            
+            Platform.runLater(() -> {
+                Stage popup = new Stage();
+                popup.initModality(Modality.NONE);
+                popup.setAlwaysOnTop(true);
+                popup.setTitle("Temps écoulé");
+
+                Label label = new Label("Le temps est écoulé !");
+                label.setStyle("-fx-font-size: 16px; -fx-padding: 20px;");
+
+                Scene scene = new Scene(label);
+                popup.setScene(scene);
+                popup.show();
+
+                // close after 2 seconde
+                PauseTransition delay = new PauseTransition(Duration.seconds(2));
+                delay.setOnFinished(event -> {
+                    popup.close();
+                    mainController.nextPlayer();  // Passe au joueur suivant après la fermeture
+                });
+                delay.play();
+            });
+            
             mainController.movePawn(0);
         }
     }
