@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
@@ -36,4 +37,14 @@ public class CardController {
     public boolean isCardUsed(Card card) {
         return usedCards.contains(card);
     }
+    
+    public void shuffleCards() {
+        Collections.shuffle(this.allCards);
+    }
+    
+    public List<Card> getAllCards() {
+        return allCards;
+    }
+
+
 }
