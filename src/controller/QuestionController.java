@@ -308,7 +308,7 @@ public class QuestionController {
                 popup.setScene(scene);
                 popup.show();
 
-                // close after 2 seconde
+                // close after 2 secondes
                 PauseTransition delay = new PauseTransition(Duration.seconds(2));
                 delay.setOnFinished(event -> {
                     popup.close();
