@@ -2,16 +2,31 @@ package models;
 
 import java.util.List;
 
+import exceptions.InvalidCardException;
+
 public class Card {
 	private String theme; 				// global theme
 	private String subject; 			// subject (football, geography, etc)
 	private List<Question> questions; 	// the 4 questions
 
-	public Card(String theme, String subject, List<Question> questions) {
-		this.theme = theme;
-		this.subject = subject;
-		this.questions = questions;
-	}
+	public Card(String theme, String subject, List<Question> questions) throws InvalidCardException {
+        if (theme == null || theme.trim().isEmpty()) {
+            throw new InvalidCardException();
+        }
+        if (subject == null || subject.trim().isEmpty()) {
+            throw new InvalidCardException();
+        }
+        if (questions == null || questions.isEmpty()) {
+            throw new InvalidCardException();
+        }
+        if (questions.size() < 4) {
+            throw new InvalidCardException();
+        }
+
+        this.theme = theme;
+        this.subject = subject;
+        this.questions = questions;
+    }
 
 	public List<Question> getQuestions() {
 		return questions;
