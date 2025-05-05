@@ -286,9 +286,9 @@ public class QuestionController {
                 Stage popup = new Stage();
                 popup.initModality(Modality.NONE);
                 popup.setAlwaysOnTop(true);
-                popup.setTitle("Temps écoulé");
+                popup.setTitle("time finish");
 
-                Label label = new Label("Le temps est écoulé !");
+                Label label = new Label("time finish !");
                 label.setStyle("-fx-font-size: 16px; -fx-padding: 20px;");
 
                 Scene scene = new Scene(label);
