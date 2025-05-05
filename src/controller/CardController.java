@@ -10,11 +10,11 @@ import models.Card;
 
 public class CardController {
 	private List<Card> allCards;
-	private Set<Card> usedCards;
+	private static Set<Card> usedCards;
 
 	public CardController(List<Card> cards) {
 		this.allCards = cards;
-		this.usedCards = new HashSet<>();
+		CardController.usedCards = new HashSet<>();
 	}
 
 	public Card pickCardForTheme(String theme) {
