@@ -1,19 +1,27 @@
 package utils;
 
+import exceptions.InvalidAnswerException;
+
 public class AnswerValidator {
 
-    public static boolean isCorrect(String userInput, String correctAnswer) {
-        if (userInput == null || correctAnswer == null || userInput.trim().isEmpty()) return false;
+	public static boolean isCorrect(String userInput, String correctAnswer) throws InvalidAnswerException {
+        if (correctAnswer == null) {
+            throw new InvalidAnswerException();
+        }
+        if (userInput == null) {
+            throw new InvalidAnswerException();
+        }
+        if (userInput.trim().isEmpty()) {
+            return false;
+        }
 
-        String input = userInput.trim().toLowerCase();
-        String answer = correctAnswer.trim().toLowerCase();
+        String input = normalize(userInput.trim().toLowerCase());
+        String answer = normalize(correctAnswer.trim().toLowerCase());
 
-        // Basic clean-up: remove accents, punctuation, multiple spaces, etc.
-        input = normalize(input);
-        answer = normalize(answer);
-
-        // Compare similarity
-        return levenshteinDistance(input, answer) <= 1 || answer.contains(input) || input.contains(answer);
+        // Compare similarity: allow small typos or near matches
+        return levenshteinDistance(input, answer) <= 1
+                || answer.contains(input)
+                || input.contains(answer);
     }
 
     private static String normalize(String s) {

@@ -18,6 +18,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import java.util.Optional;
 
+import exceptions.InvalidAnswerException;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.layout.ColumnConstraints;
@@ -132,21 +133,25 @@ public class QuestionController {
         }
 
         result.ifPresent(answer -> {
-            if (checkAnswer(answer)) {
-                Alert success = new Alert(Alert.AlertType.INFORMATION, "Correct answer!");
-                success.initOwner(mainStage);
-                success.showAndWait();
-                mainController.movePawn(level);
-            } else {
-                Alert fail = new Alert(Alert.AlertType.INFORMATION, "Incorrect answer.\nCorrect was: " + expectedAnswer);
-                fail.initOwner(mainStage);
-                fail.showAndWait();
-                mainController.movePawn(0);
-            }
+            try {
+				if (checkAnswer(answer)) {
+				    Alert success = new Alert(Alert.AlertType.INFORMATION, "Correct answer!");
+				    success.initOwner(mainStage);
+				    success.showAndWait();
+				    mainController.movePawn(level);
+				} else {
+				    Alert fail = new Alert(Alert.AlertType.INFORMATION, "Incorrect answer.\nCorrect was: " + expectedAnswer);
+				    fail.initOwner(mainStage);
+				    fail.showAndWait();
+				    mainController.movePawn(0);
+				}
+			} catch (InvalidAnswerException e1) {
+				e1.printStackTrace();
+			}
         });
     }
 
-    public boolean checkAnswer(String userInput) {
+    public boolean checkAnswer(String userInput) throws InvalidAnswerException {
         return AnswerValidator.isCorrect(userInput, question.getAnswer());
     }
 
@@ -210,7 +215,11 @@ public class QuestionController {
                     if (externalTimerLabel != null) {
                         externalTimerLabel.setText("");
                     }
-                    handleMultipleChoiceAnswer("", expectedAnswer, level, mainStage);
+                    try {
+						handleMultipleChoiceAnswer("", expectedAnswer, level, mainStage);
+					} catch (InvalidAnswerException e1) {
+						e1.printStackTrace();
+					}
                 }
             })
         );
@@ -249,7 +258,11 @@ public class QuestionController {
                 if (externalTimerLabel != null) {
                     externalTimerLabel.setText("");
                 }
-                handleMultipleChoiceAnswer(selectedOption, expectedAnswer, level, mainStage);
+                try {
+					handleMultipleChoiceAnswer(selectedOption, expectedAnswer, level, mainStage);
+				} catch (InvalidAnswerException e1) {
+					e1.printStackTrace();
+				}
             });
 
             buttons[i] = button;
@@ -270,7 +283,7 @@ public class QuestionController {
         dialogStage.show();
     }
 
-    private void handleMultipleChoiceAnswer(String selectedAnswer, String expectedAnswer, int level, Stage mainStage) {
+    private void handleMultipleChoiceAnswer(String selectedAnswer, String expectedAnswer, int level, Stage mainStage) throws InvalidAnswerException {
         if (checkAnswer(selectedAnswer)) {
             Alert success = new Alert(Alert.AlertType.INFORMATION, "Correct answer!");
             success.initOwner(mainStage);
