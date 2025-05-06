@@ -17,6 +17,11 @@ public class AnswerValidator {
 
         String input = normalize(userInput.trim().toLowerCase());
         String answer = normalize(correctAnswer.trim().toLowerCase());
+        
+        //if the answer is small, strictly accept the input 
+        if (answer.length() <= 4) {
+            return input.equals(answer);
+        }
 
         // Compare similarity: allow small typos or near matches
         return levenshteinDistance(input, answer) <= 1
