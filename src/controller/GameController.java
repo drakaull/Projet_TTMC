@@ -3,6 +3,7 @@ package controller;
 import java.util.List;
 import java.util.Set;
 
+import exceptions.InvalidGameException;
 import models.BoardGame;
 import models.Card;
 import models.Player;
@@ -88,11 +89,18 @@ public class GameController {
         }
     }
 
-    public void startNewGame() {
+    public void startNewGame() throws InvalidGameException {
+        if (players == null || players.isEmpty()) {
+            throw new InvalidGameException();
+        }
+        if (cardController == null || cardController.getAllCards().isEmpty()) {
+            throw new InvalidGameException();
+        }
         resetPlayers();
         resetUsedCards();
         shuffleCards();
     }
+
 
     public List<Player> getPlayers() {
         return players;
