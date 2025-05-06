@@ -18,9 +18,18 @@ public class AnswerValidator {
         String input = normalize(userInput.trim().toLowerCase());
         String answer = normalize(correctAnswer.trim().toLowerCase());
         
-        //if the answer is small, strictly accept the input 
-        if (answer.length() <= 4) {
+        int allowedDistance;
+        int answerLength = answer.length();
+
+        //small answer, strictly accept the input then tolerant depending on the length of the answer 
+        if (answerLength <= 4) {
             return input.equals(answer);
+        } else if (answerLength <= 8) {
+            allowedDistance = 1;
+        } else if (answerLength <= 15) {
+            allowedDistance = 2;
+        } else {
+            allowedDistance = 3;
         }
 
         // Compare similarity: allow small typos or near matches
