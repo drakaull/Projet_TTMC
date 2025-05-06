@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import exceptions.InvalidCardException;
-
+import exceptions.NoMoreThemeCardsException;
 import models.BoardGame;
 import models.Card;
 import models.Player;
@@ -44,19 +44,17 @@ public class GameController {
         cardController.shuffleCards();
     }
 
-    public Card drawCardForTheme(String theme) {
+    public Card drawCardForTheme(String theme) throws NoMoreThemeCardsException {
         if (usedCards.size() == cardController.getAllCards().size()) {
-            resetUsedCards();
-            shuffleCards();
+            throw new NoMoreThemeCardsException();
         }
 
-        Card card = cardController.pickCardForTheme(theme);
+        Card card = cardController.pickCardForTheme(theme, usedCards);
+
         if (card == null) {
-            System.out.println("Plus de cartes pour ce thème : " + theme);
-            return null;
+        	throw new NoMoreThemeCardsException();
         }
 
-        usedCards.add(card);
         return card;
     }
 
@@ -104,4 +102,9 @@ public class GameController {
     public BoardGame getBoardGame() {
         return boardGame;
     }
+    
+    public void markCardAsUsed(Card card) {
+        usedCards.add(card);
+    }
+
 }

@@ -18,17 +18,19 @@ public class CardController {
 		CardController.usedCards = new HashSet<>();
 	}
 
-	public Card pickCardForTheme(String theme) {
-		List<Card> availables = allCards.stream()
-				.filter(card -> card.getTheme().equalsIgnoreCase(theme) && !usedCards.contains(card))
-				.collect(Collectors.toList());
-		
-		if (availables.isEmpty()) return null;
-		
-		Card card = availables.get(new Random().nextInt(availables.size()));
-		usedCards.add(card);
-		return card;
+	public Card pickCardForTheme(String theme, Set<Card> usedCards) {
+	    List<Card> availableCards = allCards.stream()
+	        .filter(c -> c.getTheme().equals(theme) && !usedCards.contains(c))
+	        .collect(Collectors.toList());
+
+	    if (availableCards.isEmpty()) {
+	        return null;
+	    }
+
+	    Collections.shuffle(availableCards);
+	    return availableCards.get(0);
 	}
+
 	
 	public void resetUsedCards() {
         usedCards.clear();

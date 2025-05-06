@@ -214,6 +214,8 @@ public class BoardGameController {
 		if (card == null) {
 			throw new NoMoreThemeCardsException();
 		}
+		
+		gameController.markCardAsUsed(card);
 
 		Platform.runLater(() -> showDifficultyChoice(card));
 	}

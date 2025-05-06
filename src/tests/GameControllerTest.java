@@ -60,20 +60,20 @@ public class GameControllerTest {
     }
 
     @Test
-    public void testDrawCardForThemeReturnsCard() {
+    public void testDrawCardForThemeReturnsCard() throws NoMoreThemeCardsException {
         Card card = gameController.drawCardForTheme("Theme1");
         assertNotNull(card);
         assertEquals("Theme1", card.getTheme());
     }
 
     @Test
-    public void testIsCardUsed() {
+    public void testIsCardUsed() throws NoMoreThemeCardsException {
         Card card = gameController.drawCardForTheme("Theme1");
         assertTrue(gameController.isCardUsed(card));
     }
 
     @Test
-    public void testResetUsedCardsClearsSet() {
+    public void testResetUsedCardsClearsSet() throws NoMoreThemeCardsException {
         Card card = gameController.drawCardForTheme("Theme1");
         assertTrue(gameController.isCardUsed(card));
 
