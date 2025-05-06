@@ -1,17 +1,7 @@
 package tests;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import controller.GameController;
 import exceptions.InvalidCardException;
@@ -23,17 +13,22 @@ import models.Player;
 import models.Question;
 import strategyDifficulty.DifficultyStrategy;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 public class GameControllerTest {
-	private GameController gameController;
+
+    private GameController gameController;
     private List<Card> cards;
     private List<Player> players;
 
     @BeforeEach
-    void setUp() throws InvalidQuestionException, InvalidCardException {
+    public void setUp() throws InvalidQuestionException, InvalidCardException {
         cards = new ArrayList<>();
         players = new ArrayList<>();
 
-        // Create dummy cards with at least one question each
         List<Question> questions = List.of(
                 new Question(1, "Q1?", "A1", null, "Subject"),
                 new Question(2, "Q2?", "A2", null, "Subject"),
@@ -44,7 +39,6 @@ public class GameControllerTest {
         cards.add(new Card("Theme1", "Subject1", questions));
         cards.add(new Card("Theme2", "Subject2", questions));
 
-        // Create dummy players
         players.add(new Player("Alice"));
         players.add(new Player("Bob"));
 
@@ -52,7 +46,7 @@ public class GameControllerTest {
     }
 
     @Test
-    void testSetAndGetDifficultyStrategy() {
+    public void testSetAndGetDifficultyStrategy() {
         DifficultyStrategy dummyStrategy = () -> 30;
         gameController.setDifficultyStrategy(dummyStrategy);
 
@@ -60,25 +54,25 @@ public class GameControllerTest {
     }
 
     @Test
-    void testGetTimeLimitWithoutStrategyThrows() {
+    public void testGetTimeLimitWithoutStrategyThrows() {
         assertThrows(IllegalStateException.class, () -> gameController.getTimeLimit());
     }
 
     @Test
-    void testDrawCardForThemeReturnsCard() {
+    public void testDrawCardForThemeReturnsCard() {
         Card card = gameController.drawCardForTheme("Theme1");
         assertNotNull(card);
         assertEquals("Theme1", card.getTheme());
     }
 
     @Test
-    void testIsCardUsed() {
+    public void testIsCardUsed() {
         Card card = gameController.drawCardForTheme("Theme1");
         assertTrue(gameController.isCardUsed(card));
     }
 
     @Test
-    void testResetUsedCardsClearsSet() {
+    public void testResetUsedCardsClearsSet() {
         Card card = gameController.drawCardForTheme("Theme1");
         assertTrue(gameController.isCardUsed(card));
 
@@ -87,13 +81,13 @@ public class GameControllerTest {
     }
 
     @Test
-    void testGetCurrentPlayer() {
+    public void testGetCurrentPlayer() {
         Player current = gameController.getCurrentPlayer();
         assertEquals("Alice", current.getName());
     }
 
     @Test
-    void testNextPlayerCycles() {
+    public void testNextPlayerCycles() {
         Player first = gameController.getCurrentPlayer();
         gameController.nextPlayer();
         Player second = gameController.getCurrentPlayer();
@@ -102,7 +96,7 @@ public class GameControllerTest {
     }
 
     @Test
-    void testResetPlayersResetsScoresAndPositions() {
+    public void testResetPlayersResetsScoresAndPositions() {
         Player player = gameController.getCurrentPlayer();
         player.setScore(10);
         player.setPawn(new Pawn("blue", 5, player));
@@ -114,7 +108,7 @@ public class GameControllerTest {
     }
 
     @Test
-    void testStartNewGameResetsEverything() throws InvalidGameException {
+    public void testStartNewGameResetsEverything() throws InvalidGameException {
         gameController.startNewGame();
 
         for (Player p : gameController.getPlayers()) {
@@ -126,7 +120,7 @@ public class GameControllerTest {
     }
 
     @Test
-    void testGetBoardGameNotNull() {
+    public void testGetBoardGameNotNull() {
         assertNotNull(gameController.getBoardGame());
     }
 }

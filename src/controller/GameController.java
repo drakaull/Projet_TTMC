@@ -3,11 +3,8 @@ package controller;
 import java.util.List;
 import java.util.Set;
 
-<<<<<<< HEAD
 import exceptions.InvalidCardException;
-=======
-import exceptions.InvalidGameException;
->>>>>>> refs/remotes/origin/master
+
 import models.BoardGame;
 import models.Card;
 import models.Player;
@@ -93,13 +90,7 @@ public class GameController {
         }
     }
 
-    public void startNewGame() throws InvalidGameException {
-        if (players == null || players.isEmpty()) {
-            throw new InvalidGameException();
-        }
-        if (cardController == null || cardController.getAllCards().isEmpty()) {
-            throw new InvalidGameException();
-        }
+    public void startNewGame() {
         resetPlayers();
         resetUsedCards();
         shuffleCards();
