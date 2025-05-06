@@ -52,7 +52,11 @@ public class Card {
 		this.subject = subject;
 	}
 
-	public Question getQuestionByLevel(int difficulty) {
-		return questions.stream().filter(q -> q.getDifficulty() == difficulty).findFirst().orElse(null);
+	public Question getQuestionByLevel(int difficulty) throws InvalidCardException {
+	    return questions.stream()
+	            .filter(q -> q.getDifficulty() == difficulty)
+	            .findFirst()
+	            .orElseThrow(() -> new InvalidCardException());
 	}
+
 }

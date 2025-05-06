@@ -3,6 +3,7 @@ package controller;
 import java.util.List;
 import java.util.Set;
 
+import exceptions.InvalidCardException;
 import models.BoardGame;
 import models.Card;
 import models.Player;
@@ -58,7 +59,7 @@ public class GameController {
         return card;
     }
 
-    public Question getQuestionForLevel(Card card, int level) {
+    public Question getQuestionForLevel(Card card, int level) throws InvalidCardException {
         return card.getQuestionByLevel(level);
     }
 
