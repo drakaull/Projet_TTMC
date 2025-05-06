@@ -286,38 +286,42 @@ public class QuestionController {
     }
 
     private void handleMultipleChoiceAnswer(String selectedAnswer, String expectedAnswer, int level, Stage mainStage) throws InvalidAnswerException {
-        if (checkAnswer(selectedAnswer)) {
-            Alert success = new Alert(Alert.AlertType.INFORMATION, "Correct answer!");
-            success.initOwner(mainStage);
-            success.showAndWait();
-            mainController.movePawn(level);
-        } else {
-            Alert fail = new Alert(Alert.AlertType.INFORMATION, "Incorrect answer.\nCorrect was: " + expectedAnswer);
-            fail.initOwner(mainStage);
-            
-            Platform.runLater(() -> {
-                Stage popup = new Stage();
-                popup.initModality(Modality.NONE);
-                popup.setAlwaysOnTop(true);
-                popup.setTitle("time finish");
+    	if (checkAnswer(selectedAnswer)) {
+    	    Alert success = new Alert(Alert.AlertType.INFORMATION, "Correct answer!");
+    	    success.initOwner(mainStage);
+    	    success.showAndWait();
+    	    mainController.movePawn(level);
+    	} else {
+    	    if (selectedAnswer == null || selectedAnswer.isEmpty()) {
+    	        // Timer expired → show "time finished"
+    	        Platform.runLater(() -> {
+    	            Stage popup = new Stage();
+    	            popup.initModality(Modality.NONE);
+    	            popup.setAlwaysOnTop(true);
+    	            popup.setTitle("Time finished");
 
-                Label label = new Label("time finish !");
-                label.setStyle("-fx-font-size: 16px; -fx-padding: 20px;");
+    	            Label label = new Label("Time finished!");
+    	            label.setStyle("-fx-font-size: 16px; -fx-padding: 20px;");
 
-                Scene scene = new Scene(label);
-                popup.setScene(scene);
-                popup.show();
+    	            Scene scene = new Scene(label);
+    	            popup.setScene(scene);
+    	            popup.show();
 
-                // close after 2 secondes
-                PauseTransition delay = new PauseTransition(Duration.seconds(2));
-                delay.setOnFinished(event -> {
-                    popup.close();
-                    mainController.nextPlayer();  // Passe au joueur suivant après la fermeture
-                });
-                delay.play();
-            });
-            
-            mainController.movePawn(0);
-        }
+    	            PauseTransition delay = new PauseTransition(Duration.seconds(2));
+    	            delay.setOnFinished(event -> {
+    	                popup.close();
+    	                mainController.nextPlayer();
+    	            });
+    	            delay.play();
+    	        });
+    	    } else {
+    	        // Wrong answer → only show incorrect message
+    	        Alert fail = new Alert(Alert.AlertType.INFORMATION, "Incorrect answer.\nCorrect was: " + expectedAnswer);
+    	        fail.initOwner(mainStage);
+    	        fail.showAndWait();
+    	        mainController.movePawn(0);
+    	    }
+    	}
+
     }
 }

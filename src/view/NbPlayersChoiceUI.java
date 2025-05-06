@@ -7,6 +7,8 @@ import java.util.List;
 import controller.BoardGameController;
 import controller.GameController;
 import controller.PlayerController;
+import exceptions.InvalidCardException;
+import exceptions.NoMoreThemeCardsException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -40,7 +42,7 @@ public class NbPlayersChoiceUI {
     }
 
     @FXML
-    private void switchToScene2(ActionEvent event) {
+    private void switchToScene2(ActionEvent event) throws InvalidCardException, NoMoreThemeCardsException {
         try {
             // 🔒 Vérifie que les sliders ne sont pas null
             if (playerSlider == null || difficultySlider == null) {

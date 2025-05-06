@@ -7,6 +7,7 @@ import controller.GameController;
 import exceptions.InvalidCardException;
 import exceptions.InvalidGameException;
 import exceptions.InvalidQuestionException;
+import exceptions.NoMoreThemeCardsException;
 import models.Card;
 import models.Pawn;
 import models.Player;
