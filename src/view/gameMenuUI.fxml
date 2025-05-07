@@ -17,22 +17,17 @@
                   <Image url="@../resource/images/wood.jpg" />
                </image>
             </ImageView>
-            <Button layoutX="566.0" layoutY="236.0" mnemonicParsing="false" onAction="#switchToScene" prefHeight="98.0" prefWidth="298.0" text="Play">
+            <Button layoutX="567.0" layoutY="274.0" mnemonicParsing="false" onAction="#switchToScene" prefHeight="98.0" prefWidth="298.0" text="Play">
                <font>
                   <Font size="42.0" />
                </font>
             </Button>
-            <Button layoutX="567.0" layoutY="350.0" mnemonicParsing="false" onAction="#switchToScene2" prefHeight="98.0" prefWidth="297.0" text="Settings">
+            <Button layoutX="569.0" layoutY="432.0" mnemonicParsing="false" onAction="#switchToScene3" prefHeight="91.0" prefWidth="295.0" text="Game rules">
                <font>
                   <Font size="42.0" />
                </font>
             </Button>
-            <Button layoutX="571.0" layoutY="468.0" mnemonicParsing="false" onAction="#switchToScene3" prefHeight="91.0" prefWidth="295.0" text="Game rules">
-               <font>
-                  <Font size="42.0" />
-               </font>
-            </Button>
-            <Button layoutX="567.0" onAction="#handleExit" layoutY="574.0" mnemonicParsing="false" prefHeight="91.0" prefWidth="298.0" text="Exit">
+            <Button layoutX="568.0" layoutY="585.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="91.0" prefWidth="298.0" text="Exit">
                <font>
                   <Font size="42.0" />
                </font>
