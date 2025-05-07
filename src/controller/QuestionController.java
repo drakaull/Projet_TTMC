@@ -115,8 +115,18 @@ public class QuestionController {
                 int current = timeSeconds.get();
                 timeSeconds.set(current - 1);
                 if (externalTimerLabel != null) {
-                    externalTimerLabel.setText("Time left: " + (current - 1) + "s");
+                    int secondsLeft = current - 1;
+                    externalTimerLabel.setText("Time left: " + secondsLeft + "s");
+
+                    if (secondsLeft <= 5) {
+                        externalTimerLabel.setStyle("-fx-font-size: 28px; -fx-text-fill: red;");
+                    } else if (secondsLeft <= 10) {
+                        externalTimerLabel.setStyle("-fx-font-size: 20px; -fx-text-fill: red;");
+                    } else {
+                        externalTimerLabel.setStyle("-fx-font-size: 14px; -fx-text-fill: red;");
+                    }
                 }
+
                 if (current - 1 <= 0) {
                     countdown.stop();
                     dialog.setResult("");
