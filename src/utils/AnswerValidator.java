@@ -33,7 +33,7 @@ public class AnswerValidator {
         }
 
         // Compare similarity: allow small typos or near matches
-        return levenshteinDistance(input, answer) <= 1
+        return levenshteinDistance(input, answer) <= allowedDistance
                 || answer.contains(input)
                 || input.contains(answer);
     }
