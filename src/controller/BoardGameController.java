@@ -11,8 +11,10 @@ import java.util.Map;
 import exceptions.NoMoreThemeCardsException;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -36,6 +38,8 @@ import strategyDifficulty.HardDifficulty;
 import strategyDifficulty.MediumDifficulty;
 import utils.CardDataLoader;
 
+
+
 public class BoardGameController {
 
 	@FXML
@@ -51,6 +55,9 @@ public class BoardGameController {
 	private BoardGame boardGame;
 	private Map<Player, Circle> playerCircles = new HashMap<>();
 	private AudioClip backgroundMusic;
+	
+	private Stage stage;
+	private Scene scene;
 
 	public void setGameController(GameController gameController) throws NoMoreThemeCardsException {
 		this.gameController = gameController;
@@ -272,5 +279,14 @@ public class BoardGameController {
 		default -> gameController.setDifficultyStrategy(new EasyDifficulty());
 		}
 	}
+	
+	public void switchToScene(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("gameMenuUI.fxml")); // corrigé avec le bon chemin
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setFullScreen(true);
+        stage.show();
+    }
 
 }

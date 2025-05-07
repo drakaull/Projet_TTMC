@@ -6,7 +6,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.shape.Circle?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="864.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BoardGameController">
    <center>
@@ -19,7 +18,8 @@
             </ImageView>
             <Label id="start" layoutX="1346.0" layoutY="732.0" prefHeight="19.0" prefWidth="11.0" />
             <Label fx:id="currentPlayerLabel" layoutX="400" layoutY="0" text="Current player: " />
-            <Label fx:id="timerLabel" layoutX="800" layoutY="0" text="" style="-fx-font-size: 14px; -fx-text-fill: red;" />
+            <Label fx:id="timerLabel" layoutX="800" layoutY="0" style="-fx-font-size: 14px; -fx-text-fill: red;" text="" />
+            <Button fx:id="leave" onAction="#switchToScene" layoutX="1207.0" layoutY="719.0" mnemonicParsing="false" text="leave" />
          </children>
       </AnchorPane>
    </center>
