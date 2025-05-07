@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -10,8 +11,6 @@ import models.Card;
 import models.Player;
 import models.Question;
 import strategyDifficulty.DifficultyStrategy;
-
-import java.util.HashSet;
 
 public class GameController {
     private CardController cardController;
@@ -50,11 +49,12 @@ public class GameController {
         }
 
         Card card = cardController.pickCardForTheme(theme, usedCards);
-
         if (card == null) {
-        	throw new NoMoreThemeCardsException();
+            throw new NoMoreThemeCardsException();
         }
 
+        // Marquer immédiatement la carte comme utilisée
+        usedCards.add(card);
         return card;
     }
 
@@ -62,12 +62,16 @@ public class GameController {
         return card.getQuestionByLevel(level);
     }
 
-    public boolean isCardUsed(Card card) {
-        return usedCards.contains(card);
-    }
-
     public void resetUsedCards() {
         usedCards.clear();
+    }
+
+    public void markCardAsUsed(Card card) {
+        usedCards.add(card);
+    }
+
+    public boolean isCardUsed(Card card) {
+        return usedCards.contains(card);
     }
 
     public Player getCurrentPlayer() {
@@ -94,7 +98,6 @@ public class GameController {
         shuffleCards();
     }
 
-
     public List<Player> getPlayers() {
         return players;
     }
@@ -102,9 +105,4 @@ public class GameController {
     public BoardGame getBoardGame() {
         return boardGame;
     }
-    
-    public void markCardAsUsed(Card card) {
-        usedCards.add(card);
-    }
-
 }
