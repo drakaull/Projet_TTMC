@@ -3,6 +3,7 @@ package view;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -40,5 +41,10 @@ public class GameMenuUI {
 		stage.setFullScreen(true);
 		stage.show();
 	}
+	@FXML
+	private void handleExit() {
+	    javafx.application.Platform.exit(); // ou System.exit(0);
+	}
+
 	
 }
