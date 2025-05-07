@@ -22,17 +22,12 @@
                   <Font size="42.0" />
                </font>
             </Button>
-            <Button layoutX="567.0" layoutY="350.0" mnemonicParsing="false" onAction="#switchToScene2" prefHeight="98.0" prefWidth="297.0" text="Settings">
+            <Button layoutX="571.0" layoutY="354.0" mnemonicParsing="false" onAction="#switchToScene3" prefHeight="91.0" prefWidth="295.0" text="Game rules">
                <font>
                   <Font size="42.0" />
                </font>
             </Button>
-            <Button layoutX="571.0" layoutY="468.0" mnemonicParsing="false" onAction="#switchToScene3" prefHeight="91.0" prefWidth="295.0" text="Game rules">
-               <font>
-                  <Font size="42.0" />
-               </font>
-            </Button>
-            <Button layoutX="567.0" onAction="#handleExit" layoutY="574.0" mnemonicParsing="false" prefHeight="91.0" prefWidth="298.0" text="Exit">
+            <Button layoutX="567.0" layoutY="464.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="91.0" prefWidth="298.0" text="Exit">
                <font>
                   <Font size="42.0" />
                </font>
