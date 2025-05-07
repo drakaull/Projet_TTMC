@@ -296,42 +296,36 @@ public class QuestionController {
     }
 
     private void handleMultipleChoiceAnswer(String selectedAnswer, String expectedAnswer, int level, Stage mainStage) throws InvalidAnswerException {
-    	if (checkAnswer(selectedAnswer)) {
-    	    Alert success = new Alert(Alert.AlertType.INFORMATION, "Correct answer!");
-    	    success.initOwner(mainStage);
-    	    success.showAndWait();
-    	    mainController.movePawn(level);
-    	} else {
-    	    if (selectedAnswer == null || selectedAnswer.isEmpty()) {
-    	        // Timer expired → show "time finished"
-    	        Platform.runLater(() -> {
-    	            Stage popup = new Stage();
-    	            popup.initModality(Modality.NONE);
-    	            popup.setAlwaysOnTop(true);
-    	            popup.setTitle("Time finished");
+        if (checkAnswer(selectedAnswer)) {
+            Alert success = new Alert(Alert.AlertType.INFORMATION, "Correct answer!");
+            success.initOwner(mainStage);
+            success.showAndWait();
+            mainController.movePawn(level);
+        } else {
+            if (selectedAnswer == null || selectedAnswer.isEmpty()) {
+                // Timer expired → show "time finished" without hiding the board
+                Platform.runLater(() -> {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION, "Time finished!");
+                    alert.initOwner(mainController.getGamePane().getScene().getWindow());
+                    alert.setHeaderText(null);
 
-    	            Label label = new Label("Time finished!");
-    	            label.setStyle("-fx-font-size: 16px; -fx-padding: 20px;");
+                    PauseTransition delay = new PauseTransition(Duration.seconds(2));
+                    delay.setOnFinished(event -> {
+                        alert.close();
+                        mainController.nextPlayer();
+                    });
 
-    	            Scene scene = new Scene(label);
-    	            popup.setScene(scene);
-    	            popup.show();
-
-    	            PauseTransition delay = new PauseTransition(Duration.seconds(2));
-    	            delay.setOnFinished(event -> {
-    	                popup.close();
-    	                mainController.nextPlayer();
-    	            });
-    	            delay.play();
-    	        });
-    	    } else {
-    	        // Wrong answer → only show incorrect message
-    	        Alert fail = new Alert(Alert.AlertType.INFORMATION, "Incorrect answer.\nCorrect was: " + expectedAnswer);
-    	        fail.initOwner(mainStage);
-    	        fail.showAndWait();
-    	        mainController.movePawn(0);
-    	    }
-    	}
-
+                    alert.show();
+                    delay.play();
+                });
+            } else {
+                // Wrong answer → show incorrect message
+                Alert fail = new Alert(Alert.AlertType.INFORMATION, "Incorrect answer.\nCorrect was: " + expectedAnswer);
+                fail.initOwner(mainStage);
+                fail.showAndWait();
+                mainController.movePawn(0);
+            }
+        }
     }
+
 }
