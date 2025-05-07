@@ -64,12 +64,11 @@ public class Card {
 	    if (this == o) return true;
 	    if (o == null || getClass() != o.getClass()) return false;
 	    Card card = (Card) o;
-	    return subject != null && subject.equals(card.subject);
+	    return subject.equals(card.subject);
 	}
 
 	@Override
 	public int hashCode() {
-	    return subject != null ? subject.hashCode() : 0;
+	    return subject.hashCode();
 	}
-
 }
