@@ -77,12 +77,13 @@ public class QuestionController {
         dialog.setHeaderText(null);
         dialog.initOwner(mainStage);
 
+        // hide cancel button
         Button cancelButton = (Button) dialog.getDialogPane().lookupButton(ButtonType.CANCEL);
         if (cancelButton != null) {
             cancelButton.setVisible(false);
             cancelButton.setManaged(false);
         }
-        
+
         StringBuilder content = new StringBuilder(q.getQuestion());
         if (q.getOptions() != null && !q.getOptions().isEmpty()) {
             content.append("\nOptions:\n");
@@ -90,18 +91,27 @@ public class QuestionController {
         }
         dialog.setContentText(content.toString());
 
+        final boolean[] answered = {false};
+
         final Timeline[] timelineHolder = new Timeline[1];
         timelineHolder[0] = startTimer(gameController.getTimeLimit(), () -> {
-            dialog.setResult("");
-            dialog.close();
-            if (externalTimerLabel != null) externalTimerLabel.setText("");
+            if (!answered[0]) {
+                answered[0] = true;
+                dialog.setResult("");
+                dialog.close();
+                if (externalTimerLabel != null) externalTimerLabel.setText("");
+            }
         });
 
         Optional<String> result = dialog.showAndWait();
-        if (timelineHolder[0] != null) timelineHolder[0].stop();
-        if (externalTimerLabel != null) externalTimerLabel.setText("");
-        handleAnswer(result.orElse(""), q.getAnswer(), level, mainStage);
+        if (!answered[0]) {
+            answered[0] = true;
+            if (timelineHolder[0] != null) timelineHolder[0].stop();
+            if (externalTimerLabel != null) externalTimerLabel.setText("");
+            handleAnswer(result.orElse(""), q.getAnswer(), level, mainStage);
+        }
     }
+
 
     private void showMultipleChoiceDialog(Question q, int level, Stage mainStage) {
         Stage dialogStage = new Stage();
