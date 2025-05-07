@@ -18,6 +18,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.AudioClip;
@@ -41,6 +42,9 @@ import utils.CardDataLoader;
 
 
 public class BoardGameController {
+	
+	@FXML
+	private Button pickACardBtn;
 
 	@FXML
 	private AnchorPane gamePane;
@@ -117,7 +121,7 @@ public class BoardGameController {
 		}
 		startBackgroundMusic();
 		updatePlayerLabel();
-		askNewCard();
+		//askNewCard();
 	}
 
 	private void startBackgroundMusic() {
@@ -141,12 +145,22 @@ public class BoardGameController {
 	public void nextPlayer() {
 	    gameController.nextPlayer();
 	    updatePlayerLabel();
+//	    try {
+//	        askNewCard();
+//	    } catch (NoMoreThemeCardsException e) {
+//	        e.printStackTrace();
+//	    }
+	}
+	
+	@FXML
+	private void handlePickCardButton() {
 	    try {
 	        askNewCard();
 	    } catch (NoMoreThemeCardsException e) {
 	        e.printStackTrace();
 	    }
 	}
+
 
 
 	public void movePawn(int movement) {
@@ -198,12 +212,12 @@ public class BoardGameController {
 			} else {
 				gameController.nextPlayer();
 				updatePlayerLabel();
-				try {
-					askNewCard();
-				} catch (NoMoreThemeCardsException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+//				try {
+//					askNewCard();
+//				} catch (NoMoreThemeCardsException e1) {
+//					// TODO Auto-generated catch block
+//					e1.printStackTrace();
+//				}
 			}
 		});
 

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="864.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BoardGameController">
    <center>
@@ -19,7 +21,23 @@
             <Label id="start" layoutX="1346.0" layoutY="732.0" prefHeight="19.0" prefWidth="11.0" />
             <Label fx:id="currentPlayerLabel" layoutX="400" layoutY="0" text="Current player: " />
             <Label fx:id="timerLabel" layoutX="800" layoutY="0" style="-fx-font-size: 14px; -fx-text-fill: red;" text="" />
-            <Button fx:id="leave" onAction="#switchToScene" layoutX="1207.0" layoutY="719.0" mnemonicParsing="false" text="leave" />
+            <Button fx:id="leave" layoutX="1207.0" layoutY="719.0" mnemonicParsing="false" onAction="#switchToScene" text="leave">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button id="pickACardBtn" layoutX="413.0" layoutY="507.0" mnemonicParsing="false" onAction="#handlePickCardButton" opacity="0.0" prefHeight="203.0" prefWidth="141.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Label alignment="CENTER" layoutX="447.0" layoutY="566.0" mouseTransparent="true" prefHeight="74.0" prefWidth="73.0" style="-fx-background-color: #3366cc; -fx-text-fill: white; -fx-background-radius: 50; -fx-border-color: black; -fx-border-radius: 50; -fx-border-width: 2;" text="Pick A Card" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               
+            </Label>
          </children>
       </AnchorPane>
    </center>
