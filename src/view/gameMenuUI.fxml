@@ -5,39 +5,33 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="864.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.GameMenuUI">
-   <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="866.0" fitWidth="1533.0" layoutY="-1.0">
-               <image>
-                  <Image url="@../resource/images/wood.jpg" />
-               </image>
-            </ImageView>
-            <Button layoutX="566.0" layoutY="236.0" mnemonicParsing="false" onAction="#switchToScene" prefHeight="98.0" prefWidth="298.0" text="Play">
-               <font>
-                  <Font size="42.0" />
-               </font>
-            </Button>
-            <Button layoutX="571.0" layoutY="354.0" mnemonicParsing="false" onAction="#switchToScene3" prefHeight="91.0" prefWidth="295.0" text="Game rules">
-               <font>
-                  <Font size="42.0" />
-               </font>
-            </Button>
-            <Button layoutX="567.0" layoutY="464.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="91.0" prefWidth="298.0" text="Exit">
-               <font>
-                  <Font size="42.0" />
-               </font>
-            </Button>
-            <Text layoutX="342.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much do you put yourself?" wrappingWidth="838.56689453125">
-               <font>
-                  <Font name="System Bold" size="52.0" />
-               </font>
-            </Text>
-         </children>
-      </AnchorPane>
-   </center>
-</BorderPane>
+<StackPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="view.GameMenuUI" prefHeight="864.0" prefWidth="1536.0">
+
+    <!-- Background image that scales to entire window -->
+    <ImageView preserveRatio="false">
+	    <image>
+	        <Image url="@../resource/images/wood.jpg" />
+	    </image>
+	</ImageView>
+
+
+    <!-- Centered content -->
+    <VBox alignment="CENTER" spacing="40.0">
+        <Text text="How much do you put yourself?"
+              style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-fill: black;" />
+        
+        <Button text="Play" onAction="#switchToScene" prefWidth="300" prefHeight="80"
+                style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 28px; -fx-background-radius: 12;" />
+        
+        <Button text="Game rules" onAction="#switchToScene3" prefWidth="300" prefHeight="80"
+                style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-size: 28px; -fx-background-radius: 12;" />
+        
+        <Button text="Exit" onAction="#handleExit" prefWidth="300" prefHeight="80"
+                style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-size: 28px; -fx-background-radius: 12;" />
+    </VBox>
+</StackPane>
