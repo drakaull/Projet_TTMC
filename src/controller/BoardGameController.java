@@ -108,7 +108,7 @@ public class BoardGameController {
 
 			i++;
 		}
-		timerLabel.setText("Timer prêt");
+		timerLabel.setText("Timer ready");
 		startBackgroundMusic();
 		updatePlayerLabel();
 		askNewCard();
