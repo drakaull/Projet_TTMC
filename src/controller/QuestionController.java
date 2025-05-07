@@ -77,6 +77,12 @@ public class QuestionController {
         dialog.setHeaderText(null);
         dialog.initOwner(mainStage);
 
+        Button cancelButton = (Button) dialog.getDialogPane().lookupButton(ButtonType.CANCEL);
+        if (cancelButton != null) {
+            cancelButton.setVisible(false);
+            cancelButton.setManaged(false);
+        }
+        
         StringBuilder content = new StringBuilder(q.getQuestion());
         if (q.getOptions() != null && !q.getOptions().isEmpty()) {
             content.append("\nOptions:\n");
@@ -185,15 +191,14 @@ public class QuestionController {
 
     private void showAlert(String message, Stage stage) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, message);
-        alert.initOwner(stage);
-        alert.setHeaderText(null);
+        styleAlert(alert, stage);
         alert.showAndWait();
     }
 
+
     private void showTimedAlert(String message, Stage stage, Runnable afterClose) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, message);
-        alert.initOwner(stage);
-        alert.setHeaderText(null);
+        styleAlert(alert, stage);
         PauseTransition delay = new PauseTransition(Duration.seconds(2));
         delay.setOnFinished(e -> {
             alert.close();
@@ -202,4 +207,13 @@ public class QuestionController {
         alert.show();
         delay.play();
     }
+    
+    private void styleAlert(Alert alert, Stage stage) {
+        alert.initOwner(stage);
+        alert.setHeaderText(null);
+        DialogPane pane = alert.getDialogPane();
+        pane.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+        pane.getStyleClass().add("custom-alert");
+    }
+
 }
