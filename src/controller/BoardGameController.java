@@ -221,7 +221,7 @@ public class BoardGameController {
 	}
 
 	private void updatePlayerLabel() {
-		currentPlayerLabel.setText("Au tour de : " + gameController.getCurrentPlayer().getName());
+		currentPlayerLabel.setText(gameController.getCurrentPlayer().getName() + ", it is your turn");
 	}
 
 	private void showVictoryPopup(String winner) {
