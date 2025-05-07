@@ -108,7 +108,6 @@ public class BoardGameController {
 
 			i++;
 		}
-		timerLabel.setText("Timer ready");
 		startBackgroundMusic();
 		updatePlayerLabel();
 		askNewCard();
@@ -133,9 +132,15 @@ public class BoardGameController {
 	}
 
 	public void nextPlayer() {
-		gameController.nextPlayer();
-		updatePlayerLabel();
+	    gameController.nextPlayer();
+	    updatePlayerLabel();
+	    try {
+	        askNewCard();
+	    } catch (NoMoreThemeCardsException e) {
+	        e.printStackTrace();
+	    }
 	}
+
 
 	public void movePawn(int movement) {
 		Player currentPlayer = gameController.getCurrentPlayer();
