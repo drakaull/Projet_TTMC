@@ -129,14 +129,20 @@ public class QuestionController {
 
 		final Timeline[] timelineHolder = new Timeline[1];
 		timelineHolder[0] = startTimer(gameController.getTimeLimit(), () -> {
-			if (!answered[0]) {
-				answered[0] = true;
-				dialog.setResult("");
-				dialog.close();
-				if (externalTimerLabel != null)
-					externalTimerLabel.setText("");
-			}
+		    if (!answered[0]) {
+		        answered[0] = true;
+		        dialog.setResult("");
+		        dialog.close();
+		        if (externalTimerLabel != null)
+		            externalTimerLabel.setText("");
+
+		        // Appeler handleAnswer pour passer au joueur suivant
+		        Platform.runLater(() -> {
+		            handleAnswer("", q.getAnswer(), level, mainStage);
+		        });
+		    }
 		});
+
 
 		Optional<String> result = dialog.showAndWait();
 		if (!answered[0]) {
