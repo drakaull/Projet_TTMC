@@ -20,7 +20,7 @@
     <!-- Central layout -->
     <VBox alignment="CENTER" spacing="35" maxWidth="500" style="-fx-padding: 50;">
         <Text text="Choose Game Settings"
-              style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-fill: white;" />
+              style="-fx-font-size: 44px; -fx-font-weight: bold; -fx-fill: white;" />
 
         <!-- Number of players -->
         <VBox alignment="CENTER" spacing="10">
