@@ -10,26 +10,6 @@ import models.*;
 import view.*;
 
 public class PrincipalController {
-	private Card cardModel;
-	private CardController cardController;
-	private Case caseModel;
-	private CaseController caseController;
-	private Chronometer chronoModel;
-	private ChronoController chronoController;
-	private Game gameModel;
-	private GameController gameController;
-	private Pawn pawnModel;
-	private PawnController pawnController;
-	private Player playerModel;
-	private PlayerController playerController;
-	private Question QuestionModel;
-	private QuestionController QuestionController;
-	private GameMenuUI gameMenuView;
-	private GameUI gameView;
-	private PlayerChoiceUI playerChoiceView;
-	private NbPlayersChoiceUI nbPlayerChoiceView;
-	private RulesUI rulesView;
-	private SettingsUI settingsView;
 
 	public PrincipalController(Stage primaryStage) {
 		try {
