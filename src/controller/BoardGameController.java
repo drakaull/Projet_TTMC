@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 import exceptions.NoMoreThemeCardsException;
+import javafx.animation.FadeTransition;
+import javafx.animation.PauseTransition;
+import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -37,10 +40,8 @@ import strategyDifficulty.HardDifficulty;
 import strategyDifficulty.MediumDifficulty;
 import utils.CardDataLoader;
 
-
-
 public class BoardGameController {
-	
+
 	@FXML
 	private Button pickACardBtn;
 
@@ -57,7 +58,7 @@ public class BoardGameController {
 	private BoardGame boardGame;
 	private Map<Player, Circle> playerCircles = new HashMap<>();
 	private AudioClip backgroundMusic;
-	
+
 	private Stage stage;
 	private Scene scene;
 
@@ -118,6 +119,7 @@ public class BoardGameController {
 		}
 		startBackgroundMusic();
 		updatePlayerLabel();
+
 	}
 
 	private void startBackgroundMusic() {
@@ -139,25 +141,24 @@ public class BoardGameController {
 	}
 
 	public void nextPlayer() {
-	    gameController.nextPlayer();
-	    updatePlayerLabel();
+		gameController.nextPlayer();
+		updatePlayerLabel();
+
 //	    try {
 //	        askNewCard();
 //	    } catch (NoMoreThemeCardsException e) {
 //	        e.printStackTrace();
 //	    }
 	}
-	
+
 	@FXML
 	private void handlePickCardButton() {
-	    try {
-	        askNewCard();
-	    } catch (NoMoreThemeCardsException e) {
-	        e.printStackTrace();
-	    }
+		try {
+			askNewCard();
+		} catch (NoMoreThemeCardsException e) {
+			e.printStackTrace();
+		}
 	}
-
-
 
 	public void movePawn(int movement) {
 		Player currentPlayer = gameController.getCurrentPlayer();
@@ -236,7 +237,7 @@ public class BoardGameController {
 		if (card == null) {
 			throw new NoMoreThemeCardsException();
 		}
-		
+
 		gameController.markCardAsUsed(card);
 
 		Platform.runLater(() -> showDifficultyChoice(card));
@@ -263,7 +264,7 @@ public class BoardGameController {
 			controller.setCard(card);
 			controller.setBoardGameController(this);
 			controller.setPlayerName(gameController.getCurrentPlayer().getName());
-			controller.setGameController(gameController); 
+			controller.setGameController(gameController);
 			controller.setExternalTimerLabel(timerLabel);
 
 			Stage stage = new Stage();
@@ -289,15 +290,15 @@ public class BoardGameController {
 		default -> gameController.setDifficultyStrategy(new EasyDifficulty());
 		}
 	}
-	
+
 	public void switchToScene(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/gameMenuUI.fxml"));
 		Parent root = loader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setFullScreen(true);
-        stage.show();
-    }
+		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.setFullScreen(true);
+		stage.show();
+	}
 
 }
