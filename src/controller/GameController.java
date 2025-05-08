@@ -34,7 +34,7 @@ public class GameController {
 
     public int getTimeLimit() {
         if (difficultyStrategy == null) {
-            throw new IllegalStateException("La difficulté n'a pas été définie !");
+            throw new IllegalStateException("The difficulty has not been defined !");
         }
         return difficultyStrategy.getTimeLimitInSeconds();
     }
@@ -53,7 +53,7 @@ public class GameController {
             throw new NoMoreThemeCardsException();
         }
 
-        // Marquer immédiatement la carte comme utilisée
+        // Mark the card as used immediately
         usedCards.add(card);
         return card;
     }

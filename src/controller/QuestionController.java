@@ -136,7 +136,7 @@ public class QuestionController {
 		        if (externalTimerLabel != null)
 		            externalTimerLabel.setText("");
 
-		        // Appeler handleAnswer pour passer au joueur suivant
+		        // Call handleAnswer to move on to the next player
 		        Platform.runLater(() -> {
 		            handleAnswer("", q.getAnswer(), level, mainStage);
 		        });

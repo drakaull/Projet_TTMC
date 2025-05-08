@@ -1,5 +1,3 @@
-// Nouveau BoardGameController avec gestion multi-joueurs
-
 package controller;
 
 import java.io.IOException;
@@ -68,7 +66,6 @@ public class BoardGameController {
 		initializeGame();
 	}
 
-	// question apparait avant platezu ?
 	private void initializeGame() throws NoMoreThemeCardsException {
 		boardGame = new BoardGame();
 		List<Player> players = gameController.getPlayers();
@@ -80,14 +77,14 @@ public class BoardGameController {
 			player.setPawn(pawn);
 
 			Circle circle = new Circle(10);
-			circle.setFill(colors.get(i % colors.size())); // Rotation si > 4 joueurs
+			circle.setFill(colors.get(i % colors.size())); // Rotation if > 4 players
 			circle.setId(player.getName());
 			gamePane.getChildren().add(circle);
 			playerCircles.put(player, circle);
 
 			Case start = boardGame.getCase(0);
 
-			// Positionnement décalé dès le départ
+			// Offset positioning from the start
 			double offsetX = 0;
 			double offsetY = 0;
 
@@ -121,7 +118,6 @@ public class BoardGameController {
 		}
 		startBackgroundMusic();
 		updatePlayerLabel();
-		//askNewCard();
 	}
 
 	private void startBackgroundMusic() {
@@ -171,32 +167,32 @@ public class BoardGameController {
 		Case newCase = boardGame.getCase(currentPlayer.getPawn().getPosition());
 		Circle circle = playerCircles.get(currentPlayer);
 
-		// Récupère la position du joueur dans la liste
+		// Retrieves the player's position in the list
 		int playerIndex = gameController.getPlayers().indexOf(currentPlayer);
 
 		double offsetX = 0;
 		double offsetY = 0;
 
-		// Décalages spéciaux pour 4 joueurs
+		// Special 4-player offsets
 		switch (playerIndex) {
-		case 0: // Joueur 1
+		case 0: // Player 1
 			offsetX = -10;
 			offsetY = -10;
 			break;
-		case 1: // Joueur 2
+		case 1: // Player 2
 			offsetX = 10;
 			offsetY = -10;
 			break;
-		case 2: // Joueur 3
+		case 2: // Player 3
 			offsetX = -10;
 			offsetY = 10;
 			break;
-		case 3: // Joueur 4
+		case 3: // Player 4
 			offsetX = 10;
 			offsetY = 10;
 			break;
 		default:
-			// Si jamais il y a plus de 4 joueurs, on reste au centre
+			// If there are more than 4 players, we stay in the center
 			offsetX = 0;
 			offsetY = 0;
 			break;
@@ -252,9 +248,9 @@ public class BoardGameController {
 
 	private void showVictoryPopup(String winner) {
 		Alert alert = new Alert(Alert.AlertType.INFORMATION);
-		alert.setTitle("Victoire !");
+		alert.setTitle("WIN !");
 		alert.setHeaderText(null);
-		alert.setContentText(winner + " a gagné la partie !");
+		alert.setContentText(winner + " won the game !");
 		alert.showAndWait();
 	}
 
@@ -267,7 +263,7 @@ public class BoardGameController {
 			controller.setCard(card);
 			controller.setBoardGameController(this);
 			controller.setPlayerName(gameController.getCurrentPlayer().getName());
-			controller.setGameController(gameController); // AJOUT ESSENTIEL
+			controller.setGameController(gameController); 
 			controller.setExternalTimerLabel(timerLabel);
 
 			Stage stage = new Stage();

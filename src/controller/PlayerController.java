@@ -18,7 +18,7 @@ public class PlayerController {
 			Player player = new Player(playerName);
 			Pawn pawn = new Pawn(color, 0, player);
 
-			player.setPawn(pawn); // seulement si ta classe Player a cette méthode
+			player.setPawn(pawn); // only if your Player class has this method
 
 			players.add(player);
 		}
