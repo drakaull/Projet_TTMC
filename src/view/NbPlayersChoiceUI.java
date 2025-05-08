@@ -16,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
 import models.Card;
 import models.Player;
@@ -55,7 +56,13 @@ public class NbPlayersChoiceUI {
             // Creating player names
             List<String> names = new ArrayList<>();
             for (int i = 1; i <= nbPlayers; i++) {
-                names.add("Player " + i);
+                TextInputDialog dialog = new TextInputDialog("Player "+i);
+                dialog.setTitle("Enter Player Name");
+                dialog.setHeaderText(null);
+                dialog.setContentText("Enter the name for player "+i);
+                
+                String playerName = dialog.showAndWait().orElse("Player "+i);
+                names.add(playerName);
             }
 
             PlayerController playerController = new PlayerController();

@@ -22,7 +22,7 @@ public class GameController {
 
     public GameController(List<Card> allCards, List<Player> players) {
         this.cardController = new CardController(allCards);
-        this.usedCards = new HashSet<>();
+        this.usedCards = new HashSet<>(); 
         this.players = players;
         this.boardGame = new BoardGame();
         shuffleCards();
