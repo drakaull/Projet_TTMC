@@ -43,7 +43,7 @@ public class GameMenuUI {
 	}
 	@FXML
 	private void handleExit() {
-	    javafx.application.Platform.exit(); // ou System.exit(0);
+	    javafx.application.Platform.exit(); // or System.exit(0);
 	}
 
 	

@@ -33,7 +33,7 @@ public class NbPlayersChoiceUI {
     private Scene scene;
 
     public void switchToScene(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("gameMenuUI.fxml")); // corrigé avec le bon chemin
+        Parent root = FXMLLoader.load(getClass().getResource("gameMenuUI.fxml")); 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -44,15 +44,15 @@ public class NbPlayersChoiceUI {
     @FXML
     private void switchToScene2(ActionEvent event) throws InvalidCardException, NoMoreThemeCardsException {
         try {
-            // 🔒 Vérifie que les sliders ne sont pas null
+            // check that the sliders are not null
             if (playerSlider == null || difficultySlider == null) {
-                throw new IllegalStateException("Les sliders ne sont pas initialisés. Vérifie les fx:id dans le FXML.");
+                throw new IllegalStateException("⚠ The sliders are not initialized. Check the fx:id in the FXML.");
             }
 
             int nbPlayers = (int) playerSlider.getValue();
-            int difficulty = (int) difficultySlider.getValue(); // Tu peux l'utiliser plus tard
+            int difficulty = (int) difficultySlider.getValue();
 
-            // Création des noms des joueurs
+            // Creating player names
             List<String> names = new ArrayList<>();
             for (int i = 1; i <= nbPlayers; i++) {
                 names.add("Player " + i);
@@ -65,18 +65,18 @@ public class NbPlayersChoiceUI {
 
             GameController game = new GameController(allCards, players);
 
-            // Chargement de la vue principale
+            // loading the main view
             FXMLLoader loader = new FXMLLoader(getClass().getResource("gameUI.fxml"));
             Parent root = loader.load();
             
             
 
             BoardGameController controller = loader.getController();
-            controller.setGameController(game); // Passe le contrôleur
+            controller.setGameController(game); // Pass the controller
             
             controller.setDifficultyLevel(difficulty);
 
-            // Affichage de la nouvelle scène
+            // Viewing the new scene
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -87,7 +87,7 @@ public class NbPlayersChoiceUI {
             e.printStackTrace();
         } catch (IllegalStateException ise) {
             ise.printStackTrace();
-            System.err.println("⚠ Vérifie bien que les fx:id dans ton FXML matchent les noms dans ta classe Java.");
+            System.err.println("⚠ Make sure that the fx:id in your FXML matches the names in your Java class.");
         }
     }
 }
