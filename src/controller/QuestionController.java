@@ -219,9 +219,9 @@ public class QuestionController {
 	private void updateTimerDisplay(int secondsLeft) {
 		if (externalTimerLabel != null) {
 			externalTimerLabel.setText("Time left: " + secondsLeft + "s");
-			String style = "-fx-font-size: " + (secondsLeft <= 5 ? 28 : secondsLeft <= 10 ? 20 : 14)
-					+ "px; -fx-text-fill: red;";
-			externalTimerLabel.setStyle(style);
+//			String style = "-fx-font-size: " + (secondsLeft <= 5 ? 28 : secondsLeft <= 10 ? 20 : 14)
+//					+ "px; -fx-text-fill: red;";
+//			externalTimerLabel.setStyle(style);
 		}
 	}
 

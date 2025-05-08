@@ -19,11 +19,14 @@
                </image>
             </ImageView>
             <Label id="start" layoutX="1346.0" layoutY="732.0" prefHeight="19.0" prefWidth="11.0" />
-            <Label fx:id="currentPlayerLabel" alignment="CENTER" layoutX="83.0" layoutY="0" prefHeight="55.0" prefWidth="407.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #a0522d, #d2691e, #f4a460); -fx-text-fill: black; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: black; -fx-border-width: 4;" text="Current player">
+            <Label fx:id="currentPlayerLabel" alignment="CENTER" prefHeight="64.0" prefWidth="1536.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #a0522d, #d2691e, #f4a460); -fx-text-fill: black;" text="Current player">
                <font>
                   <Font name="System Bold Italic" size="39.0" />
                </font></Label>
-            <Label fx:id="timerLabel" layoutX="800" layoutY="0" style="-fx-font-size: 14px; -fx-text-fill: red;" text="" />
+            <Label fx:id="timerLabel" alignment="CENTER" layoutX="1.0" layoutY="831.0" prefHeight="37.0" prefWidth="1535.0" style="-fx-text-fill: red; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #a0522d, #d2691e, #f4a460);">
+               <font>
+                  <Font name="System Bold Italic" size="27.0" />
+               </font></Label>
             <Button fx:id="leave" layoutX="1207.0" layoutY="719.0" mnemonicParsing="false" onAction="#switchToScene" text="leave">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -41,6 +44,8 @@
                </cursor>
                
             </Label>
+            <Label layoutX="-27.0" layoutY="64.0" prefHeight="768.0" prefWidth="109.0" style="-fx-background-color: #a3532c;" />
+            <Label layoutX="1428.0" layoutY="41.0" prefHeight="821.0" prefWidth="109.0" style="-fx-background-color: #f09d58;" />
          </children>
       </AnchorPane>
    </center>
