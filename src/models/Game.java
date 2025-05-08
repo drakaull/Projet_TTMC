@@ -4,11 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
-	private List<Player> players;
-	private List<Card> cards;
-	private List<Card> playedCards;
-	private Player activePlayer;
+	private List<Player> players; // List of players participating in the game
+	private List<Card> cards; // list of available cards in the game
+	private List<Card> playedCards; // list of cards that have already been played
+	private Player activePlayer; // The player whose turn it is currently
 
+	/*
+	 * Constructor initializes the game with the active player.
+	 * Also initializes lists for players, cards, and played cards
+	 */
 	public Game(Player activePlayer) {
 		setActivePlayer(activePlayer);
 		players = new ArrayList<Player>();

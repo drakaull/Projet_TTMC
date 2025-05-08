@@ -9,6 +9,11 @@ public class Card {
 	private String subject; 			// subject (football, geography, etc)
 	private List<Question> questions; 	// the 4 questions
 
+	/*
+	 *  Constructor to create a card, it validates that theme,
+	 *  subject and questions are properly provided
+	 *  if not, an InvalidCardException is thrown
+	 */
 	public Card(String theme, String subject, List<Question> questions) throws InvalidCardException {
         if (theme == null || theme.trim().isEmpty()) {
             throw new InvalidCardException();
@@ -28,6 +33,7 @@ public class Card {
         this.questions = questions;
     }
 
+	// return the list of questions for this card
 	public List<Question> getQuestions() {
 		return questions;
 	}
@@ -52,6 +58,11 @@ public class Card {
 		this.subject = subject;
 	}
 
+	/* 
+	 * returns a question that matches the given difficulty level
+	 * if no matches, throws InvalidCardException
+	 */
+	
 	public Question getQuestionByLevel(int difficulty) throws InvalidCardException {
 	    return questions.stream()
 	            .filter(q -> q.getDifficulty() == difficulty)

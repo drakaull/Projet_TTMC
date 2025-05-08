@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Arrays;
 
 public class BoardGame {
-    private final List<Case> cases = Arrays.asList(
+	// Defines the list of all board spaces (cases) with their type and coordinates.
+    // this list represents the complete path of the board game
+	private final List<Case> cases = Arrays.asList(
         new Case("Start", 150, 720),
         new Case("Education", 150, 570),
         new Case("Informatics", 150, 410),
@@ -53,6 +55,7 @@ public class BoardGame {
         new Case("End", 1345, 730)
     );
 
+    // Throws an exception if the index is out of bounds
     public Case getCase(int index) {
         if (index < 0 || index >= cases.size()) {
             throw new IllegalArgumentException("Position out of bounds.");
