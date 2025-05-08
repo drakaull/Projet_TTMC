@@ -44,7 +44,7 @@ public class NbPlayersChoiceUI {
     @FXML
     private void switchToScene2(ActionEvent event) throws InvalidCardException, NoMoreThemeCardsException {
         try {
-            // check that the sliders are not null
+            // check that the sliders are not null 
             if (playerSlider == null || difficultySlider == null) {
                 throw new IllegalStateException("⚠ The sliders are not initialized. Check the fx:id in the FXML.");
             }

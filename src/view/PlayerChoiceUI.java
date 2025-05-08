@@ -34,7 +34,7 @@ public class PlayerChoiceUI {
 
 		controller.BoardGameController boardGameController = loader.getController();
 		int difficulty = (int) difficultySlider.getValue();
-		boardGameController.setDifficultyLevel(difficulty);  // Transfer
+		boardGameController.setDifficultyLevel(difficulty);  // Transfer 
 
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);

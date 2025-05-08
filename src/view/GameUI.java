@@ -20,7 +20,7 @@ public class GameUI {
 			root = FXMLLoader.load(getClass().getResource("gameMenuUI.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
-			stage.setScene(scene);
+			stage.setScene(scene); 
 			stage.setFullScreen(true);
 			stage.show();
 	}
