@@ -251,7 +251,7 @@ public class BoardGameController {
 	        // 🔄 Fermer aussi si la scène change (ex: retour au menu)
 	        mainStage.sceneProperty().addListener((obs, oldScene, newScene) -> {
 	            if (newScene != scene) {
-	                popupStage.close();
+	                popupStage.close();//test
 	            }
 	        });
 	    });
