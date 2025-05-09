@@ -24,13 +24,12 @@ import java.util.Optional;
 
 public class QuestionController {
 
-	@FXML
-	private Label themeLabel;
-	@FXML
-	private Label timerLabel;
-	@FXML
-	private Button difficulty1Button;
+	// FXML UI components
+	@FXML private Label themeLabel;
+	@FXML private Label timerLabel;
+	@FXML private Button difficulty1Button;
 
+	// Game-related objects
 	private Card card;
 	private String playerName;
 	private Question question;
@@ -38,39 +37,27 @@ public class QuestionController {
 	private GameController gameController;
 	private Label externalTimerLabel;
 
-	public void setExternalTimerLabel(Label label) {
-		this.externalTimerLabel = label;
-	}
+	// Setters for initializing controller fields
+	public void setExternalTimerLabel(Label label) { this.externalTimerLabel = label; }
+	public void setCard(Card card) { this.card = card; updateLabel(); }
+	public void setPlayerName(String name) { this.playerName = name; updateLabel(); }
+	public void setBoardGameController(BoardGameController controller) { this.mainController = controller; }
+	public void setGameController(GameController gameController) { this.gameController = gameController; }
 
-	public void setCard(Card card) {
-		this.card = card;
-		updateLabel();
-	}
-
-	public void setPlayerName(String name) {
-		this.playerName = name;
-		updateLabel();
-	}
-
-	public void setBoardGameController(BoardGameController controller) {
-		this.mainController = controller;
-	}
-
-	public void setGameController(GameController gameController) {
-		this.gameController = gameController;
-	}
-
+	// Update question prompt based on player and card subject
 	private void updateLabel() {
 		if (card != null && playerName != null && themeLabel != null) {
 			themeLabel.setText(playerName + ", how confident are you in " + card.getSubject() + "?");
 		}
 	}
 
+	// Difficulty level selection
 	@FXML private void handleDifficulty1() { handleDifficultyChoice(1); }
 	@FXML private void handleDifficulty2() { handleDifficultyChoice(2); }
 	@FXML private void handleDifficulty3() { handleDifficultyChoice(3); }
 	@FXML private void handleDifficulty4() { handleDifficultyChoice(4); }
 
+	// Load question based on selected difficulty
 	private void handleDifficultyChoice(int level) {
 		Stage currentStage = (Stage) themeLabel.getScene().getWindow();
 		currentStage.close();
@@ -85,22 +72,26 @@ public class QuestionController {
 		}
 	}
 
+	// Determine if question is multiple choice
 	private boolean isMultipleChoice(Question q) {
 		return q.getOptions() != null && q.getOptions().size() == 4;
 	}
 
+	// Show dialog for free-text questions
 	private void showTextInputDialog(Question q, int level, Stage mainStage) {
 		TextInputDialog dialog = new TextInputDialog();
 		dialog.setTitle("Question Level " + level);
 		dialog.setHeaderText(null);
 		dialog.initOwner(mainStage);
 
+		// Hide cancel button
 		Button cancelButton = (Button) dialog.getDialogPane().lookupButton(ButtonType.CANCEL);
 		if (cancelButton != null) {
 			cancelButton.setVisible(false);
 			cancelButton.setManaged(false);
 		}
 
+		// Style the dialog
 		DialogPane pane = dialog.getDialogPane();
 		pane.getStyleClass().add("custom-dialog");
 		pane.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
@@ -109,6 +100,8 @@ public class QuestionController {
 
 		final boolean[] answered = {false};
 		final Timeline[] timelineHolder = new Timeline[1];
+
+		// Start countdown timer
 		timelineHolder[0] = startTimer(gameController.getTimeLimit(), () -> {
 			if (!answered[0]) {
 				answered[0] = true;
@@ -128,6 +121,7 @@ public class QuestionController {
 		}
 	}
 
+	// Show dialog for multiple-choice questions
 	private void showMultipleChoiceDialog(Question q, int level, Stage mainStage) {
 	    Stage dialogStage = new Stage();
 	    dialogStage.initOwner(mainStage);
@@ -145,7 +139,7 @@ public class QuestionController {
 	    String[] options = q.getOptions().toArray(new String[0]);
 	    final Timeline[] timelineHolder = new Timeline[1];
 
-	    // Mesurer la largeur maximale
+	    // Calculate maximum width for buttons
 	    Text tempText = new Text();
 	    double maxWidth = 0;
 	    for (String option : options) {
@@ -154,8 +148,9 @@ public class QuestionController {
 	        double width = tempText.getLayoutBounds().getWidth();
 	        if (width > maxWidth) maxWidth = width;
 	    }
-	    double buttonWidth = maxWidth + 60; // Padding de confort
+	    double buttonWidth = maxWidth + 60; 
 
+	    // Create and style buttons
 	    for (String option : options) {
 	        Button button = new Button(option);
 	        button.setPrefWidth(buttonWidth);
@@ -170,6 +165,7 @@ public class QuestionController {
 	        layout.getChildren().add(button);
 	    }
 
+	    // Timer for timeout handling
 	    timelineHolder[0] = startTimer(gameController.getTimeLimit(), () -> {
 	        dialogStage.close();
 	        if (externalTimerLabel != null) externalTimerLabel.setText("");
@@ -179,11 +175,11 @@ public class QuestionController {
 	    Scene scene = new Scene(layout);
 	    scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 	    dialogStage.setScene(scene);
-	    dialogStage.sizeToScene(); // important pour ajustement dynamique
+	    dialogStage.sizeToScene(); 
 	    dialogStage.show();
 	}
 
-
+	// Starts a countdown and updates external timer label
 	private Timeline startTimer(int seconds, Runnable onTimeout) {
 		IntegerProperty time = new SimpleIntegerProperty(seconds);
 		Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
@@ -199,16 +195,18 @@ public class QuestionController {
 		return timeline;
 	}
 
+	// Updates the timer label each second
 	private void updateTimerDisplay(int secondsLeft) {
 		if (externalTimerLabel != null) {
 			externalTimerLabel.setText("Time left: " + secondsLeft + "s");
 		}
 	}
 
+	// Evaluate and process the player's answer
 	private void handleAnswer(String input, String expected, int level, Stage mainStage) {
 		Platform.runLater(() -> {
 			try {
-				gameController.markCardAsUsed(card);
+				gameController.markCardAsUsed(card); // Mark card used
 				boolean correct = AnswerValidator.isCorrect(input, expected);
 
 				if (correct) {
@@ -233,12 +231,14 @@ public class QuestionController {
 		});
 	}
 
+	// Show styled alert dialog with confirmation
 	private void showAlert(String message, Stage stage) {
 		Alert alert = new Alert(Alert.AlertType.INFORMATION, message);
 		styleAlert(alert, stage);
 		alert.showAndWait();
 	}
 
+	// Show styled alert that disappears after 2 seconds
 	private void showTimedAlert(String message, Stage stage, Runnable afterClose) {
 		Alert alert = new Alert(Alert.AlertType.INFORMATION, message);
 		styleAlert(alert, stage);
@@ -251,6 +251,7 @@ public class QuestionController {
 		delay.play();
 	}
 
+	// Applies stylesheet and custom class to alert dialog
 	private void styleAlert(Alert alert, Stage stage) {
 		alert.initOwner(stage);
 		alert.setHeaderText(null);
