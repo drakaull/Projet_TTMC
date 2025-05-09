@@ -234,7 +234,7 @@ public class BoardGameController {
 	    Platform.runLater(() -> {
 	        Stage popupStage = new Stage();
 	        popupStage.initOwner(gamePane.getScene().getWindow());
-	        popupStage.initModality(Modality.NONE); // non bloquant
+	        popupStage.initModality(Modality.NONE);
 	        popupStage.setResizable(false);
 	        popupStage.setTitle("Victory!");
 
@@ -244,11 +244,11 @@ public class BoardGameController {
 	        popupStage.setScene(scene);
 	        popupStage.show();
 
-	        // 🔒 Fermer le popup si la fenêtre principale est fermée
+
 	        Stage mainStage = (Stage) gamePane.getScene().getWindow();
 	        mainStage.setOnCloseRequest(e -> popupStage.close());
 
-	        // 🔄 Fermer aussi si la scène change (ex: retour au menu)
+
 	        mainStage.sceneProperty().addListener((obs, oldScene, newScene) -> {
 	            if (newScene != scene) {
 	                popupStage.close();
