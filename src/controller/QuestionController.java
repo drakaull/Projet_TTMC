@@ -25,9 +25,12 @@ import java.util.Optional;
 public class QuestionController {
 
 	// FXML UI components
-	@FXML private Label themeLabel;
-	@FXML private Label timerLabel;
-	@FXML private Button difficulty1Button;
+	@FXML
+	private Label themeLabel;
+	@FXML
+	private Label timerLabel;
+	@FXML
+	private Button difficulty1Button;
 
 	// Game-related objects
 	private Card card;
@@ -38,11 +41,27 @@ public class QuestionController {
 	private Label externalTimerLabel;
 
 	// Setters for initializing controller fields
-	public void setExternalTimerLabel(Label label) { this.externalTimerLabel = label; }
-	public void setCard(Card card) { this.card = card; updateLabel(); }
-	public void setPlayerName(String name) { this.playerName = name; updateLabel(); }
-	public void setBoardGameController(BoardGameController controller) { this.mainController = controller; }
-	public void setGameController(GameController gameController) { this.gameController = gameController; }
+	public void setExternalTimerLabel(Label label) {
+		this.externalTimerLabel = label;
+	}
+
+	public void setCard(Card card) {
+		this.card = card;
+		updateLabel();
+	}
+
+	public void setPlayerName(String name) {
+		this.playerName = name;
+		updateLabel();
+	}
+
+	public void setBoardGameController(BoardGameController controller) {
+		this.mainController = controller;
+	}
+
+	public void setGameController(GameController gameController) {
+		this.gameController = gameController;
+	}
 
 	// Update question prompt based on player and card subject
 	private void updateLabel() {
@@ -52,10 +71,25 @@ public class QuestionController {
 	}
 
 	// Difficulty level selection
-	@FXML private void handleDifficulty1() { handleDifficultyChoice(1); }
-	@FXML private void handleDifficulty2() { handleDifficultyChoice(2); }
-	@FXML private void handleDifficulty3() { handleDifficultyChoice(3); }
-	@FXML private void handleDifficulty4() { handleDifficultyChoice(4); }
+	@FXML
+	private void handleDifficulty1() {
+		handleDifficultyChoice(1);
+	}
+
+	@FXML
+	private void handleDifficulty2() {
+		handleDifficultyChoice(2);
+	}
+
+	@FXML
+	private void handleDifficulty3() {
+		handleDifficultyChoice(3);
+	}
+
+	@FXML
+	private void handleDifficulty4() {
+		handleDifficultyChoice(4);
+	}
 
 	// Load question based on selected difficulty
 	private void handleDifficultyChoice(int level) {
@@ -98,7 +132,7 @@ public class QuestionController {
 
 		dialog.setContentText(q.getQuestion());
 
-		final boolean[] answered = {false};
+		final boolean[] answered = { false };
 		final Timeline[] timelineHolder = new Timeline[1];
 
 		// Start countdown timer
@@ -107,7 +141,8 @@ public class QuestionController {
 				answered[0] = true;
 				dialog.setResult("");
 				dialog.close();
-				if (externalTimerLabel != null) externalTimerLabel.setText("");
+				if (externalTimerLabel != null)
+					externalTimerLabel.setText("");
 				Platform.runLater(() -> handleAnswer("", q.getAnswer(), level, mainStage));
 			}
 		});
@@ -115,68 +150,74 @@ public class QuestionController {
 		Optional<String> result = dialog.showAndWait();
 		if (!answered[0]) {
 			answered[0] = true;
-			if (timelineHolder[0] != null) timelineHolder[0].stop();
-			if (externalTimerLabel != null) externalTimerLabel.setText("");
+			if (timelineHolder[0] != null)
+				timelineHolder[0].stop();
+			if (externalTimerLabel != null)
+				externalTimerLabel.setText("");
 			handleAnswer(result.orElse(""), q.getAnswer(), level, mainStage);
 		}
 	}
 
 	// Show dialog for multiple-choice questions
 	private void showMultipleChoiceDialog(Question q, int level, Stage mainStage) {
-	    Stage dialogStage = new Stage();
-	    dialogStage.initOwner(mainStage);
-	    dialogStage.setTitle("Multiple Choice Question");
+		Stage dialogStage = new Stage();
+		dialogStage.initOwner(mainStage);
+		dialogStage.setTitle("Multiple Choice Question");
 
-	    VBox layout = new VBox(15);
-	    layout.setAlignment(Pos.CENTER);
-	    layout.setPadding(new Insets(20));
-	    layout.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #a0522d, #d2691e, #f4a460);");
+		VBox layout = new VBox(15);
+		layout.setAlignment(Pos.CENTER);
+		layout.setPadding(new Insets(20));
+		layout.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #a0522d, #d2691e, #f4a460);");
 
-	    Text questionText = new Text(q.getQuestion());
-	    questionText.setStyle("-fx-font-size: 16px; -fx-fill: white;");
-	    layout.getChildren().add(questionText);
+		Text questionText = new Text(q.getQuestion());
+		questionText.setStyle("-fx-font-size: 16px; -fx-fill: white;");
+		layout.getChildren().add(questionText);
 
-	    String[] options = q.getOptions().toArray(new String[0]);
-	    final Timeline[] timelineHolder = new Timeline[1];
+		String[] options = q.getOptions().toArray(new String[0]);
+		final Timeline[] timelineHolder = new Timeline[1];
 
-	    // Calculate maximum width for buttons
-	    Text tempText = new Text();
-	    double maxWidth = 0;
-	    for (String option : options) {
-	        tempText.setText(option);
-	        tempText.applyCss();
-	        double width = tempText.getLayoutBounds().getWidth();
-	        if (width > maxWidth) maxWidth = width;
-	    }
-	    double buttonWidth = maxWidth + 60; 
+		// Calculate maximum width for buttons
+		Text tempText = new Text();
+		double maxWidth = 0;
+		for (String option : options) {
+			tempText.setText(option);
+			tempText.applyCss();
+			double width = tempText.getLayoutBounds().getWidth();
+			if (width > maxWidth)
+				maxWidth = width;
+		}
+		double buttonWidth = maxWidth + 60;
 
-	    // Create and style buttons
-	    for (String option : options) {
-	        Button button = new Button(option);
-	        button.setPrefWidth(buttonWidth);
-	        button.setPrefHeight(40);
-	        button.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #eee;");
-	        button.setOnAction(e -> {
-	            if (timelineHolder[0] != null) timelineHolder[0].stop();
-	            dialogStage.close();
-	            if (externalTimerLabel != null) externalTimerLabel.setText("");
-	            handleAnswer(option, q.getAnswer(), level, mainStage);
-	        });
-	        layout.getChildren().add(button);
-	    }
+		// Create and style buttons
+		for (String option : options) {
+			Button button = new Button(option);
+			button.setPrefWidth(buttonWidth);
+			button.setPrefHeight(40);
+			button.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #eee;");
+			button.setOnAction(e -> {
+				if (timelineHolder[0] != null)
+					timelineHolder[0].stop();
+				dialogStage.close();
+				if (externalTimerLabel != null)
+					externalTimerLabel.setText("");
+				handleAnswer(option, q.getAnswer(), level, mainStage);
+			});
+			layout.getChildren().add(button);
+		}
 
-	    // Timer for timeout handling
-	    timelineHolder[0] = startTimer(gameController.getTimeLimit(), () -> {
-	        dialogStage.close();
-	        if (externalTimerLabel != null) externalTimerLabel.setText("");
-	        handleAnswer("", q.getAnswer(), level, mainStage);
-	    });
+		// Timer for timeout handling
+		timelineHolder[0] = startTimer(gameController.getTimeLimit(), () -> {
+			dialogStage.close();
+			if (externalTimerLabel != null)
+				externalTimerLabel.setText("");
+			handleAnswer("", q.getAnswer(), level, mainStage);
+		});
 
-	    Scene scene = new Scene(layout);
-	    scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
-	    dialogStage.setScene(scene);
-	    dialogStage.sizeToScene(); 
-	    dialogStage.show();
+		Scene scene = new Scene(layout);
+		scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+		dialogStage.setScene(scene);
+		dialogStage.sizeToScene();
+		dialogStage.show();
 	}
 
 	// Starts a countdown and updates external timer label
@@ -214,7 +255,13 @@ public class QuestionController {
 					mainController.movePawn(level);
 				} else {
 					if (input == null || input.isEmpty()) {
-						showTimedAlert("Time finished!", mainStage, () -> mainController.nextPlayer());
+						String caseType = mainController.getCurrentCaseType();
+						int moveValue = "Random".equals(caseType) ? -level : 0;
+
+						showTimedAlert("Time finished ! ", mainStage, () -> {
+							mainController.movePawn(moveValue);
+							mainController.nextPlayer();
+						});
 					} else {
 						showAlert("Incorrect answer.\nCorrect was: " + expected, mainStage);
 						String caseType = mainController.getCurrentCaseType();
@@ -245,7 +292,8 @@ public class QuestionController {
 		PauseTransition delay = new PauseTransition(Duration.seconds(2));
 		delay.setOnFinished(e -> {
 			alert.close();
-			if (afterClose != null) afterClose.run();
+			if (afterClose != null)
+				afterClose.run();
 		});
 		alert.show();
 		delay.play();
