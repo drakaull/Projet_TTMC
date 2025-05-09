@@ -9,44 +9,81 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="864.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BoardGameController">
-   <center>
-      <AnchorPane fx:id="gamePane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="763.0" fitWidth="1346.0" layoutX="82.0" layoutY="66.0">
-               <image>
-                  <Image url="@../resource/images/board.png" />
-               </image>
-            </ImageView>
-            <Label id="start" layoutX="1346.0" layoutY="732.0" prefHeight="19.0" prefWidth="11.0" />
-            <Label fx:id="currentPlayerLabel" alignment="CENTER" prefHeight="64.0" prefWidth="1536.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #a0522d, #d2691e, #f4a460); -fx-text-fill: black;" text="Current player">
-               <font>
-                  <Font name="System Bold Italic" size="39.0" />
-               </font></Label>
-            <Label fx:id="timerLabel" alignment="CENTER" layoutX="1.0" layoutY="831.0" prefHeight="37.0" prefWidth="1535.0" style="-fx-text-fill: red; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #a0522d, #d2691e, #f4a460);">
-               <font>
-                  <Font name="System Bold Italic" size="27.0" />
-               </font></Label>
-            <Button fx:id="leave" layoutX="1207.0" layoutY="719.0" mnemonicParsing="false" onAction="#switchToScene" text="leave" style="-fx-background-color : linear-gradient(from 0% 0% to 100% 100%, #a0522d, #d2691e, #f4a460)">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button id="pickACardBtn" layoutX="413.0" layoutY="507.0" mnemonicParsing="false" onAction="#handlePickCardButton" opacity="0.0" prefHeight="203.0" prefWidth="141.0">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Label alignment="CENTER" layoutX="447.0" layoutY="566.0" mouseTransparent="true" prefHeight="74.0" prefWidth="73.0" style="-fx-background-color: #3366cc; -fx-text-fill: white; -fx-background-radius: 50; -fx-border-color: black; -fx-border-radius: 50; -fx-border-width: 2;" text="Pick A Card" textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               
-            </Label>
-            <Label layoutX="-27.0" layoutY="64.0" prefHeight="768.0" prefWidth="109.0" style="-fx-background-color: #a3532c;" />
-            <Label layoutX="1428.0" layoutY="41.0" prefHeight="821.0" prefWidth="109.0" style="-fx-background-color: #f09d58;" />
-         </children>
-      </AnchorPane>
-   </center>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="864.0" prefWidth="1536.0"
+            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.BoardGameController">
+
+    <center>
+        <AnchorPane fx:id="gamePane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+
+                <!-- Background board -->
+                <ImageView fitHeight="763.0" fitWidth="1346.0" layoutX="82.0" layoutY="66.0">
+                    <image>
+                        <Image url="@../resource/images/board.png" />
+                    </image>
+                </ImageView>
+
+                <!-- Start position marker -->
+                <Label id="start" layoutX="1346.0" layoutY="732.0" prefHeight="19.0" prefWidth="11.0" />
+
+                <!-- Player name label -->
+                <Label fx:id="currentPlayerLabel" alignment="CENTER" prefHeight="64.0" prefWidth="1536.0"
+                       style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #a0522d, #d2691e, #f4a460); -fx-text-fill: black;"
+                       text="Current player">
+                    <font>
+                        <Font name="System Bold Italic" size="39.0" />
+                    </font>
+                </Label>
+
+                <!-- Timer label -->
+                <Label fx:id="timerLabel" alignment="CENTER" layoutX="1.0" layoutY="831.0" prefHeight="37.0" prefWidth="1535.0"
+                       style="-fx-text-fill: red; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #a0522d, #d2691e, #f4a460);">
+                    <font>
+                        <Font name="System Bold Italic" size="27.0" />
+                    </font>
+                </Label>
+
+                <!-- Leave button -->
+                <Button fx:id="leave" layoutX="1152.0" layoutY="719.0" prefWidth="150.0" prefHeight="50.0"
+                        mnemonicParsing="false" onAction="#switchToScene" text="Leave"
+                        style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #a0522d, #d2691e, #f4a460);
+                               -fx-font-size: 18px; -fx-text-fill: white; -fx-background-radius: 10;">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+
+                <!-- Pick a card invisible button -->
+                <Button id="pickACardBtn" layoutX="413.0" layoutY="507.0" mnemonicParsing="false"
+                        onAction="#handlePickCardButton" opacity="0.0" prefHeight="203.0" prefWidth="141.0">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+
+                <!-- Pick a card label (fake button look) -->
+                <Label alignment="CENTER" layoutX="447.0" layoutY="566.0" mouseTransparent="true"
+                       prefHeight="74.0" prefWidth="73.0"
+                       style="-fx-background-color: #3366cc; -fx-text-fill: white; -fx-background-radius: 50;
+                              -fx-border-color: black; -fx-border-radius: 50; -fx-border-width: 2;"
+                       text="Pick A Card" textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Label>
+
+                <!-- Left & right color borders -->
+                <Label layoutX="-27.0" layoutY="64.0" prefHeight="768.0" prefWidth="109.0"
+                       style="-fx-background-color: #a3532c;" />
+                <Label layoutX="1428.0" layoutY="41.0" prefHeight="821.0" prefWidth="109.0"
+                       style="-fx-background-color: #f09d58;" />
+
+            </children>
+        </AnchorPane>
+    </center>
 </BorderPane>
