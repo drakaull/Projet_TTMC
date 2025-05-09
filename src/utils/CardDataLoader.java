@@ -13,12 +13,21 @@ import models.Card;
 
 public class CardDataLoader {
 
-    private static List<Card> cards; // cached cards
+    // Cached list of cards to avoid reading the file multiple times
+    private static List<Card> cards;
+
+    // Used for picking random cards
     private static final Random random = new Random();
 
+    // Path to the JSON file containing the questions database
     private static final String JSON_PATH = "src/resource/json/databaseQuestion.json";
 
-    // Lazy loading of cards
+    /**
+     * Loads the cards from the JSON file if not already loaded.
+     * Uses Gson to deserialize the JSON into a List<Card>.
+     * 
+     * @return List of all cards loaded from the JSON file
+     */
     public static List<Card> loadCardsFromJson() {
         if (cards == null) {
             try (FileReader reader = new FileReader(JSON_PATH)) {
@@ -32,7 +41,11 @@ public class CardDataLoader {
         return cards;
     }
 
-    // Pick a random card from loaded list
+    /**
+     * Selects and returns a random card from the loaded card list.
+     * 
+     * @return A random Card object, or null if the list is empty or unavailable
+     */
     public static Card getRandomCard() {
         List<Card> availableCards = loadCardsFromJson();
         if (availableCards == null || availableCards.isEmpty()) return null;
