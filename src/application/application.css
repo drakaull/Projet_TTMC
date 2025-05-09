@@ -23,10 +23,10 @@
 	-fx-text-fill: darkblue;
 }
 
-.custom-dialog {
+/*/.custom-dialog {
     -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #a0522d, #d2691e, #f4a460);
     -fx-font-size: 16px;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
 }
 
 
@@ -47,10 +47,10 @@
 
 .custom-dialog .button:default {
     -fx-background-color: #4CAF50;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
 }
 
 .custom-dialog .button:cancel {
     -fx-background-color: #f44336;
-    -fx-text-fill: white;
-}
+    -fx-text-fill: black;
+}*/

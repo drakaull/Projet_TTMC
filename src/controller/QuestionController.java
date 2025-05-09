@@ -129,53 +129,60 @@ public class QuestionController {
 	}
 
 	private void showMultipleChoiceDialog(Question q, int level, Stage mainStage) {
-		Stage dialogStage = new Stage();
-		dialogStage.initOwner(mainStage);
-		dialogStage.setTitle("Multiple Choice Question");
+	    Stage dialogStage = new Stage();
+	    dialogStage.initOwner(mainStage);
+	    dialogStage.setTitle("Multiple Choice Question");
 
-		GridPane grid = new GridPane();
-		grid.setHgap(10);
-		grid.setVgap(10);
-		grid.setPadding(new Insets(10));
-		grid.setAlignment(Pos.CENTER);
-		grid.getColumnConstraints().addAll(new ColumnConstraints(), new ColumnConstraints());
+	    VBox layout = new VBox(15);
+	    layout.setAlignment(Pos.CENTER);
+	    layout.setPadding(new Insets(20));
+	    layout.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #a0522d, #d2691e, #f4a460);");
 
-		Text questionText = new Text(q.getQuestion());
-		questionText.setStyle("-fx-font-size: 16px; -fx-fill: white;");
-		grid.add(questionText, 0, 0, 2, 1);
+	    Text questionText = new Text(q.getQuestion());
+	    questionText.setStyle("-fx-font-size: 16px; -fx-fill: white;");
+	    layout.getChildren().add(questionText);
 
-		String[] options = q.getOptions().toArray(new String[0]);
-		final Timeline[] timelineHolder = new Timeline[1];
+	    String[] options = q.getOptions().toArray(new String[0]);
+	    final Timeline[] timelineHolder = new Timeline[1];
 
-		for (int i = 0; i < options.length; i++) {
-			Button button = new Button(options[i]);
-			button.setPrefSize(180, 40);
-			button.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #eee;");
-			final String selected = options[i];
-			button.setOnAction(e -> {
-				if (timelineHolder[0] != null) timelineHolder[0].stop();
-				dialogStage.close();
-				if (externalTimerLabel != null) externalTimerLabel.setText("");
-				handleAnswer(selected, q.getAnswer(), level, mainStage);
-			});
-			grid.add(button, i % 2, 1 + i / 2);
-		}
+	    // Mesurer la largeur maximale
+	    Text tempText = new Text();
+	    double maxWidth = 0;
+	    for (String option : options) {
+	        tempText.setText(option);
+	        tempText.applyCss();
+	        double width = tempText.getLayoutBounds().getWidth();
+	        if (width > maxWidth) maxWidth = width;
+	    }
+	    double buttonWidth = maxWidth + 60; // Padding de confort
 
-		timelineHolder[0] = startTimer(gameController.getTimeLimit(), () -> {
-			dialogStage.close();
-			if (externalTimerLabel != null) externalTimerLabel.setText("");
-			handleAnswer("", q.getAnswer(), level, mainStage);
-		});
+	    for (String option : options) {
+	        Button button = new Button(option);
+	        button.setPrefWidth(buttonWidth);
+	        button.setPrefHeight(40);
+	        button.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #eee;");
+	        button.setOnAction(e -> {
+	            if (timelineHolder[0] != null) timelineHolder[0].stop();
+	            dialogStage.close();
+	            if (externalTimerLabel != null) externalTimerLabel.setText("");
+	            handleAnswer(option, q.getAnswer(), level, mainStage);
+	        });
+	        layout.getChildren().add(button);
+	    }
 
-		VBox root = new VBox(grid);
-		root.setAlignment(Pos.CENTER);
-		root.setPadding(new Insets(20));
-		root.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #a0522d, #d2691e, #f4a460);");
-		Scene scene = new Scene(root);
-		scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
-		dialogStage.setScene(scene);
-		dialogStage.show();
+	    timelineHolder[0] = startTimer(gameController.getTimeLimit(), () -> {
+	        dialogStage.close();
+	        if (externalTimerLabel != null) externalTimerLabel.setText("");
+	        handleAnswer("", q.getAnswer(), level, mainStage);
+	    });
+
+	    Scene scene = new Scene(layout);
+	    scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+	    dialogStage.setScene(scene);
+	    dialogStage.sizeToScene(); // important pour ajustement dynamique
+	    dialogStage.show();
 	}
+
 
 	private Timeline startTimer(int seconds, Runnable onTimeout) {
 		IntegerProperty time = new SimpleIntegerProperty(seconds);

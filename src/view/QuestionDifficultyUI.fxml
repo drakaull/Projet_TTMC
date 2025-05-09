@@ -19,16 +19,16 @@
 
     <Label fx:id="themeLabel"
            text="How confident are you in ..."
-           style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" />
+           style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: black;" />
 
     <HBox spacing="15" alignment="CENTER">
         <Button text="1" prefWidth="50" onAction="#handleDifficulty1"
-                style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;" />
+                style="-fx-background-color: #4CAF50; -fx-text-fill: black; -fx-font-weight: bold;" />
         <Button text="2" prefWidth="50" onAction="#handleDifficulty2"
-                style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-font-weight: bold;" />
+                style="-fx-background-color: #FF9800; -fx-text-fill: black; -fx-font-weight: bold;" />
         <Button text="3" prefWidth="50" onAction="#handleDifficulty3"
-                style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold;" />
+                style="-fx-background-color: #f44336; -fx-text-fill: black; -fx-font-weight: bold;" />
         <Button text="4" prefWidth="50" onAction="#handleDifficulty4"
-                style="-fx-background-color: #9C27B0; -fx-text-fill: white; -fx-font-weight: bold;" />
+                style="-fx-background-color: #9C27B0; -fx-text-fill: black; -fx-font-weight: bold;" />
     </HBox>
 </VBox>
