@@ -15,6 +15,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
@@ -61,8 +63,19 @@ public class NbPlayersChoiceUI {
                 dialog.setHeaderText(null);
                 dialog.setContentText("Enter the name for player "+i);
                 
+                
                 Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 dialog.initOwner(currentStage);
+                
+                // visual of dialog
+                DialogPane dialogPane = dialog.getDialogPane();
+                dialogPane.setStyle("-fx-background-color :linear-gradient(from 0% 0% to 100% 100%, #a0522d, #d2691e, #f4a460);-fx-font-size: 14px;");
+                
+                dialogPane.lookupButton(ButtonType.OK).setStyle(
+                		"-fx-background-color: #4CAF50; -fx-text-fill: white;-fx-font-weight:bold");
+                
+                dialogPane.lookupButton(ButtonType.CANCEL).setStyle(
+                		"-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold");
                 
                 String playerName = dialog.showAndWait().orElse("Player "+i);
                 names.add(playerName);
