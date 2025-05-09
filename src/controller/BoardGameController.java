@@ -315,6 +315,11 @@ public class BoardGameController {
 			}
 		});
 	}
+	public String getCurrentCaseType() {
+	    Player currentPlayer = gameController.getCurrentPlayer();
+	    return boardGame.getCase(currentPlayer.getPawn().getPosition()).getType();
+	}
+
 
 
 }

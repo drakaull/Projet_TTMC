@@ -226,26 +226,35 @@ public class QuestionController {
 	}
 
 	private void handleAnswer(String input, String expected, int level, Stage mainStage) {
-		Platform.runLater(() -> {
-			try {
-				gameController.markCardAsUsed(card);
-				boolean correct = AnswerValidator.isCorrect(input, expected);
-				if (correct) {
-					showAlert("Correct answer!", mainStage);
-					mainController.movePawn(level);
-				} else {
-					if (input == null || input.isEmpty()) {
-						showTimedAlert("Time finished!", mainStage, () -> mainController.nextPlayer());
-					} else {
-						showAlert("Incorrect answer.\nCorrect was: " + expected, mainStage);
-						mainController.movePawn(0);
-					}
-				}
-			} catch (InvalidAnswerException e) {
-				e.printStackTrace();
-			}
-		});
+	    Platform.runLater(() -> {
+	        try {
+	            gameController.markCardAsUsed(card);
+	            boolean correct = AnswerValidator.isCorrect(input, expected);
+
+	            if (correct) {
+	                showAlert("Correct answer!", mainStage);
+	                mainController.movePawn(level); // avance
+	            } else {
+	                if (input == null || input.isEmpty()) {
+	                    showTimedAlert("Time finished!", mainStage, () -> mainController.nextPlayer());
+	                } else {
+	                    showAlert("Incorrect answer.\nCorrect was: " + expected, mainStage);
+
+	                    // Vérifie le type de la case actuelle
+	                    String caseType = mainController.getCurrentCaseType();
+	                    if ("Random".equals(caseType)) {
+	                        mainController.movePawn(-level); // recule
+	                    } else {
+	                        mainController.movePawn(0); // reste sur place
+	                    }
+	                }
+	            }
+	        } catch (InvalidAnswerException e) {
+	            e.printStackTrace();
+	        }
+	    });
 	}
+
 
 	private void showAlert(String message, Stage stage) {
 		Alert alert = new Alert(Alert.AlertType.INFORMATION, message);
