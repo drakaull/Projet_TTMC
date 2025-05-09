@@ -22,6 +22,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -256,8 +257,21 @@ public class BoardGameController {
             popupStage.setTitle("Victory!");
 
             Label message = new Label(winner + " won the game!");
-            message.setStyle("-fx-font-size: 24px; -fx-padding: 20px;");
-            Scene scene = new Scene(message);
+            message.setStyle(
+                "-fx-font-size: 24px;" +
+                "-fx-padding: 20px;" +
+                "-fx-text-fill: white;" +
+                "-fx-font-weight: bold;" +
+                "-fx-alignment: center;"
+            );
+
+            StackPane root = new StackPane(message);
+            root.setStyle(
+                "-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #a0522d, #d2691e, #f4a460);" +
+                "-fx-background-radius: 10px;"
+            );
+
+            Scene scene = new Scene(root);
             popupStage.setScene(scene);
             popupStage.show();
 
@@ -271,6 +285,7 @@ public class BoardGameController {
             });
         });
     }
+
 
     // Display the question difficulty selection UI
     private void showDifficultyChoice(Card card) {
