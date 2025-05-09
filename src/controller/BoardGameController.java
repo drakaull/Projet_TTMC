@@ -168,35 +168,17 @@ public class BoardGameController {
 		Case newCase = boardGame.getCase(currentPlayer.getPawn().getPosition());
 		Circle circle = playerCircles.get(currentPlayer);
 
-		// Retrieves the player's position in the list
+		// Offset based on player index
 		int playerIndex = gameController.getPlayers().indexOf(currentPlayer);
-
 		double offsetX = 0;
 		double offsetY = 0;
 
-		// Special 4-player offsets
 		switch (playerIndex) {
-		case 0: // Player 1
-			offsetX = -10;
-			offsetY = -10;
-			break;
-		case 1: // Player 2
-			offsetX = 10;
-			offsetY = -10;
-			break;
-		case 2: // Player 3
-			offsetX = -10;
-			offsetY = 10;
-			break;
-		case 3: // Player 4
-			offsetX = 10;
-			offsetY = 10;
-			break;
-		default:
-			// If there are more than 4 players, we stay in the center
-			offsetX = 0;
-			offsetY = 0;
-			break;
+			case 0 -> { offsetX = -10; offsetY = -10; }
+			case 1 -> { offsetX = 10;  offsetY = -10; }
+			case 2 -> { offsetX = -10; offsetY = 10;  }
+			case 3 -> { offsetX = 10;  offsetY = 10;  }
+			default -> { offsetX = 0;  offsetY = 0;   }
 		}
 
 		TranslateTransition transition = new TranslateTransition(Duration.millis(300), circle);
@@ -205,21 +187,22 @@ public class BoardGameController {
 
 		transition.setOnFinished(e -> {
 			if (currentPlayer.getPawn().getPosition() == boardGame.getTotalCases() - 1) {
-				showVictoryPopup(currentPlayer.getName());
+				// Execute after animation AND layout processing
+				Platform.runLater(() -> {
+					PauseTransition delay = new PauseTransition(Duration.millis(100)); // Small delay
+					delay.setOnFinished(ev -> showVictoryPopup(currentPlayer.getName()));
+					delay.play();
+				});
 			} else {
 				gameController.nextPlayer();
 				updatePlayerLabel();
-//				try {
-//					askNewCard();
-//				} catch (NoMoreThemeCardsException e1) {
-//					// TODO Auto-generated catch block
-//					e1.printStackTrace();
-//				}
 			}
 		});
 
 		transition.play();
 	}
+
+
 
 	public void askNewCard() throws NoMoreThemeCardsException {
 		Player currentPlayer = gameController.getCurrentPlayer();
@@ -248,12 +231,36 @@ public class BoardGameController {
 	}
 
 	private void showVictoryPopup(String winner) {
-		Alert alert = new Alert(Alert.AlertType.INFORMATION);
-		alert.setTitle("WIN !");
-		alert.setHeaderText(null);
-		alert.setContentText(winner + " won the game !");
-		alert.showAndWait();
+	    Platform.runLater(() -> {
+	        Stage popupStage = new Stage();
+	        popupStage.initOwner(gamePane.getScene().getWindow());
+	        popupStage.initModality(Modality.NONE); // non bloquant
+	        popupStage.setResizable(false);
+	        popupStage.setTitle("Victory!");
+
+	        Label message = new Label(winner + " won the game!");
+	        message.setStyle("-fx-font-size: 24px; -fx-padding: 20px;");
+	        Scene scene = new Scene(message);
+	        popupStage.setScene(scene);
+	        popupStage.show();
+
+	        // 🔒 Fermer le popup si la fenêtre principale est fermée
+	        Stage mainStage = (Stage) gamePane.getScene().getWindow();
+	        mainStage.setOnCloseRequest(e -> popupStage.close());
+
+	        // 🔄 Fermer aussi si la scène change (ex: retour au menu)
+	        mainStage.sceneProperty().addListener((obs, oldScene, newScene) -> {
+	            if (newScene != scene) {
+	                popupStage.close();
+	            }
+	        });
+	    });
 	}
+
+
+
+
+
 
 	private void showDifficultyChoice(Card card) {
 		try {
