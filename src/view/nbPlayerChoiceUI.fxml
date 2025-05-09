@@ -8,6 +8,7 @@
 <StackPane fx:controller="view.NbPlayersChoiceUI"
            xmlns="http://javafx.com/javafx/23.0.1"
            xmlns:fx="http://javafx.com/fxml/1"
+           stylesheets="@../application/application.css"
            prefWidth="1920" prefHeight="1080">
 
     <!-- Background fullscreen -->
@@ -29,7 +30,8 @@
                     majorTickUnit="1.0" minorTickCount="0"
                     showTickLabels="true" showTickMarks="true"
                     snapToTicks="true" blockIncrement="1.0"
-                    maxWidth="300" />
+                    maxWidth="300"/>
+                    
         </VBox>
 
         <!-- Difficulty -->

@@ -11,3 +11,12 @@
     -fx-background-color: #3a86ff;
     -fx-text-fill: white;
 }
+.slider .tick-label{
+	-fx-fill : black; /* color text*/
+	-fx-font-size: 30px; /* size text */
+	-fx-font-family: "Arial Bold";
+	-fx-fill: red;
+}
+.slider{
+	-fx-font-size: 20px;  /*size text */
+}
