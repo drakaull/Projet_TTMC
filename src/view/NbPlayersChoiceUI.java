@@ -47,7 +47,6 @@ public class NbPlayersChoiceUI {
     @FXML
     private void switchToScene2(ActionEvent event) throws InvalidCardException, NoMoreThemeCardsException {
         try {
-            // check that the sliders are not null 
             if (playerSlider == null || difficultySlider == null) {
                 throw new IllegalStateException("⚠ The sliders are not initialized. Check the fx:id in the FXML.");
             }
@@ -55,62 +54,53 @@ public class NbPlayersChoiceUI {
             int nbPlayers = (int) playerSlider.getValue();
             int difficulty = (int) difficultySlider.getValue();
 
-            // Creating player names
             List<String> names = new ArrayList<>();
             for (int i = 1; i <= nbPlayers; i++) {
-                TextInputDialog dialog = new TextInputDialog("Player "+i);
+                TextInputDialog dialog = new TextInputDialog("Player " + i);
                 dialog.setTitle("Enter Player Name");
                 dialog.setHeaderText(null);
-                dialog.setContentText("Enter the name for player "+i);
-                
-                
+                dialog.setContentText("Enter the name for player " + i);
+
                 Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 dialog.initOwner(currentStage);
-                
-                // visual of dialog
+
                 DialogPane dialogPane = dialog.getDialogPane();
                 dialogPane.setStyle("-fx-background-color :linear-gradient(from 0% 0% to 100% 100%, #a0522d, #d2691e, #f4a460);-fx-font-size: 14px;");
-                
-                dialogPane.lookupButton(ButtonType.OK).setStyle(
-                		"-fx-background-color: #4CAF50; -fx-text-fill: white;-fx-font-weight:bold");
-                
-                dialogPane.lookupButton(ButtonType.CANCEL).setStyle(
-                		"-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold");
-                
-                String playerName = dialog.showAndWait().orElse("Player "+i);
+                dialogPane.lookupButton(ButtonType.OK).setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white;-fx-font-weight:bold");
+                dialogPane.lookupButton(ButtonType.CANCEL).setStyle("-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold");
+
+                String playerName = dialog.showAndWait().orElse("Player " + i);
                 names.add(playerName);
             }
 
             PlayerController playerController = new PlayerController();
             List<Player> players = playerController.createPlayersWithPawns(names);
-
             List<Card> allCards = CardDataLoader.loadCardsFromJson();
-
             GameController game = new GameController(allCards, players);
 
-            // loading the main view
             FXMLLoader loader = new FXMLLoader(getClass().getResource("gameUI.fxml"));
             Parent root = loader.load();
-            
-            
-
             BoardGameController controller = loader.getController();
-            controller.setGameController(game); // Pass the controller
-            
-            controller.setDifficultyLevel(difficulty);
 
-            // Viewing the new scene
+            // Créer la scène une seule fois
+            Scene scene = new Scene(root);
+
+            // Configurer la scène avec les données nécessaires
+            controller.setGameController(game);
+            controller.setDifficultyLevel(difficulty);
+            controller.setupKeyHandler(scene); // pour détecter la touche Z
+
+            // Afficher la scène
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
             stage.setScene(scene);
             stage.setFullScreen(true);
             stage.show();
 
-        } catch (IOException e) {
+            root.requestFocus(); // pour capter les touches clavier
+
+        } catch (IOException | IllegalStateException e) {
             e.printStackTrace();
-        } catch (IllegalStateException ise) {
-            ise.printStackTrace();
-            System.err.println("⚠ Make sure that the fx:id in your FXML matches the names in your Java class.");
         }
     }
+
 }

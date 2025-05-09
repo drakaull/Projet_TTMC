@@ -300,5 +300,14 @@ public class BoardGameController {
 		stage.setFullScreen(true);
 		stage.show();
 	}
+	
+	public void setupKeyHandler(Scene scene) {
+		scene.setOnKeyPressed(event -> {
+			switch (event.getCode()) {
+				case Z -> movePawn(1);
+			}
+		});
+	}
+
 
 }
