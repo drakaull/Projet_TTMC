@@ -18,5 +18,7 @@
 	-fx-fill: red;
 }
 .slider{
-	-fx-font-size: 20px;  /*size text */
+	-fx-font-size: 25px;  /*size text */
+	-fx-font-weight: bold;
+	-fx-text-fill: darkblue;
 }

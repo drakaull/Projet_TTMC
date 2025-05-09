@@ -1,55 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<StackPane fx:controller="view.NbPlayersChoiceUI"
-           xmlns="http://javafx.com/javafx/23.0.1"
-           xmlns:fx="http://javafx.com/fxml/1"
-           stylesheets="@../application/application.css"
-           prefWidth="1920" prefHeight="1080">
+<StackPane prefHeight="1080" prefWidth="1920" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.NbPlayersChoiceUI">
 
     <!-- Background fullscreen -->
-    <ImageView fitWidth="1920.0" fitHeight="1080.0" preserveRatio="false">
+    <ImageView fitHeight="1080.0" fitWidth="1920.0" preserveRatio="false">
         <image>
             <Image url="@../resource/images/wood.jpg" />
         </image>
     </ImageView>
 
     <!-- Central layout -->
-    <VBox alignment="CENTER" spacing="35" maxWidth="500" style="-fx-padding: 50;">
-        <Text text="Choose Game Settings"
-              style="-fx-font-size: 44px; -fx-font-weight: bold; -fx-fill: white;" />
+    <VBox alignment="CENTER" maxWidth="500" spacing="35" style="-fx-padding: 50;">
+        <Text fontSmoothingType="LCD" style="-fx-font-weight: bold; -fx-fill: black;" text="Choose Game Settings" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold Italic" size="57.0" />
+         </font></Text>
 
         <!-- Number of players -->
-        <VBox alignment="CENTER" spacing="10">
-            <Text text="Number of players:" style="-fx-font-size: 20px; -fx-fill: white;" />
-            <Slider fx:id="playerSlider" min="2.0" max="4.0" value="2.0"
-                    majorTickUnit="1.0" minorTickCount="0"
-                    showTickLabels="true" showTickMarks="true"
-                    snapToTicks="true" blockIncrement="1.0"
-                    maxWidth="300"/>
+        <VBox alignment="CENTER" spacing="10" stylesheets="@../application/application.css">
+            <Text style="-fx-fill: black;" text="Number of players:">
+            <font>
+               <Font name="System Bold Italic" size="36.0" />
+            </font></Text>
+            <Slider fx:id="playerSlider" blockIncrement="1.0" majorTickUnit="1.0" max="4.0" maxWidth="300" min="2.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" stylesheets="@../application/application.css" value="2.0" />
                     
         </VBox>
+      <Region prefHeight="40.0" prefWidth="463.0" />
 
         <!-- Difficulty -->
         <VBox alignment="CENTER" spacing="10">
-            <Text text="Difficulty of the game:" style="-fx-font-size: 20px; -fx-fill: white;" />
-            <Slider fx:id="difficultySlider" min="1.0" max="3.0" value="1.0"
-                    majorTickUnit="1.0" minorTickCount="0"
-                    showTickLabels="true" showTickMarks="true"
-                    snapToTicks="true" blockIncrement="1.0"
-                    maxWidth="300" />
+            <Text style="-fx-fill: black;" text="Difficulty of the game:">
+            <font>
+               <Font name="System Bold Italic" size="36.0" />
+            </font></Text>
+            <Slider fx:id="difficultySlider" blockIncrement="1.0" majorTickUnit="1.0" max="3.0" maxWidth="300" min="1.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" stylesheets="@../application/application.css" value="1.0" />
         </VBox>
 
         <!-- Buttons -->
-        <HBox spacing="30" alignment="CENTER">
-            <Button text="Validate" onAction="#switchToScene2"
-                    style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-size: 18px; -fx-background-radius: 10; -fx-padding: 10 20;" />
-            <Button text="Exit" onAction="#switchToScene"
-                    style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-size: 18px; -fx-background-radius: 10; -fx-padding: 10 20;" />
+        <HBox alignment="CENTER" spacing="30">
+            <Button onAction="#switchToScene2" style="-fx-background-color: #46853f; -fx-text-fill: white; -fx-font-size: 18px; -fx-background-radius: 10; -fx-padding: 10 20;" text="Validate" />
+            <Button onAction="#switchToScene" style="-fx-background-color: #bc1b2f; -fx-text-fill: white; -fx-font-size: 18px; -fx-background-radius: 10; -fx-padding: 10 20;" text="Exit" />
         </HBox>
     </VBox>
 </StackPane>
