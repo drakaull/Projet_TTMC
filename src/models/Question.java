@@ -63,22 +63,6 @@ public class Question {
     }
 
     /**
-     * Returns the question title (alias for getQuestion).
-     * @return the title
-     */
-    public String getTitle() {
-        return question;
-    }
-
-    /**
-     * Sets the question title.
-     * @param title the new title
-     */
-    public void setTitle(String title) {
-        this.question = title;
-    }
-
-    /**
      * Returns the difficulty level.
      * @return the difficulty (1–4)
      */
