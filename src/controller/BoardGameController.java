@@ -299,6 +299,7 @@ public class BoardGameController {
 	}
 
 	public void switchToScene(ActionEvent event) throws IOException {
+		stopBackgroundMusic();
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/gameMenuUI.fxml"));
 		Parent root = loader.load();
 		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -319,6 +320,13 @@ public class BoardGameController {
 	    Player currentPlayer = gameController.getCurrentPlayer();
 	    return boardGame.getCase(currentPlayer.getPawn().getPosition()).getType();
 	}
+	
+	public void stopBackgroundMusic() {
+		if (backgroundMusic != null && backgroundMusic.isPlaying()) {
+			backgroundMusic.stop();
+		}
+	}
+
 
 
 
