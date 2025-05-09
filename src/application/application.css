@@ -22,3 +22,35 @@
 	-fx-font-weight: bold;
 	-fx-text-fill: darkblue;
 }
+
+.custom-dialog {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #a0522d, #d2691e, #f4a460);
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+}
+
+
+.custom-dialog .text-field {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-border-color: #f4a460;
+    -fx-border-radius: 5;
+}
+
+
+.custom-dialog .button {
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-font-size: 14px;
+}
+
+.custom-dialog .button:default {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+}
+
+.custom-dialog .button:cancel {
+    -fx-background-color: #f44336;
+    -fx-text-fill: white;
+}

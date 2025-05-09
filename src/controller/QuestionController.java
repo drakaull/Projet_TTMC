@@ -14,7 +14,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import models.Card;
@@ -67,25 +66,10 @@ public class QuestionController {
 		}
 	}
 
-	@FXML
-	private void handleDifficulty1() {
-		handleDifficultyChoice(1);
-	}
-
-	@FXML
-	private void handleDifficulty2() {
-		handleDifficultyChoice(2);
-	}
-
-	@FXML
-	private void handleDifficulty3() {
-		handleDifficultyChoice(3);
-	}
-
-	@FXML
-	private void handleDifficulty4() {
-		handleDifficultyChoice(4);
-	}
+	@FXML private void handleDifficulty1() { handleDifficultyChoice(1); }
+	@FXML private void handleDifficulty2() { handleDifficultyChoice(2); }
+	@FXML private void handleDifficulty3() { handleDifficultyChoice(3); }
+	@FXML private void handleDifficulty4() { handleDifficultyChoice(4); }
 
 	private void handleDifficultyChoice(int level) {
 		Stage currentStage = (Stage) themeLabel.getScene().getWindow();
@@ -111,46 +95,35 @@ public class QuestionController {
 		dialog.setHeaderText(null);
 		dialog.initOwner(mainStage);
 
-		// hide cancel button
 		Button cancelButton = (Button) dialog.getDialogPane().lookupButton(ButtonType.CANCEL);
 		if (cancelButton != null) {
 			cancelButton.setVisible(false);
 			cancelButton.setManaged(false);
 		}
 
-		StringBuilder content = new StringBuilder(q.getQuestion());
-		if (q.getOptions() != null && !q.getOptions().isEmpty()) {
-			content.append("\nOptions:\n");
-			q.getOptions().forEach(opt -> content.append("- ").append(opt).append("\n"));
-		}
-		dialog.setContentText(content.toString());
+		DialogPane pane = dialog.getDialogPane();
+		pane.getStyleClass().add("custom-dialog");
+		pane.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 
-		final boolean[] answered = { false };
+		dialog.setContentText(q.getQuestion());
 
+		final boolean[] answered = {false};
 		final Timeline[] timelineHolder = new Timeline[1];
 		timelineHolder[0] = startTimer(gameController.getTimeLimit(), () -> {
-		    if (!answered[0]) {
-		        answered[0] = true;
-		        dialog.setResult("");
-		        dialog.close();
-		        if (externalTimerLabel != null)
-		            externalTimerLabel.setText("");
-
-		        // Call handleAnswer to move on to the next player
-		        Platform.runLater(() -> {
-		            handleAnswer("", q.getAnswer(), level, mainStage);
-		        });
-		    }
+			if (!answered[0]) {
+				answered[0] = true;
+				dialog.setResult("");
+				dialog.close();
+				if (externalTimerLabel != null) externalTimerLabel.setText("");
+				Platform.runLater(() -> handleAnswer("", q.getAnswer(), level, mainStage));
+			}
 		});
-
 
 		Optional<String> result = dialog.showAndWait();
 		if (!answered[0]) {
 			answered[0] = true;
-			if (timelineHolder[0] != null)
-				timelineHolder[0].stop();
-			if (externalTimerLabel != null)
-				externalTimerLabel.setText("");
+			if (timelineHolder[0] != null) timelineHolder[0].stop();
+			if (externalTimerLabel != null) externalTimerLabel.setText("");
 			handleAnswer(result.orElse(""), q.getAnswer(), level, mainStage);
 		}
 	}
@@ -167,21 +140,22 @@ public class QuestionController {
 		grid.setAlignment(Pos.CENTER);
 		grid.getColumnConstraints().addAll(new ColumnConstraints(), new ColumnConstraints());
 
-		grid.add(new Text(q.getQuestion()), 0, 0, 2, 1);
+		Text questionText = new Text(q.getQuestion());
+		questionText.setStyle("-fx-font-size: 16px; -fx-fill: white;");
+		grid.add(questionText, 0, 0, 2, 1);
 
 		String[] options = q.getOptions().toArray(new String[0]);
 		final Timeline[] timelineHolder = new Timeline[1];
 
 		for (int i = 0; i < options.length; i++) {
 			Button button = new Button(options[i]);
-			button.setPrefSize(200, 40);
+			button.setPrefSize(180, 40);
+			button.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #eee;");
 			final String selected = options[i];
 			button.setOnAction(e -> {
-				if (timelineHolder[0] != null)
-					timelineHolder[0].stop();
+				if (timelineHolder[0] != null) timelineHolder[0].stop();
 				dialogStage.close();
-				if (externalTimerLabel != null)
-					externalTimerLabel.setText("");
+				if (externalTimerLabel != null) externalTimerLabel.setText("");
 				handleAnswer(selected, q.getAnswer(), level, mainStage);
 			});
 			grid.add(button, i % 2, 1 + i / 2);
@@ -189,15 +163,17 @@ public class QuestionController {
 
 		timelineHolder[0] = startTimer(gameController.getTimeLimit(), () -> {
 			dialogStage.close();
-			if (externalTimerLabel != null)
-				externalTimerLabel.setText("");
+			if (externalTimerLabel != null) externalTimerLabel.setText("");
 			handleAnswer("", q.getAnswer(), level, mainStage);
 		});
 
 		VBox root = new VBox(grid);
 		root.setAlignment(Pos.CENTER);
 		root.setPadding(new Insets(20));
-		dialogStage.setScene(new Scene(root));
+		root.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #a0522d, #d2691e, #f4a460);");
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+		dialogStage.setScene(scene);
 		dialogStage.show();
 	}
 
@@ -219,42 +195,36 @@ public class QuestionController {
 	private void updateTimerDisplay(int secondsLeft) {
 		if (externalTimerLabel != null) {
 			externalTimerLabel.setText("Time left: " + secondsLeft + "s");
-//			String style = "-fx-font-size: " + (secondsLeft <= 5 ? 28 : secondsLeft <= 10 ? 20 : 14)
-//					+ "px; -fx-text-fill: red;";
-//			externalTimerLabel.setStyle(style);
 		}
 	}
 
 	private void handleAnswer(String input, String expected, int level, Stage mainStage) {
-	    Platform.runLater(() -> {
-	        try {
-	            gameController.markCardAsUsed(card);
-	            boolean correct = AnswerValidator.isCorrect(input, expected);
+		Platform.runLater(() -> {
+			try {
+				gameController.markCardAsUsed(card);
+				boolean correct = AnswerValidator.isCorrect(input, expected);
 
-	            if (correct) {
-	                showAlert("Correct answer!", mainStage);
-	                mainController.movePawn(level); // avance
-	            } else {
-	                if (input == null || input.isEmpty()) {
-	                    showTimedAlert("Time finished!", mainStage, () -> mainController.nextPlayer());
-	                } else {
-	                    showAlert("Incorrect answer.\nCorrect was: " + expected, mainStage);
-
-	                    // Vérifie le type de la case actuelle
-	                    String caseType = mainController.getCurrentCaseType();
-	                    if ("Random".equals(caseType)) {
-	                        mainController.movePawn(-level); // recule
-	                    } else {
-	                        mainController.movePawn(0); // reste sur place
-	                    }
-	                }
-	            }
-	        } catch (InvalidAnswerException e) {
-	            e.printStackTrace();
-	        }
-	    });
+				if (correct) {
+					showAlert("Correct answer!", mainStage);
+					mainController.movePawn(level);
+				} else {
+					if (input == null || input.isEmpty()) {
+						showTimedAlert("Time finished!", mainStage, () -> mainController.nextPlayer());
+					} else {
+						showAlert("Incorrect answer.\nCorrect was: " + expected, mainStage);
+						String caseType = mainController.getCurrentCaseType();
+						if ("Random".equals(caseType)) {
+							mainController.movePawn(-level);
+						} else {
+							mainController.movePawn(0);
+						}
+					}
+				}
+			} catch (InvalidAnswerException e) {
+				e.printStackTrace();
+			}
+		});
 	}
-
 
 	private void showAlert(String message, Stage stage) {
 		Alert alert = new Alert(Alert.AlertType.INFORMATION, message);
@@ -268,8 +238,7 @@ public class QuestionController {
 		PauseTransition delay = new PauseTransition(Duration.seconds(2));
 		delay.setOnFinished(e -> {
 			alert.close();
-			if (afterClose != null)
-				afterClose.run();
+			if (afterClose != null) afterClose.run();
 		});
 		alert.show();
 		delay.play();
@@ -280,7 +249,6 @@ public class QuestionController {
 		alert.setHeaderText(null);
 		DialogPane pane = alert.getDialogPane();
 		pane.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
-		pane.getStyleClass().add("custom-alert");
+		pane.getStyleClass().add("custom-dialog");
 	}
-
 }

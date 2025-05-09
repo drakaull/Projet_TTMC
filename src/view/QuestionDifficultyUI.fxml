@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Button?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="controller.QuestionController"
       spacing="20"
       alignment="CENTER"
-      style="-fx-background-color: #f5f5f5;">
+      style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #a0522d, #d2691e, #f4a460); -fx-border-radius: 10; -fx-background-radius: 10;">
 
     <padding>
         <Insets top="30" right="30" bottom="30" left="30" />
@@ -19,12 +19,16 @@
 
     <Label fx:id="themeLabel"
            text="How confident are you in ..."
-           style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+           style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" />
 
     <HBox spacing="15" alignment="CENTER">
-        <Button text="1" prefWidth="50" onAction="#handleDifficulty1" />
-        <Button text="2" prefWidth="50" onAction="#handleDifficulty2" />
-        <Button text="3" prefWidth="50" onAction="#handleDifficulty3" />
-        <Button text="4" prefWidth="50" onAction="#handleDifficulty4" />
+        <Button text="1" prefWidth="50" onAction="#handleDifficulty1"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;" />
+        <Button text="2" prefWidth="50" onAction="#handleDifficulty2"
+                style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-font-weight: bold;" />
+        <Button text="3" prefWidth="50" onAction="#handleDifficulty3"
+                style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold;" />
+        <Button text="4" prefWidth="50" onAction="#handleDifficulty4"
+                style="-fx-background-color: #9C27B0; -fx-text-fill: white; -fx-font-weight: bold;" />
     </HBox>
 </VBox>
