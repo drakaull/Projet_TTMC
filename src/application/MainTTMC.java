@@ -22,11 +22,6 @@ public class MainTTMC extends Application {
 			throw new NoCardsLoadedException();
 		}
 		
-		List<Player> players = Arrays.asList(new Player("Player 1"), new Player("Player 2"));
-
-		GameController gameController = new GameController(cards, players);
-
-		
 		new PrincipalController(primaryStage);
 	}
 	public static void main(String[] args) {
