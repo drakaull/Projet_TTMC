@@ -61,6 +61,9 @@ public class NbPlayersChoiceUI {
                 dialog.setHeaderText(null);
                 dialog.setContentText("Enter the name for player "+i);
                 
+                Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                dialog.initOwner(currentStage);
+                
                 String playerName = dialog.showAndWait().orElse("Player "+i);
                 names.add(playerName);
             }
