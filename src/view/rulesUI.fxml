@@ -1,43 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<BorderPane prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RulesUI">
-   
-   <top>
-      <AnchorPane prefHeight="80.0" BorderPane.alignment="CENTER">
-         <children>
-            <Text layoutX="350.0" layoutY="40.0" text="Rules" underline="true" style="-fx-font-size: 28px; -fx-font-weight: bold;" />
-            <Button layoutX="720.0" layoutY="20.0" text="Exit" onAction="#switchToScene"
-                    style="-fx-background-color: #d9534f; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 5;" />
-         </children>
-      </AnchorPane>
-   </top>
+<StackPane xmlns="http://javafx.com/javafx/23.0.1"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="view.RulesUI"
+           prefWidth="1920.0" prefHeight="1080.0">
 
-   <center>
-      <VBox spacing="10.0">
-         <padding>
-            <Insets top="20" right="30" bottom="20" left="30"/>
-         </padding>
-         
-         <Text wrappingWidth="740" style="-fx-font-size: 16px;">
-            - A player draws a card that starts with the question "How confident are you?", followed by a theme (e.g., football). The player must self-evaluate their knowledge by assigning a score out of 4.
-         </Text>
-         <Text wrappingWidth="740" style="-fx-font-size: 16px;">
-            - If the answer is correct, they move forward based on the difficulty. If wrong, they stay in place.
-         </Text>
-         <Text wrappingWidth="740" style="-fx-font-size: 16px;">
-            - The player has a limited time to answer: Easy: 30s — Medium: 20s — Hard: 10s. If time runs out, it counts as a wrong answer.
-         </Text>
-         <Text wrappingWidth="740" style="-fx-font-size: 16px;">
-            - To win: reach the last space and answer a final “Don’t hesitate to win” card correctly. Fail, and try again next turn.
-         </Text>
-      </VBox>
-   </center>
-</BorderPane>
+    <!-- Background Image full screen -->
+    <ImageView preserveRatio="false">
+        <image>
+            <Image url="@../resource/images/wood.jpg" />
+        </image>
+        <StackPane.margin>
+            <Insets />
+        </StackPane.margin>
+    </ImageView>
+
+    <!-- Content with padding and centered -->
+    <VBox alignment="CENTER" spacing="20.0">
+        <padding>
+            <Insets top="60" bottom="60" left="100" right="100"/>
+        </padding>
+
+        <Text text="Rules"
+              style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-fill: white;" />
+
+        <Text wrappingWidth="1000" style="-fx-font-size: 18px; -fx-fill: white;">
+            1. A player draws a card that starts with the question "How confident are you?", followed by a theme (e.g., football). The player must self-evaluate their knowledge by assigning a score out of 4.
+        </Text>
+        <Text wrappingWidth="1000" style="-fx-font-size: 18px; -fx-fill: white;">
+            2. If the answer is correct, they move forward based on the difficulty. If wrong, they stay in place.
+        </Text>
+        <Text wrappingWidth="1000" style="-fx-font-size: 18px; -fx-fill: white;">
+            3. The player has a limited time to answer: Easy = 30s, Medium = 20s, Hard = 10s. If time runs out, it's considered a wrong answer.
+        </Text>
+        <Text wrappingWidth="1000" style="-fx-font-size: 18px; -fx-fill: white;">
+            4. To win: reach the last space and answer a final “Don’t hesitate to win” card correctly. If failed, try again on your next turn.
+        </Text>
+
+        <Button text="Exit" onAction="#switchToScene"
+                style="-fx-background-color: #e74c3c; -fx-text-fill: white;
+                       -fx-font-size: 16px; -fx-background-radius: 6;
+                       -fx-padding: 8 16;" />
+    </VBox>
+</StackPane>
